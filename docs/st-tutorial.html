@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 \(1^{st}\) tutorial | Sampling technique</title>
+  <meta name="description" content="This note book is for the excersices class for STAT331" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 \(1^{st}\) tutorial | Sampling technique" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This note book is for the excersices class for STAT331" />
+  <meta name="github-repo" content="F3bdulmajeed/STAT_331" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 \(1^{st}\) tutorial | Sampling technique" />
+  
+  <meta name="twitter:description" content="This note book is for the excersices class for STAT331" />
+  
+
+<meta name="author" content="Lecturer: Abdulmajeed Alharbi" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="nd-tutorial.html"/>
+<script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="st-tutorial.html"><a href="st-tutorial.html"><i class="fa fa-check"></i><b>1</b> <span class="math inline">\(1^{st}\)</span> tutorial</a></li>
+<li class="chapter" data-level="2" data-path="nd-tutorial.html"><a href="nd-tutorial.html"><i class="fa fa-check"></i><b>2</b> <span class="math inline">\(2^{nd}\)</span> Tutorial</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Sampling technique</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="st-tutorial" class="section level1">
+<h1><span class="header-section-number">1</span> <span class="math inline">\(1^{st}\)</span> tutorial</h1>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-1" class="exercise"><strong>Exercise 1.1  </strong></span>Describe briefly each of the following terms:</p>
+</div>
+<p><em>a. Primary data</em><br />
+The data collected by the investigator from the original source.<br />
+<br />
+<em>b. Secondary data</em><br />
+If the required data had already been collected by some agencies or individuals and are now available in the published or unpublished records.<br />
+<br />
+<em>c. Mail inquiry</em><br />
+The investigator prepares a questionnaire and sends it by mail to the respondents.<br />
+<br />
+</p>
+<p><em>d. Questionnaire/schedule</em><br />
+The questionnaire is a channel through which the needed information is elicited.<br />
+<br />
+<em>e. Population</em><br />
+The population or universe is an aggregate of elements, about which the inference is to be made.<br />
+<br />
+<em>f. Census</em><br />
+Collection of information on every unit in the population for the characteristics of interest. (Also known as enumeration).<br />
+<br />
+<em>g. Element</em><br />
+An element is a unit for which information is sought.<br />
+<br />
+<em>h. Sample</em><br />
+A subset of population selected from a frame to draw inferences about a population characteristic.<br />
+<br />
+<em>i. Sampling unit</em><br />
+Non-overlapping collections of elements of the population.<br />
+<br />
+<em>j. Sampling frame</em><br />
+A list of all the units in the population to be sampled is termed</p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-2" class="exercise"><strong>Exercise 1.2  </strong></span>Describe briefly the difference between with and without replacement sampling.</p>
+</div>
+<p><br />
+the units that selected one by one from the population, in WR the unit selected at any particular draw is replaced back to the population before selecting a unit at the next draw, but in the WOR is not replaced.</p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-3" class="exercise"><strong>Exercise 1.3  </strong></span>Consider a population consisting of 6 villages, the areas (in hectares) of which are given below</p>
+</div>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left">Village</td>
+<td align="left">A</td>
+<td align="center">B</td>
+<td align="center">C</td>
+<td align="right">D</td>
+<td align="right">E</td>
+<td align="left">F</td>
+</tr>
+<tr class="even">
+<td align="left">Area</td>
+<td align="left">760</td>
+<td align="center">343</td>
+<td align="center">657</td>
+<td align="right">550</td>
+<td align="right">480</td>
+<td align="left">935</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: lower-alpha">
+<li>Enumerate all possible WR samples of size 3. Also, write the values of the study variable for the sampled units.<br />
+<br />
+</li>
+</ol>
+<p><span class="math display">\[N=6 ~~~~~~~~~~~~~~~~~ n=3\]</span>
+Thus the possible samples <span class="math inline">\(= N^n = 6^3 = 216\)</span><br />
+</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Villages in the sample</th>
+<th align="center">Area of the villages</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">AAA</td>
+<td align="center">760 760 760</td>
+</tr>
+<tr class="even">
+<td align="left">AAB</td>
+<td align="center">760 760 343</td>
+</tr>
+<tr class="odd">
+<td align="left">ABA</td>
+<td align="center">760 343 760</td>
+</tr>
+<tr class="even">
+<td align="left">BAA</td>
+<td align="center">343 760 760</td>
+</tr>
+<tr class="odd">
+<td align="left">AAC</td>
+<td align="center">760 760 657</td>
+</tr>
+<tr class="even">
+<td align="left">…..</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>List all the WOR samples of size 4 along with their area values.<br />
+The number of possible samples <span class="math inline">\(= C_n^N= C_4^6=15\)</span><br />
+All possible WR samples along with area values are listed below:</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Sample</th>
+<th align="center">Villages in the sample</th>
+<th align="center">Area of the villages</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="center">ABCD</td>
+<td align="center">760,343,657,550</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="center">ABCE</td>
+<td align="center">760,343,657,480</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="center">ABCF</td>
+<td align="center">760,343,657,935</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="center">ABDE</td>
+<td align="center">760,343,550,480</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="center">ABDF</td>
+<td align="center">760,343,550,935</td>
+</tr>
+<tr class="even">
+<td align="left">6</td>
+<td align="center">ABEF</td>
+<td align="center">760,343,480,935</td>
+</tr>
+<tr class="odd">
+<td align="left">7</td>
+<td align="center">ACDE</td>
+<td align="center">760,657,550,480</td>
+</tr>
+<tr class="even">
+<td align="left">8</td>
+<td align="center">ACDF</td>
+<td align="center">760,657,550,935</td>
+</tr>
+<tr class="odd">
+<td align="left">9</td>
+<td align="center">ACEF</td>
+<td align="center">760,657,480,935</td>
+</tr>
+<tr class="even">
+<td align="left">10</td>
+<td align="center">ADEF</td>
+<td align="center">760,550,480,935</td>
+</tr>
+<tr class="odd">
+<td align="left">11</td>
+<td align="center">BCDE</td>
+<td align="center">343,657,550,480</td>
+</tr>
+<tr class="even">
+<td align="left">12</td>
+<td align="center">BCDF</td>
+<td align="center">343,657,550,935</td>
+</tr>
+<tr class="odd">
+<td align="left">13</td>
+<td align="center">BCEF</td>
+<td align="center">343,657,480,935</td>
+</tr>
+<tr class="even">
+<td align="left">14</td>
+<td align="center">BDEF</td>
+<td align="center">343,550,480,935</td>
+</tr>
+<tr class="odd">
+<td align="left">15</td>
+<td align="center">CDEF</td>
+<td align="center">657,550,480,935</td>
+</tr>
+</tbody>
+</table>
+<p><br />
+ </p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="nd-tutorial.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

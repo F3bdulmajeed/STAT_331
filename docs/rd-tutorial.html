@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 \(3^{rd}\) Tutorial | Sampling technique</title>
+  <meta name="description" content="This note book is for the excersices class for STAT331" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 \(3^{rd}\) Tutorial | Sampling technique" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This note book is for the excersices class for STAT331" />
+  <meta name="github-repo" content="F3bdulmajeed/STAT_331" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 \(3^{rd}\) Tutorial | Sampling technique" />
+  
+  <meta name="twitter:description" content="This note book is for the excersices class for STAT331" />
+  
+
+<meta name="author" content="Lecturer: Abdulmajeed Alharbi" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="nd-tutorial.html"/>
+
+<script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="st-tutorial.html"><a href="st-tutorial.html"><i class="fa fa-check"></i><b>1</b> <span class="math inline">\(1^{st}\)</span> tutorial</a></li>
+<li class="chapter" data-level="2" data-path="nd-tutorial.html"><a href="nd-tutorial.html"><i class="fa fa-check"></i><b>2</b> <span class="math inline">\(2^{nd}\)</span> Tutorial</a></li>
+<li class="chapter" data-level="3" data-path="rd-tutorial.html"><a href="rd-tutorial.html"><i class="fa fa-check"></i><b>3</b> <span class="math inline">\(3^{rd}\)</span> Tutorial</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Sampling technique</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rd-tutorial" class="section level1">
+<h1><span class="header-section-number">3</span> <span class="math inline">\(3^{rd}\)</span> Tutorial</h1>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-1" class="exercise"><strong>Exercise 3.1  </strong></span>Appendix C in the <a href="https://ksusa-my.sharepoint.com/:b:/g/personal/aalharbi10_ksu_edu_sa/EXiGXqS0oLNEij_721SyVh8BXcTk6m4xa69ExysLpaxBKg?e=etSYh4">textbook</a> gives data related to the number of tractors in 30 serially numbered
+villages of Doraha development block in Punjab (India). Select (1) WR and (2)
+WOR simple random sample of 10 villages using direct approach method.</p>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Village No.</th>
+<th align="center">Village name</th>
+<th align="center">Tractors</th>
+<th align="right">Tube wells</th>
+<th align="right">Irrigiated area</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="center">Ajnaud</td>
+<td align="center">20</td>
+<td align="right">102</td>
+<td align="right">281</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="center">Aracha</td>
+<td align="center">19</td>
+<td align="right">126</td>
+<td align="right">337</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="center">Afjullapur</td>
+<td align="center">5</td>
+<td align="right">31</td>
+<td align="right">77</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="center">Alampur</td>
+<td align="center">10</td>
+<td align="right">39</td>
+<td align="right">108</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="center">Bishanpur</td>
+<td align="center">12</td>
+<td align="right">85</td>
+<td align="right">191</td>
+</tr>
+<tr class="even">
+<td align="left">6</td>
+<td align="center">Shahpur</td>
+<td align="center">21</td>
+<td align="right">130</td>
+<td align="right">208</td>
+</tr>
+<tr class="odd">
+<td align="left">7</td>
+<td align="center">Sirthala</td>
+<td align="center">44</td>
+<td align="right">222</td>
+<td align="right">698</td>
+</tr>
+<tr class="even">
+<td align="left">8</td>
+<td align="center">Sultanpur</td>
+<td align="center">12</td>
+<td align="right">70</td>
+<td align="right">180</td>
+</tr>
+<tr class="odd">
+<td align="left">9</td>
+<td align="center">Sihora</td>
+<td align="center">20</td>
+<td align="right">219</td>
+<td align="right">458</td>
+</tr>
+<tr class="even">
+<td align="left">10</td>
+<td align="center">Hole</td>
+<td align="center">10</td>
+<td align="right">115</td>
+<td align="right">288</td>
+</tr>
+<tr class="odd">
+<td align="left">11</td>
+<td align="center">Kotli Afgana</td>
+<td align="center">11</td>
+<td align="right">41</td>
+<td align="right">161</td>
+</tr>
+<tr class="even">
+<td align="left">12</td>
+<td align="center">Katari</td>
+<td align="center">30</td>
+<td align="right">133</td>
+<td align="right">512</td>
+</tr>
+<tr class="odd">
+<td align="left">13</td>
+<td align="center">Kartarpur</td>
+<td align="center">15</td>
+<td align="right">55</td>
+<td align="right">123</td>
+</tr>
+<tr class="even">
+<td align="left">14</td>
+<td align="center">Katana Sahib</td>
+<td align="center">3</td>
+<td align="right">50</td>
+<td align="right">100</td>
+</tr>
+<tr class="odd">
+<td align="left">15</td>
+<td align="center">Kaddon</td>
+<td align="center">36</td>
+<td align="right">249</td>
+<td align="right">675</td>
+</tr>
+<tr class="even">
+<td align="left">16</td>
+<td align="center">Gobindpura</td>
+<td align="center">24</td>
+<td align="right">119</td>
+<td align="right">258</td>
+</tr>
+<tr class="odd">
+<td align="left">17</td>
+<td align="center">Gurditpura</td>
+<td align="center">17</td>
+<td align="right">95</td>
+<td align="right">143</td>
+</tr>
+<tr class="even">
+<td align="left">18</td>
+<td align="center">Gidrhi</td>
+<td align="center">15</td>
+<td align="right">100</td>
+<td align="right">267</td>
+</tr>
+<tr class="odd">
+<td align="left">19</td>
+<td align="center">Ghadani Kalan</td>
+<td align="center">76</td>
+<td align="right">551</td>
+<td align="right">1178</td>
+</tr>
+<tr class="even">
+<td align="left">20</td>
+<td align="center">Ghadani K.hurd</td>
+<td align="center">35</td>
+<td align="right">209</td>
+<td align="right">523</td>
+</tr>
+<tr class="odd">
+<td align="left">21</td>
+<td align="center">Ghalouti</td>
+<td align="center">46</td>
+<td align="right">380</td>
+<td align="right">583</td>
+</tr>
+<tr class="even">
+<td align="left">22</td>
+<td align="center">Ghanrash</td>
+<td align="center">16</td>
+<td align="right">160</td>
+<td align="right">310</td>
+</tr>
+<tr class="odd">
+<td align="left">23</td>
+<td align="center">Chankoian Kalan</td>
+<td align="center">7</td>
+<td align="right">33</td>
+<td align="right">129</td>
+</tr>
+<tr class="even">
+<td align="left">24</td>
+<td align="center">Chankoian K.hurd</td>
+<td align="center">21</td>
+<td align="right">142</td>
+<td align="right">184</td>
+</tr>
+<tr class="odd">
+<td align="left">25</td>
+<td align="center">Chapran</td>
+<td align="center">7</td>
+<td align="right">64</td>
+<td align="right">91</td>
+</tr>
+<tr class="even">
+<td align="left">26</td>
+<td align="center">Jaipura</td>
+<td align="center">22</td>
+<td align="right">130</td>
+<td align="right">240</td>
+</tr>
+<tr class="odd">
+<td align="left">27</td>
+<td align="center">Jahangir</td>
+<td align="center">5</td>
+<td align="right">27</td>
+<td align="right">80</td>
+</tr>
+<tr class="even">
+<td align="left">28</td>
+<td align="center">Jandali</td>
+<td align="center">21</td>
+<td align="right">118</td>
+<td align="right">429</td>
+</tr>
+<tr class="odd">
+<td align="left">29</td>
+<td align="center">Jargarhi</td>
+<td align="center">38</td>
+<td align="right">193</td>
+<td align="right">583</td>
+</tr>
+<tr class="even">
+<td align="left">30</td>
+<td align="center">Jarag</td>
+<td align="center">59</td>
+<td align="right">360</td>
+<td align="right">888</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[\begin{align}
+ &amp;N=30\\
+ \
+ &amp;\mu=\frac{\sum Y_i}{N}=22.5667\\
+ \
+ &amp;\sigma^2 = \frac{\sum Y_i-\mu}{N}=273.3789\\
+ \
+ &amp;\sigma=\sqrt{273.3789} = 16.5342
+
+\end{align}\]</span></p>
+<p>Here village is the sampling unit. The villages in the population are already serially numbered which, otherwise, is the first step involved in the sample selection. Refer to Appendix B, and use first column by dropping the last two digits of each four-digit number. Then we see that the first random number thus formed is 11. Similarly, the subsequent random numbers are seen to be <span class="math inline">\(5,26,11, ... ,3\)</span><br />
+<br />
+(1) By selecting the first 10 random numbers from 1 to 30, without discarding Repetitions (WR), we obtain the serial numbers of villages in the sample. These are given below along with their variable values (number of tractors).</p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left">Village</td>
+<td align="left">11</td>
+<td align="center">5</td>
+<td align="center">26</td>
+<td align="right">11</td>
+<td align="right">11</td>
+<td align="left">24</td>
+<td align="center">12</td>
+<td align="center">22</td>
+<td align="right">9</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">Tractors</td>
+<td align="left">11</td>
+<td align="center">12</td>
+<td align="center">22</td>
+<td align="right">11</td>
+<td align="right">11</td>
+<td align="left">21</td>
+<td align="center">30</td>
+<td align="center">16</td>
+<td align="right">20</td>
+<td align="right">5</td>
+</tr>
+</tbody>
+</table>
+<p>One can see that 11th village has been selected twice in the with replacement simple random sample where repeated selection of units is permitted.</p>
+<p><span class="math display">\[\begin{align}
+ &amp;n=10\\
+ \
+ &amp;\bar{y}=\frac{\sum Y_i}{n}=15.9\\
+ \
+ &amp;s^2 = \frac{\sum Y_i-\bar{y}}{n-1}=53.87789\\
+ \
+ &amp;\text{Sampling variance:}~V(\bar{y}) = \frac{\sigma^2}{n}=\frac{273.3789}{10} = 27.3379\\
+ \
+ &amp;\text{Standard error of the sample mean:} se(\bar{y})=\sqrt{V(\bar{y})} = 5.2286\
+
+\end{align}\]</span></p>
+<p>The confidence interval for the population mean <span class="math inline">\(\mu\)</span> are given by
+<span class="math display">\[\bar{y}\pm2~se(\bar{y})\]</span>
+<span class="math display">\[\Rightarrow \mu \in [5.4428,26.3572]\]</span></p>
+<p>Unbiased estimator of
+<span class="math display">\[𝑉(\bar{y}) =v(\bar{y})=\frac{s^2}{n}=\frac{53.8778}{10}= 5.38778\]</span>
+(2) In without replacement sample, any repetition (11th village in the present case) is omitted, and another random number is selected as its replacement. Next random numbers from 1 to 30 are 7 and 25. Thus the WOR simple random sample of 10 villages from the population under study is with the following serial numbers:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left">Village</td>
+<td align="left">11</td>
+<td align="center">5</td>
+<td align="center">26</td>
+<td align="right">24</td>
+<td align="right">12</td>
+<td align="left">22</td>
+<td align="center">9</td>
+<td align="center">3</td>
+<td align="right">7</td>
+<td align="right">25</td>
+</tr>
+<tr class="even">
+<td align="left">Tractors</td>
+<td align="left">11</td>
+<td align="center">12</td>
+<td align="center">22</td>
+<td align="right">21</td>
+<td align="right">30</td>
+<td align="left">16</td>
+<td align="center">20</td>
+<td align="center">5</td>
+<td align="right">44</td>
+<td align="right">7</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[\begin{align}
+ &amp;n=10\\
+ \
+ &amp;\bar{y}=\frac{\sum Y_i}{n}=18.8\\
+ \
+ &amp;s^2 = \frac{\sum Y_i-\bar{y}}{n-1}=135.7333\\
+ \
+ &amp;\text{Sampling variance:}~V(\bar{y}) = \frac{N-n}{Nn}\sigma^2=\frac{30-10}{30\times~10}\times282.8057 = 18.8537\\
+ \
+ &amp;\text{Standard error of the sample mean:} se(\bar{y})=\sqrt{V(\bar{y})} = 4.3421\
+
+\end{align}\]</span></p>
+<p>The confidence interval for the population mean <span class="math inline">\(\mu\)</span> are given by
+<span class="math display">\[\bar{y}\pm2~se(\bar{y})\]</span>
+<span class="math display">\[\Rightarrow \mu \in [10.1158,27.4842]\]</span></p>
+<p>Unbiased estimator of
+<span class="math display">\[𝑉(\bar{y}) =v(\bar{y})==\frac{N-n}{Nn}~s^2=\frac{30-10}{30\times10}\times135.7333= 10.557\]</span></p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-2" class="exercise"><strong>Exercise 3.2  </strong></span>The height (in cm) of 6 students of M.Sc., majoring in statistics, from Punjab Agricultural University, Ludhiana was recorded during 1985. The data, so obtained, are given below:</p>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Student</th>
+<th align="center">Name</th>
+<th align="center">Height</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="center">Sarjinder Singh</td>
+<td align="center">168</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="center">Gurmeet Singh</td>
+<td align="center">175</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="center">Varinder Kumar</td>
+<td align="center">185</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="center">Sukhjinder Singh</td>
+<td align="center">13</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="center">Denivder Kumar</td>
+<td align="center">171</td>
+</tr>
+<tr class="even">
+<td align="left">6</td>
+<td align="center">Gulshan Kumar</td>
+<td align="center">172</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: decimal">
+<li>Calculate (a) population mean <span class="math inline">\(\mu\)</span>, and (b) population variance <span class="math inline">\(\sigma^2\)</span>.</li>
+<li>Enumerate all possible SRS with replacement samples of size n=2. Obtain
+sampling distribution of mean, and hence show that</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(E(\bar{y}) = \mu\)</span></li>
+<li><span class="math inline">\(V(\bar{y}) =\frac{\sigma^2}{n}\)</span></li>
+<li><span class="math inline">\(E(s^2) = \sigma^2\)</span></li>
+<li><span class="math inline">\(E[v(\bar{y})] = V(\bar{y})\)</span></li>
+</ol>
+<p>By R:
+(1)</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="rd-tutorial.html#cb1-1"></a>Y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">168</span>,<span class="dv">175</span>,<span class="dv">185</span>,<span class="dv">173</span>,<span class="dv">171</span>,<span class="dv">172</span>)</span>
+<span id="cb1-2"><a href="rd-tutorial.html#cb1-2"></a>N &lt;-<span class="st"> </span><span class="dv">6</span></span>
+<span id="cb1-3"><a href="rd-tutorial.html#cb1-3"></a>(Ybar &lt;-<span class="st"> </span><span class="kw">mean</span>(Y))</span></code></pre></div>
+<pre><code>## [1] 174</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="rd-tutorial.html#cb3-1"></a>(Sigmasquare &lt;-<span class="st"> </span><span class="kw">var</span>(Y)<span class="op">*</span>((N<span class="dv">-1</span>)<span class="op">/</span>N))</span></code></pre></div>
+<pre><code>## [1] 28.66667</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="rd-tutorial.html#cb5-1"></a>n &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb5-2"><a href="rd-tutorial.html#cb5-2"></a>(No.s&lt;-<span class="st"> </span>N<span class="op">^</span>n) <span class="co">#Number_of_all_possible_samples</span></span></code></pre></div>
+<pre><code>## [1] 36</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="rd-tutorial.html#cb7-1"></a><span class="co">#install.packages(&quot;tidyverse&quot;)</span></span>
+<span id="cb7-2"><a href="rd-tutorial.html#cb7-2"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## v ggplot2 3.3.3     v purrr   0.3.4
+## v tibble  3.0.6     v dplyr   1.0.3
+## v tidyr   1.1.2     v stringr 1.4.0
+## v readr   1.4.0     v forcats 0.5.1</code></pre>
+<pre><code>## Warning: package &#39;forcats&#39; was built under R version 4.0.4</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="rd-tutorial.html#cb12-1"></a>sample &lt;-<span class="st"> </span><span class="kw">crossing</span> (<span class="dt">Var1=</span>Y, <span class="dt">Var2=</span>Y)</span>
+<span id="cb12-2"><a href="rd-tutorial.html#cb12-2"></a>samples&lt;-<span class="st"> </span><span class="kw">sample</span> (Y, <span class="dv">2</span>, <span class="dt">replace=</span> <span class="ot">TRUE</span>)</span>
+<span id="cb12-3"><a href="rd-tutorial.html#cb12-3"></a>(<span class="dt">ybars=</span> <span class="kw">apply</span>(sample,<span class="dv">1</span> , mean))</span></code></pre></div>
+<pre><code>##  [1] 168.0 169.5 170.0 170.5 171.5 176.5 169.5 171.0 171.5 172.0 173.0 178.0
+## [13] 170.0 171.5 172.0 172.5 173.5 178.5 170.5 172.0 172.5 173.0 174.0 179.0
+## [25] 171.5 173.0 173.5 174.0 175.0 180.0 176.5 178.0 178.5 179.0 180.0 185.0</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="rd-tutorial.html#cb14-1"></a><span class="co">#for a matrix 1 indicates rows,2 indicates columns or rowMeans(sample)</span></span>
+<span id="cb14-2"><a href="rd-tutorial.html#cb14-2"></a>(unbiased_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(ybars))</span></code></pre></div>
+<pre><code>## [1] 174</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="rd-tutorial.html#cb16-1"></a>Ybarsquare &lt;-<span class="st"> </span>(ybars)<span class="op">^</span><span class="dv">2</span></span>
+<span id="cb16-2"><a href="rd-tutorial.html#cb16-2"></a>(Variance_Of_ybar &lt;-<span class="st"> </span><span class="kw">mean</span>(Ybarsquare) <span class="op">-</span>(unbiased_mean)<span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 14.33333</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="rd-tutorial.html#cb18-1"></a>(Sigmasquare<span class="op">/</span>n)</span></code></pre></div>
+<pre><code>## [1] 14.33333</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="rd-tutorial.html#cb20-1"></a><span class="co">#install.packages(&quot;matrixStats&quot;)</span></span>
+<span id="cb20-2"><a href="rd-tutorial.html#cb20-2"></a><span class="kw">library</span>(matrixStats)</span>
+<span id="cb20-3"><a href="rd-tutorial.html#cb20-3"></a>ssquare &lt;-<span class="st"> </span><span class="kw">rowVars</span>(<span class="kw">as.matrix</span>(sample))</span>
+<span id="cb20-4"><a href="rd-tutorial.html#cb20-4"></a><span class="kw">mean</span>(ssquare)</span></code></pre></div>
+<pre><code>## [1] 28.66667</code></pre>
+<div class="execise">
+<p>From the data given in Example 3.2, enumerate all the SRS without
+replacement samples of size n=2, and write down sampling distribution of
+mean. Using this distribution, show that:</p>
+</div>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(E(\bar{y})=\mu\)</span></li>
+<li><span class="math inline">\(Var(\bar{y})=\frac{N-n}{Nn}S^2\)</span></li>
+<li><span class="math inline">\(E(s^2)=S^2\)</span></li>
+<li>$E(v({y}))=V({y})</li>
+</ol>
+<p><br />
+By R:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="rd-tutorial.html#cb22-1"></a>Y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">168</span>,<span class="dv">175</span>,<span class="dv">185</span>,<span class="dv">173</span>,<span class="dv">171</span>,<span class="dv">172</span>)</span>
+<span id="cb22-2"><a href="rd-tutorial.html#cb22-2"></a>n &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb22-3"><a href="rd-tutorial.html#cb22-3"></a>(No.s&lt;-<span class="st"> </span><span class="kw">choose</span>(N,n))</span></code></pre></div>
+<pre><code>## [1] 15</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="rd-tutorial.html#cb24-1"></a>(samples &lt;-<span class="st"> </span><span class="kw">combn</span>(Y,n))</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
+## [1,]  168  168  168  168  168  175  175  175  175   185   185   185   173   173
+## [2,]  175  185  173  171  172  185  173  171  172   173   171   172   171   172
+##      [,15]
+## [1,]   171
+## [2,]   172</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="rd-tutorial.html#cb26-1"></a>(<span class="dt">ybars=</span> <span class="kw">apply</span>(sample,<span class="dv">2</span>, mean))</span></code></pre></div>
+<pre><code>## Var1 Var2 
+##  174  174</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="rd-tutorial.html#cb28-1"></a><span class="co">#for a matrix 1 indicates rows,2 indicates columns or colMeans(samples)</span></span>
+<span id="cb28-2"><a href="rd-tutorial.html#cb28-2"></a>(unbiased_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(ybars))</span></code></pre></div>
+<pre><code>## [1] 174</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="rd-tutorial.html#cb30-1"></a>Ybarsquare &lt;-<span class="st"> </span>(ybars)<span class="op">^</span><span class="dv">2</span></span>
+<span id="cb30-2"><a href="rd-tutorial.html#cb30-2"></a>(Variance_Of_ybar &lt;-<span class="st"> </span><span class="kw">mean</span>(Ybarsquare) <span class="op">-</span>(unbiased_mean)<span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="rd-tutorial.html#cb32-1"></a>(Ssquare &lt;-<span class="st"> </span><span class="kw">var</span>(Y))</span></code></pre></div>
+<pre><code>## [1] 34.4</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="rd-tutorial.html#cb34-1"></a>(N<span class="op">-</span>n)<span class="op">/</span>(N<span class="op">*</span>n) <span class="op">*</span><span class="st"> </span>Ssquare</span></code></pre></div>
+<pre><code>## [1] 11.46667</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="rd-tutorial.html#cb36-1"></a><span class="co">#install.packages(&quot;matrixStats&quot;)</span></span>
+<span id="cb36-2"><a href="rd-tutorial.html#cb36-2"></a><span class="kw">library</span>(matrixStats)</span>
+<span id="cb36-3"><a href="rd-tutorial.html#cb36-3"></a>ssquare &lt;-<span class="st"> </span><span class="kw">colVars</span>(samples)</span>
+<span id="cb36-4"><a href="rd-tutorial.html#cb36-4"></a><span class="kw">mean</span>(ssquare)</span></code></pre></div>
+<pre><code>## [1] 34.4</code></pre>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-3" class="exercise"><strong>Exercise 3.3  </strong></span>From the WR sample of 10 villages selected in example 3.1, estimate the average number of tractors per village in the block along with its standard error. Also, set up confidence interval for the population mean.</p>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Village</th>
+<th align="center">Tractors</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">43</td>
+<td align="center">14</td>
+</tr>
+<tr class="even">
+<td align="left">61</td>
+<td align="center">8</td>
+</tr>
+<tr class="odd">
+<td align="left">58</td>
+<td align="center">15</td>
+</tr>
+<tr class="even">
+<td align="left">62</td>
+<td align="center">39</td>
+</tr>
+<tr class="odd">
+<td align="left">47</td>
+<td align="center">9</td>
+</tr>
+<tr class="even">
+<td align="left">34</td>
+<td align="center">14</td>
+</tr>
+<tr class="odd">
+<td align="left">11</td>
+<td align="center">11</td>
+</tr>
+<tr class="even">
+<td align="left">43</td>
+<td align="center">19</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="center">12</td>
+</tr>
+<tr class="even">
+<td align="left">53</td>
+<td align="center">18</td>
+</tr>
+</tbody>
+</table>
+<p>Average number of tractors per village in the block is:</p>
+<p><span class="math display">\[\bar{y}=\frac{1}{10}\sum_{i=1}{10}y_i = \frac{159}{10}=15.9\]</span>
+To find the standard error, we first calculate sample mean square</p>
+<p><span class="math display">\[s^2=\frac{1}{n-1}\sum_{i=1}{n}y_i^2-n\bar{y}^2=78.32222\]</span>
+The estimate of the variance is given by:
+<span class="math display">\[v(\bar{y})=\frac{s^2}{n}=\frac{ 78.3222}{10}= 7.83222\]</span></p>
+<p>Estimate the standard error of the sample mean is:
+<span class="math display">\[se(\bar{y})=\sqrt{7.83222}=2.7986\]</span></p>
+<p>The lower and upper limits of the confidence interval for 𝑌̅ are given by:</p>
+<p><span class="math display">\[\begin{align}
+\bar{y}\pm~2\times~se(\bar{y})
+\Rightarrow \bar{y} \in [10.3028 , 21.497]
+
+
+\end{align}\]</span></p>
+<div class="figure">
+<img src="USE%20calculator.jpg" alt="" />
+<p class="caption">much-smaller image</p>
+</div>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="nd-tutorial.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

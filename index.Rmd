@@ -1,11 +1,11 @@
 ---
-title: "Regression Analysis"
+title: "Sampling technique"
 author: "Lecturer: Abdulmajeed Alharbi"
 date: "Last update: `r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
-description: "This note book is for the excersices class for STAT332"
-github-repo: F3bdulmajeed/STAT_332
+description: "This note book is for the excersices class for STAT331"
+github-repo: F3bdulmajeed/STAT_331
 chapter_name: "Lecture"
 ---
 
@@ -15,19 +15,14 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 # Introduction {-}
-This course is an introduction to applied data analysis. We will explore data sets, examine various regression models for the data, assess the validity of their assumptions, and determine which conclusions we can make (if any). Data analysis
-is a bit of an art; there may be several valid approaches. We will strongly
-emphasize the importance of critical thinking about the data and the question of
-interest. Our overall **goal** is to use a basic set of modeling tools to explore and
-analyze data and to present the results in a scientific report. We then consider
-simple linear regression, a model that uses only one predictor. After briefly
-reviewing some linear algebra, we turn to multiple linear regression, a model that
-uses multiple variables to predict the response of interest. For all models, we will
-examine the underlying assumptions. More specifically, do the data support the
-assumptions? Do they contradict them? What are the consequences for inference?
-Also, we will explore some nonlinear models and data transformations. Finally, we
-discuss Linear regression based on the categorical with some applications. The whole lecture note for this module can be found by clicking [here](https://ksusa-my.sharepoint.com/:b:/r/personal/aalharbi10_ksu_edu_sa/Documents/All%20lucture%20notes.pdf?csf=1&web=1&e=cLiiAg). However, this textbook will be used for the exercise classes for the module (STAT332).  The notes have not completed yet, I will still add new exercises and fix typos. If you find any typos or mistakes or have any question, I will appreciate if you email me at `Aalharbi10@ksu.edu.sa` 
 
-**Note:** *My fellow [Abdulrahman Alfaifi](https://faculty.ksu.edu.sa/ar/alfaifi) is posting very helpful youtube videos discussing  some exercises and past-exam questions you can reach that easily by clicking [here](https://www.youtube.com/channel/UCeT75VlTKwTQdoDsWrtzjXA/playlists)*.
+Our overall **goal** in this course is meant to expose you to the techniques of drawing representative samples from various populations and then preparing you on the mathematical formulations of estimating the population parameters based on the sample data, you would also be exposed to the real life applications of
+sampling techniques and estimation of parameters. Determination of sample size and selection of sample, Simple random sampling, Stratified
+random sampling, Cluster sampling, Systematic sampling. textbook for this module can be found by clicking [here](https://ksusa-my.sharepoint.com/:b:/g/personal/aalharbi10_ksu_edu_sa/EXiGXqS0oLNEij_721SyVh8BXcTk6m4xa69ExysLpaxBKg?e=etSYh4).
+However, this note will be used for the exercise classes for the module (STAT331).  The notes have yet completed, I will still add new exercises and fix typos. If you find any typos or mistakes or have any question, I will appreciate if you email me at `Aalharbi10@ksu.edu.sa` .
+
+
+
+
 
 

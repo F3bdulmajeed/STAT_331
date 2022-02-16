@@ -1,0 +1,106 @@
+# $1^{st}$ Tutorial  
+
+
+::: {.exercise}
+Describe briefly each of the following terms:
+:::
+
+_a. Primary data_
+\
+The data collected by the investigator from the original source.
+\
+\
+*b. Secondary data*
+\
+If the required data had already been collected by some agencies or individuals and are now available in the published or unpublished records.
+\
+\
+*c. Mail inquiry*
+\
+The investigator prepares a questionnaire and sends it by mail to the respondents.
+\
+\
+
+*d. Questionnaire/schedule*
+\
+The questionnaire is a channel through which the needed information is elicited.
+\
+\
+*e. Population*
+\
+The population or universe is an aggregate of elements, about which the inference is to be made.
+\
+\
+*f. Census*
+\
+Collection of information on every unit in the population for the characteristics of interest. (Also known as enumeration).
+\
+\
+*g. Element*
+\
+An element is a unit for which information is sought.
+\
+\
+*h. Sample*
+\
+A subset of population selected from a frame to draw inferences about a population characteristic.
+\
+\
+*i. Sampling unit*
+\
+Non-overlapping collections of elements of the population.
+\
+\
+*j. Sampling frame*
+\
+A list of all the units in the population to be sampled is termed
+
+
+::: {.exercise}
+Describe briefly the difference between with and without replacement sampling.
+:::
+\
+the units that selected one by one from the population, in WR the unit selected at any particular draw is replaced back to the population before selecting a unit at the next draw, but in the WOR is not replaced.
+
+::: {.exercise}
+Consider a population consisting of 6 villages, the areas (in hectares) of which are given below
+:::
+```{r , echo=FALSE}
+frame = data.frame(Village=c("A","B","C","D","E","F"),Area = c(760,343,657,550,480,935))
+frame=t(frame)
+knitr::kable(frame, raw.names = c("X","Y"), align = "lccrr")
+```
+
+a. Enumerate all possible WR samples of size 3. Also, write the values of the study variable for the sampled units.
+\
+\
+
+$$N=6 ~~~~~~~~~~~~~~~~~ n=3$$
+Thus the possible samples $= N^n = 6^3 = 216$
+\
+
+```{r , echo=FALSE}
+frame = data.frame(Village=c("AAA","AAB","ABA","BAA","AAC","....."),Area = c("760 760 760","760 760 343","760 343 760","343 760 760","760 760 657","    "))
+
+knitr::kable(frame, col.names = c("Villages in the sample","Area of the villages"), align = "lccrr")
+```
+
+
+
+b. List all the WOR samples of size 4 along with their area values.
+\
+The number of possible samples $= C_n^N= C_4^6=15$
+\
+All possible WR samples along with area values are listed below:
+
+```{r, echo=FALSE}
+DF = read.csv("DATA.csv", header=TRUE)
+knitr::kable(DF, col.names = c("Sample" ,"Villages in the sample","Area of the villages"), align = "lccrr")
+
+```
+
+
+\
+\ 
+
+

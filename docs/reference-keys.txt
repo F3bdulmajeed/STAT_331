@@ -2,11 +2,9 @@ exr:unlabeled-div-1
 exr:unlabeled-div-2
 exr:unlabeled-div-3
 exr:unlabeled-div-4
-least-squared-estimation
-recap
-exercises
-coursework
-properties-and-inferences-in-regression
-recap-1
-exercises-1
-coursework-1
+exr:unlabeled-div-5
+exr:unlabeled-div-6
+exr:unlabeled-div-7
+st-tutorial
+nd-tutorial
+rd-tutorial

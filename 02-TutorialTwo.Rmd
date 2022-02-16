@@ -1,0 +1,113 @@
+# $2^{nd}$ Tutorial
+
+
+::: {.exercise}
+
+What is a parameter? Work out mean and variance for the following given
+population values
+
+:::
+$$44, 56, 60, 48, 55, 50, 58, 62, 60, 40$$
+\
+The parameter is any real valued function of variable values for all the population is known as a population parameter or simply a parameter.
+\
+The population mean is
+$$\text{Mean}:\bar{Y} = \frac{44+56+60+48+55+50+58+62+60+40}{10}=53.3$$
+\
+To calculate the population variance
+$$\text{Population Variance:}~~ \sigma^2=\frac{1}{N}\sum_{i=1}^{N}Y_i^2-\bar{Y}^2 = \ 50.01$$
+In R one can use the function `mean()` to calculate the mean and `var()` to calculate the variance. 
+```{r}
+Y <- c(44,56,60,48,55,50,58,62,60,40)
+(Ybar <- mean(Y))
+(Sigma <- var(Y)*(9/10))
+ 
+
+```
+
+::: {.exercise}
+Assuming that $20, 12, 15, 16, 18, 14,22,28,24,$ and $26$ are the observations for a sample of $10$ units, calculate sample mean and the variance.
+:::
+$$\text{Mean}:\bar{y} = \frac{20+12+15+16+18+14+22+28+24+26}{10}=19.5$$
+$$\text{Population Variance:}~~ \sigma^2=\frac{1}{n-1}\sum_{i=1}^{n}y_i^2-\bar{y}^2 = 29.16667$$
+
+```{r}
+y <- c(20,12,15,16,18,14,22,28,24,26)
+(ybar <- mean(y))
+(Ssquare <- var(y)) 
+```
+
+::: {.exercise}
+Five babies were born in a particular year in village Beonhin of Mathura district. The age (in years) of mothers at the time of child birth were $29, 32, 26, 28,$ and $36$. Enumerate all possible WR equal probability samples of size 2, and show numerically that the sample mean age is an unbiased estimator of population mean age of the mothers.
+:::
+
+\
+Let’s name the mothers (A,B,C,D,E) with weights (29,32,26,28,36) respectively.
+$$N=5 ~~~~~~~~~~~~ n=2$$
+$$\Rightarrow ~~~ \mu = \frac{1}{5}~\sum_{i=1}^{5}X_i = 30.2$$
+The number of all possible samples is: $5^2=25$
+```{r, echo=FALSE}
+DF1 = read.csv("DATA2.csv")
+knitr::kable(DF1, col.names = c("Sample" ,"Mothers in the sample","Sample mean"), align = "lccrr")
+```
+
+
+Distribution of the sample mean:
+```{r ,echo=FALSE}
+library(plyr)
+table1 = plyr::count(DF1$Sample.mean)
+table1$probabilty = table1$freq/25
+knitr::kable(table1, col.names = c("Sample mean" ,"Frequency","Probabilty"), align = "lccrr")
+
+```
+
+
+Now $E(\bar{y})=\sum_{i=1}^{13} \bar{y_i}~P(\bar{y_i}) = 30.2$
+\
+As $E(\bar{y})=\mu$ so $\bar{y}$ is unbias estimator of $\mu$. 
+\
+By R
+```{r, warning=FALSE, message=FALSE}
+#install.packages("tidyverse")
+library(tidyverse)
+Y <- c(29,32,26,28,36)
+(Ybar <- mean(Y))
+(sample <- crossing(Var1=Y, Var2=Y)) # A tibble: 25 x 2
+#to view as a table run
+#view(sample) 
+```
+```{r}
+(ybars= apply(sample,1 , mean))
+```
+```{r}
+(unbiased=mean(ybars))
+```
+Let’s take an example of size three:
+\
+By R: 
+```{r}
+Y <- c(29,32,26,28,36)
+Ybar <- mean(Y)
+sample <- crossing (Var1=Y, Var2=Y, Var3=Y)
+samples<- sample(Y, 3, replace= TRUE)
+sample     #No. of observation = 5^3 = 125
+# A tibble: 125 x 3
+
+```
+
+Calculate all possible means
+```{r}
+(ybars= apply(sample,1 , mean))
+```
+
+```{r}
+(unbiased=mean(ybars))
+```
+
+::: {.exercise}
+Distinguish between sampling and nonsampling errors. Which of these errors are more likely to be present in a census or a sample survey?
+:::
+
+•	Sampling error is the resultant discrepancy between the sample estimate and the population parameter value is the error of the estimate. Conversely, non-sampling error is arising due to defective sampling procedures, ambiguity in definitions, faulty measurement techniques, mistakes in recording, errors in coding-decoding, tabulation and analysis, etc…
+
+•	The sampling errors usually decreases with increase in sample size. In contrary, the nonsampling errors are likely to increase with increase in sample size. It is quite possible that nonsampling errors in a complete enumeration survey are greater than both the sampling and nonsampling errors taken together in a sample survey.
