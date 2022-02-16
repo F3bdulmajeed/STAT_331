@@ -1,4 +1,4 @@
-# Properties inferences in Regression
+# Properties and inferences in Regression
 
 ## Recap
 Previously we discussed the least squared approach to estimate the slope and the bias parameters in the simple linear model. An important question arises here is to test how significant is our estimation and in order to assess that let us assume the error term is normally distributed with zero mean and constant variance $\sigma^2$. We want to test $H_0 : \beta_j = \hat{\beta}~~~ \text{vs.}~ ~~H_1 : \beta_{j}= \hat{\beta}$ at level $\alpha$ where $\hat{\beta}$  is some constant and $j=0,1$.
