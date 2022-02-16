@@ -45,10 +45,11 @@ knitr::kable(frame, raw.names = c("X","Y"), align = "lccrr")
 ```
 1. Calculate the regression line by hand.
 2. interpret the result.
-3. Construct $95\%$ confidence intervals for the bais and the slope coefficients and explain the results..
+3. Construct $95\%$ confidence intervals for the bias and the slope coefficients and explain the results..
 4. Use the `lm()` function in R to calculate regression line.
 5. Use the `confint()` in R to construct $95\%$ confidence intervals for the model coefficients.
 6. plot the regression line using the function `plot()`. 
+7. If a student got in his midterm $50$ what the expected mark in his final exam?
 \
 \
 \

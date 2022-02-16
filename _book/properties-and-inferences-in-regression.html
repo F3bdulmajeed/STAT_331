@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Regression Analysis</title>
+  <title>2 Properties and inferences in Regression | Regression Analysis</title>
   <meta name="description" content="This note book is for the excersices class for STAT332" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Regression Analysis" />
+  <meta property="og:title" content="2 Properties and inferences in Regression | Regression Analysis" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="F3bdulmajeed/STAT332" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Regression Analysis" />
+  <meta name="twitter:title" content="2 Properties and inferences in Regression | Regression Analysis" />
   
   <meta name="twitter:description" content="This note book is for the excersices class for STAT332" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="least-squared-estimation.html"/>
 
-<link rel="next" href="least-squared-estimation.html"/>
 <script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -160,35 +160,125 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Regression Analysis</h1>
-<p class="author"><em>Lecturer: Abdulmajeed Alharbi</em></p>
-<p class="date"><em>Last update: 2022-02-16</em></p>
-</div>
-<div id="introduction" class="section level1 unnumbered">
-<h1>Introduction</h1>
-<p>This course is an introduction to applied data analysis. We will explore data sets, examine various regression models for the data, assess the validity of their assumptions, and determine which conclusions we can make (if any). Data analysis
-is a bit of an art; there may be several valid approaches. We will strongly
-emphasize the importance of critical thinking about the data and the question of
-interest. Our overall <strong>goal</strong> is to use a basic set of modeling tools to explore and
-analyze data and to present the results in a scientific report. We then consider
-simple linear regression, a model that uses only one predictor. After briefly
-reviewing some linear algebra, we turn to multiple linear regression, a model that
-uses multiple variables to predict the response of interest. For all models, we will
-examine the underlying assumptions. More specifically, do the data support the
-assumptions? Do they contradict them? What are the consequences for inference?
-Also, we will explore some nonlinear models and data transformations. Finally, we
-discuss Linear regression based on the categorical with some applications. The whole lecture note for this module can be found by clicking <a href="https://ksusa-my.sharepoint.com/:b:/r/personal/aalharbi10_ksu_edu_sa/Documents/All%20lucture%20notes.pdf?csf=1&amp;web=1&amp;e=cLiiAg">here</a>. However, this textbook will be used for the exercise classes for the module (STAT332). The notes have not completed yet, I will still add new exercises and fix typos. If you find any typos or mistakes or have any question, I will appreciate if you email me at <code>Aalharbi10@ksu.edu.sa</code></p>
-<p><strong>Note:</strong> <em>My fellow <a href="https://faculty.ksu.edu.sa/ar/alfaifi">Abdulrahman Alfaifi</a> is posting very helpful youtube videos discussing some exercises and past-exam questions you can reach that easily by clicking <a href="https://www.youtube.com/channel/UCeT75VlTKwTQdoDsWrtzjXA/playlists">here</a></em>.</p>
+<div id="properties-and-inferences-in-regression" class="section level1">
+<h1><span class="header-section-number">2</span> Properties and inferences in Regression</h1>
+<div id="recap-1" class="section level2">
+<h2><span class="header-section-number">2.1</span> Recap</h2>
+<p>Previously we discussed the least squared approach to estimate the slope and the bias parameters in the simple linear model. An important question arises here is to test how significant is our estimation and in order to assess that let us assume the error term is normally distributed with zero mean and constant variance <span class="math inline">\(\sigma^2\)</span>. We want to test <span class="math inline">\(H_0 : \beta_j = \hat{\beta}~~~ \text{vs.}~ ~~H_1 : \beta_{j}= \hat{\beta}\)</span> at level <span class="math inline">\(\alpha\)</span> where <span class="math inline">\(\hat{\beta}\)</span> is some constant and <span class="math inline">\(j=0,1\)</span>.<br />
+The <strong>decision</strong> rule is to reject <span class="math inline">\(H_0\)</span> if:
+<span class="math display">\[|T|=\lvert~\frac{\beta_j-{\hat\beta}}{SE(\hat\beta_j)}\lvert~&gt; t_{n-2,\alpha/2}\]</span>
+Where <span class="math inline">\(SE()\)</span> is the standard error of the parameter.
+Recall that from the lecture note:
+<span class="math display">\[\begin{align}
+ &amp;Var(\beta_1)=\frac{\sigma^2}{(n-1)S_{X&#39;X&#39;}} = \frac{\sigma^2}{\sum (x_i-\bar{x})2}\\
+ &amp;Var(\beta_0)= \sigma^2 (\frac{1}{n}+\frac{\bar{X}^2}{\sum (x_i-\bar{x})2})
 
+\end{align}\]</span></p>
+</div>
+<div id="exercises-1" class="section level2">
+<h2><span class="header-section-number">2.2</span> Exercises</h2>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-4" class="exercise"><strong>Exercise 2.1  </strong></span>Go back to <strong>Exercise 1.3</strong> and test the hypothesis that the yield is proportional to the amount of catalyst cubed.</p>
+</div>
+<p><br />
+</p>
+<p><br />
+<strong>Solution 2.1:</strong><br />
+Now <span class="math inline">\(Var(\beta)=\frac{\sigma^2}{(n-1)S_{X&#39;X&#39;}}\)</span>
+<span class="math display">\[(n-1)S_{X&#39;X&#39;}=\sum_{i=1}^{n}x&#39;^2_i-\frac{(\sum_{i=1}^{n}x&#39;_i)^2}{n}=0.33\]</span>
+While <span class="math inline">\(\sigma^2\)</span> can be estimated by using the unbiased estimator <span class="math inline">\(s^2\)</span>,</p>
+<p><span class="math display">\[s^2=\frac{1}{2}\sum_{i=1}^{n}(y&#39;_i-\hat{y&#39;_i})^2=0.0018\]</span></p>
+<p>Hence <span class="math inline">\(SE(\beta)=\sqrt{Var(\hat\beta)}= 0.0739\)</span>.
+Now to test <span class="math inline">\(H_0: \beta=3\)</span> against <span class="math inline">\(H_q: \beta\neq3\)</span>
+Under <span class="math inline">\(H_0\)</span>, the T-test is <span class="math inline">\(-0.0932\)</span><br />
+So the p-value is <span class="math inline">\(P(|t4| &gt; 0.0932) = 2P(t4 &lt; −0.0932) = 0.9302\)</span>. There is therefore no evidence to reject <span class="math inline">\(H_0\)</span> i.e. no evidence against a cubic relationship.</p>
+<p><strong>Exercise 2.2:</strong>
+The results of a class of 10 students on midterm marks <span class="math inline">\(X\)</span> and on the final marks <span class="math inline">\(Y\)</span> are as follows:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left">X</td>
+<td align="left">77</td>
+<td align="center">54</td>
+<td align="center">71</td>
+<td align="right">72</td>
+<td align="right">81</td>
+<td align="left">94</td>
+<td align="center">96</td>
+<td align="center">99</td>
+<td align="right">83</td>
+<td align="right">67</td>
+</tr>
+<tr class="even">
+<td align="left">Y</td>
+<td align="left">82</td>
+<td align="center">38</td>
+<td align="center">78</td>
+<td align="right">34</td>
+<td align="right">37</td>
+<td align="left">85</td>
+<td align="center">99</td>
+<td align="center">99</td>
+<td align="right">79</td>
+<td align="right">67</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: decimal">
+<li>Calculate the regression line by hand.</li>
+<li>interpret the result.</li>
+<li>Construct <span class="math inline">\(95\%\)</span> confidence intervals for the bias and the slope coefficients and explain the results..</li>
+<li>Use the <code>lm()</code> function in R to calculate regression line.</li>
+<li>Use the <code>confint()</code> in R to construct <span class="math inline">\(95\%\)</span> confidence intervals for the model coefficients.</li>
+<li>plot the regression line using the function <code>plot()</code>.</li>
+<li>If a student got in his midterm <span class="math inline">\(50\)</span> what the expected mark in his final exam?<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+</li>
+</ol>
+</div>
+<div id="coursework-1" class="section level2">
+<h2><span class="header-section-number">2.3</span> Coursework</h2>
+<p><br />
+<br />
+</p>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="least-squared-estimation.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="least-squared-estimation.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
