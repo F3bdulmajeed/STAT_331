@@ -6,3 +6,9 @@ properties-inferences-in-regression
 recap-1
 exercises-1
 coursework-1
+thm:unlabeled-div-1
+thm:foo
+exr:foo
+exr:unlabeled-div-1
+exr:unlabeled-div-2
+exr:unlabeled-div-3

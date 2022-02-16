@@ -6,7 +6,7 @@ site: bookdown::bookdown_site
 output: bookdown::gitbook
 description: "This note book is for the excersices class for STAT332"
 github-repo: F3bdulmajeed/STAT332
-output_dir: "_book"
+output_dir: "docs"
 chapter_name: "Lecture"
 ---
 
