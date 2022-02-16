@@ -5,8 +5,7 @@ date: "Last update: `r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 description: "This note book is for the excersices class for STAT332"
-github-repo: F3bdulmajeed/STAT332
-output_dir: "docs"
+github-repo: F3bdulmajeed/STAT_332
 chapter_name: "Lecture"
 ---
 
