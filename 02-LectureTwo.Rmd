@@ -1,0 +1,85 @@
+# Properties inferences in Regression
+
+## Recap
+Previously we discuss the least squared approach to estimate the slop and the bias parameter in the simple linear model. An important question arises here is to test how significant is our estimation and in order to assess that let us assume the error term is normally distributed with zero mean and constant variance $\sigma^2$. We want to test $H_0 : \beta_j = \hat{\beta}~~~ \text{vs.}~ ~~H_1 : \beta_{j}= \hat{\beta}$ at level $\alpha$ where $\beta$  is some constant and $j=0,1$.
+\
+The  **decision** rule is to reject $H_0$ if:
+$$|T|=\lvert~\frac{\beta_j-{\hat\beta}}{SE(\hat\beta_j)}\lvert~> t_{n-2,\alpha/2}$$
+Where $SE()$ is the standard error of the parameter.
+Recall that from the lecture note:
+\begin{align}
+ &Var(\beta_1)=\frac{\sigma^2}{(n-1)S_{X'X'}} = \frac{\sigma^2}{\sum (x_i-\bar{x})2}\\
+ &Var(\beta_0)= \sigma^2 (\frac{1}{n}+\frac{\bar{X}^2}{\sum (x_i-\bar{x})2})
+
+\end{align}
+
+## Exercises
+::: {.exercise}
+Go back to **Exercise 1.3** and test the hypothesis that the yield is proportional to the amount of catalyst cubed.
+:::
+\
+
+\
+**Solution 2.1:**
+\
+Now $Var(\beta)=\frac{\sigma^2}{(n-1)S_{X'X'}}$
+$$(n-1)S_{X'X'}=\sum_{i=1}^{n}x'^2_i-\frac{(\sum_{i=1}^{n}x'_i)^2}{n}=0.33$$
+While $\sigma^2$ can be estimated by using the unbiased estimator $s^2$,
+
+$$s^2=\frac{1}{2}\sum_{i=1}^{n}(y'_i-\hat{y'_i})^2=0.0018$$
+
+Hence $SE(\beta)=\sqrt{Var(\hat\beta)}= 0.0739$.
+Now to test $H_0: \beta=3$ against $H_q: \beta\neq3$
+Under $H_0$, the T-test is $-0.0932$
+\
+So the p-value is $P(|t4| > 0.0932) = 2P(t4 < −0.0932) = 0.9302$. There is therefore no evidence to reject $H_0$ i.e. no evidence against a cubic relationship.
+
+**Exercise 2.2:**
+The results of a class of 10 students on midterm marks $X$ and on the final marks $Y$ are as follows:
+
+```{r , echo=FALSE}
+frame = data.frame(X=c(77,54,71,72,81,94,96,99,83,67),Y=c(82,38,78,34,37,85,99,99,79,67))
+frame=t(frame)
+
+knitr::kable(frame, raw.names = c("X","Y"), align = "lccrr")
+```
+1. Calculate the regression line by hand.
+2. interpret the result.
+3. Construct $95\%$ confidence intervals for the bais and the slope coefficients and explain the results..
+4. Use the `lm()` function in R to calculate regression line.
+5. Use the `confint()` in R to construct $95\%$ confidence intervals for the model coefficients.
+6. plot the regression line using the function `plot()`. 
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+
+## Coursework
+\
+\

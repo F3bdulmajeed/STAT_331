@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Regression Analysis</title>
+  <meta name="description" content="This note book is for the excersices class for STAT332" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Regression Analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This note book is for the excersices class for STAT332" />
+  <meta name="github-repo" content="F3bdulmajeed/STAT332" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Regression Analysis" />
+  
+  <meta name="twitter:description" content="This note book is for the excersices class for STAT332" />
+  
+
+<meta name="author" content="Lecturer: Abdulmajeed Alharbi" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="least-squared-estimation.html"/>
+<script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="least-squared-estimation.html"><a href="least-squared-estimation.html"><i class="fa fa-check"></i><b>1</b> Least squared estimation</a><ul>
+<li class="chapter" data-level="1.1" data-path="least-squared-estimation.html"><a href="least-squared-estimation.html#recap"><i class="fa fa-check"></i><b>1.1</b> Recap</a></li>
+<li class="chapter" data-level="1.2" data-path="least-squared-estimation.html"><a href="least-squared-estimation.html#exercises"><i class="fa fa-check"></i><b>1.2</b> Exercises</a></li>
+<li class="chapter" data-level="1.3" data-path="least-squared-estimation.html"><a href="least-squared-estimation.html#coursework"><i class="fa fa-check"></i><b>1.3</b> Coursework</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="properties-inferences-in-regression.html"><a href="properties-inferences-in-regression.html"><i class="fa fa-check"></i><b>2</b> Properties inferences in Regression</a><ul>
+<li class="chapter" data-level="2.1" data-path="properties-inferences-in-regression.html"><a href="properties-inferences-in-regression.html#recap-1"><i class="fa fa-check"></i><b>2.1</b> Recap</a></li>
+<li class="chapter" data-level="2.2" data-path="properties-inferences-in-regression.html"><a href="properties-inferences-in-regression.html#exercises-1"><i class="fa fa-check"></i><b>2.2</b> Exercises</a></li>
+<li class="chapter" data-level="2.3" data-path="properties-inferences-in-regression.html"><a href="properties-inferences-in-regression.html#coursework-1"><i class="fa fa-check"></i><b>2.3</b> Coursework</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Regression Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Regression Analysis</h1>
+<p class="author"><em>Lecturer: Abdulmajeed Alharbi</em></p>
+<p class="date"><em>Last update: 2022-02-16</em></p>
+</div>
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p>This course is an introduction to applied data analysis. We will explore data sets, examine various regression models for the data, assess the validity of their assumptions, and determine which conclusions we can make (if any). Data analysis
+is a bit of an art; there may be several valid approaches. We will strongly
+emphasize the importance of critical thinking about the data and the question of
+interest. Our overall <strong>goal</strong> is to use a basic set of modeling tools to explore and
+analyze data and to present the results in a scientific report. We then consider
+simple linear regression, a model that uses only one predictor. After briefly
+reviewing some linear algebra, we turn to multiple linear regression, a model that
+uses multiple variables to predict the response of interest. For all models, we will
+examine the underlying assumptions. More specifically, do the data support the
+assumptions? Do they contradict them? What are the consequences for inference?
+Also, we will explore some nonlinear models and data transformations. Finally, we
+discuss Linear regression based on the categorical with some applications. The whole lecture note for this module can be found by clicking <a href="https://ksusa-my.sharepoint.com/:b:/r/personal/aalharbi10_ksu_edu_sa/Documents/All%20lucture%20notes.pdf?csf=1&amp;web=1&amp;e=cLiiAg">here</a>. However, this textbook will be used for the exercise classes for the module (STAT332). The notes have not completed yet, I will still add new exercises and fix typos. If you find any typos or mistakes or have any question, I will appreciate if you email me at <code>Aalharbi10@ksu.edu.sa</code></p>
+<p><strong>Note:</strong> <em>My fellow <a href="https://faculty.ksu.edu.sa/ar/alfaifi">Abdulrahman Alfaifi</a> is posting very helpful youtube videos discussing some exercises and past-exam questions you can reach that easily by clicking <a href="https://www.youtube.com/channel/UCeT75VlTKwTQdoDsWrtzjXA/playlists">here</a></em>.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="least-squared-estimation.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

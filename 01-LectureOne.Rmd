@@ -1,0 +1,162 @@
+# Least squared estimation
+
+## Recap
+Simple linear regression in an important and fundamental technique in applied statistical modeling as it is used to describe the linearity in the relationship between two variables. 
+Our model is: 
+$$y_i=\beta_0+\beta_1~x_i+e_i ~~~~~~~~\text{where}~~~ i=1,2,...,n$$
+
+Where $\beta_0$ bias parameter in the model and $\beta_1$ is the slope parameter, and the expected value of $y$ is $E(y_i)=\hat{y}= \beta_0+\beta_1~x_i$. and the term $e$ is referring to the error in our model. the bias and the slope parameter are still need to be estimated one important technique to do this estimation is by minimizing the sum of squared error $\sum_{i=1}^{n} e_i^2$. 
+
+
+## Exercises
+
+
+
+
+
+::: {.exercise}
+Find the least squared estimate $\beta_0$ and $\beta_1$ in the regression parameters below:
+$$y_i = \beta_0 +\beta_1~x_i+e_i$$
+where $i =1,2, ... , n$.
+
+:::
+
+\
+**Solution:**
+\
+
+
+To find the least squared estimators for $\beta_0$ and $\beta_1$ so we need to minimize the sum of squared error, i.e.,
+$$ Q = \sum_{i=1}^{n} e_i^2 = \sum_{i=1}^{n} (y_i - (\beta_0 +\beta_1~x_i))^2$$
+over  $\beta_0$ and $\beta_1$.  In order to calculate this optimization we need to find the first derivative for $Q$ with respect to $\beta_0$ and $\beta_1$.
+\
+To find the least squared estimator for $\beta_1$:
+\
+
+\begin{align}
+    &\frac{\partial}{\partial~\beta_1}~\sum_{i=1}^{n} (y_i - (\beta_0+\beta_1~x_i))^2\\
+    &= 2 \sum_{i=1}^{n} x_i (y_i - (\beta_0 +\beta_1~x_i))\\
+    &= 2(\sum_{i=1}^{n} x_i~y_i -~\beta_0~ \sum_{i=1}^{n}~x_i + ~\beta_1~\sum_{i=1}^{n}~x_i^2)
+    
+\end{align}
+\
+Now by setting that to zero and solve we will end up with:
+\
+
+\begin{align}
+     \hat{\beta_1} = \frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sum_{i=1}^{n}(x_i-\bar{x})^2}
+    
+\end{align}
+\
+
+To find the least squared estimator for $\beta_0$:
+\
+
+\begin{align}
+    &\frac{\partial}{\partial~\beta_0}~\sum_{i=1}^{n} (y_i - (\beta_0+\beta_1~x_i))^2\\
+    &=  \sum_{i=1}^{n} (y_i - (\beta_0 +\beta_1~x_i))\\
+    &= n\bar{y} -n\beta_0 - n~\beta_1~\bar{x}
+    
+\end{align}
+\
+again by setting that to zero and solve we will end up with:
+\
+
+\begin{align}
+     \hat{\beta_0} = \bar{y} -\beta_1~\bar{x}
+    
+\end{align}
+
+
+::: {.exercise}
+Suppose a model states that:
+:::
+\begin{align}
+
+    &E(y_1) = \theta,\\
+    &E(y_2) = 2~\theta − \phi,\\
+    &E(y_3) = \theta + 2~\phi.
+    
+\end{align}
+
+Find the least squares estimates of $\theta$ and $\phi$.
+
+**Solution:**
+\
+Similarly to what we have done in the previous exercise  we need to minimize the sum of squared error over $\theta$ and $\phi$. Let's begin by estimating $\theta$. 
+
+\begin{align}
+
+    &\frac{\partial}{\partial~\theta}~\sum_{i=1}^{n}(y_i - E(y_i))^2\\
+    
+    =& \frac{\partial}{\partial~\theta}  ((y_1 - \theta)^2 +(y_2 -2\theta + \phi)^2 +(y_3-\theta-2\phi)^2)\\
+    =& -2(y_1 - \theta) - 4(y_2 -2\theta + \phi) - 2(y_3-\theta-2\phi)\\
+    =& -2y_1 + 2\theta -4y_2+8\theta-4\phi -2y_3+2\theta+4\phi\\
+    =& 12\theta - 2y_1-4y_2-2y_3
+    
+\end{align}
+
+Therefore, 
+$$\hat{\theta}= \frac{y_3+2y_2+y_1}{6}$$
+
+Now, the least square estimator for $\phi$ can be founded as follow:
+
+\begin{align}
+
+    &\frac{\partial}{\partial~\phi}~\sum_{i=1}^{n}(y_i - E(y_i))^2\\
+    
+    =& \frac{\partial}{\partial~\phi}  ((y_1 - \theta)^2 +(y_2 -2\theta + \phi)^2 +(y_3-\theta-2\phi)^2)\\
+    =& 2(y_2 -2\theta + \phi) - 4(y_3-\theta-2\phi)\\
+    =& 2y_2 -4\theta +2\phi -4y_3+4\theta+8\phi\\
+    =& 10\phi + 2y_2-4y_3
+    
+\end{align}
+
+Therefore, 
+$$\hat{\phi}= \frac{2y_3-y_2}{5}$$
+
+::: {.exercise}
+Under certain conditions, the yield (Y) of a chemical process can be described via the relationship
+:::
+$$Y = \alpha~X^\beta$$
+where $X$is the amount of catalyst provided.
+
+1. Assume that the log of the yield is normally distributed and estimate the parameters $\alpha$ and $\beta$ for the data given below.
+```{r , echo=FALSE}
+frame = data.frame(X=c(0.5,0.6,0.7,0.8,0.9,1),Y=c(0.241,0.445,0.667,1.044,1.358,2.010))
+frame=t(frame)
+
+knitr::kable(frame, raw.names = c("X","Y"), align = "lccrr")
+```
+
+\
+**Solution:**
+\
+As $$Y = \alpha~X^\beta$$ $\Rightarrow$ $\log(Y)=log(\alpha)+\beta\log(X)$
+We assume
+$$Y'_i= \alpha'+\beta~X'_i+e_i ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ i=1,2,..,n $$
+
+Let $\hat{\alpha'}$ and $\hat{\beta}$ is the least squared estimators for $\alpha'$ and $\beta$  respectively, so
+
+$$\hat{\beta}=\frac{S_{X'~Y'}}{S_{X'X'}} ~~~~~~~ \text{and} ~~~~~ \hat{\alpha'}= \bar{Y'}-\hat{\beta}\bar{X'}$$
+
+We can calculate that by R as follow:
+```{r }
+X=c(0.5,0.6,0.7,0.8,0.9,1)
+Y=c(0.241,0.445,0.667,1.044,1.358,2.010)
+Xdash= log(X)
+Ydash= log(Y)
+betahat = cov(Xdash,Ydash)/var(Xdash)
+alpha_dash_hat = mean(Ydash)- betahat * mean(Ydash)
+print(paste("The least squared estimator for beta is", betahat, "and the least squared estimator for log alpha is", alpha_dash_hat))
+
+```
+
+Now we can calculate, so $\hat{\alpha}= e^{0.53} = 1.7$
+
+## Coursework
+1. Watch the Youtube video by clicking [here](https://www.youtube.com/watch?v=PaFPbb66DxQ)
+2. Look at iris data in R using the command `help(iris)` and fit a line to predict the petel length using the sepal length and interpret the result (you can use the function `lm()`)
+3. 	Show that $\hat{\beta_1}$ is an unbiased estimate of for $\beta_1$.
+
+
