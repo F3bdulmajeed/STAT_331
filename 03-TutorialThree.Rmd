@@ -150,7 +150,7 @@ Ybarsquare <- (ybars)^2
 ```
 
 2.c
-```{r}
+```{r ,warning=FALSE,message=FALSE}
 #install.packages("matrixStats")
 library(matrixStats)
 ssquare <- rowVars(as.matrix(sample))
@@ -183,8 +183,8 @@ a.
 Y <- c(168,175,185,173,171,172)
 n <- 2
 (No.s<- choose(N,n))
-(samples <- combn(Y,n))
-(ybars= apply(sample,2, mean))
+(sampless <- combn(Y,n))
+(ybars= apply(sampless,2, mean))
 #for a matrix 1 indicates rows,2 indicates columns or colMeans(samples)
 (unbiased_mean <- mean(ybars))
 ```
@@ -193,19 +193,18 @@ b.
 
 ```{r}
 Ybarsquare <- (ybars)^2
-(Variance_Of_ybar <- var(ybars)*(35)/(36))
-(Ssquare <- var(Y))
+(Variance_Of_ybar <- mean(Ybarsquare) -(unbiased_mean)^2)
+Ssquare <- var(Y)
 (N-n)/(N*n) * Ssquare
-
 ```
 
-:::
+
+
 
 
 ```{r, echo=FALSE}
 DF7 = data.frame(Village=c(43,61,58,62,47,34,11,43,5,53),Tractors=c(14,8,15,39,9,14,11,19,12,18))
 knitr::kable(DF7, col.names = c("Village","Tractors"), align = "lccrr")
-
 ```
 
 Average number of tractors per village in the block is:
