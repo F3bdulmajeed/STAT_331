@@ -387,9 +387,9 @@ WOR simple random sample of 10 villages using direct approach method.</p>
 <p><span class="math display">\[\begin{align}
  &amp;N=30\\
  \
- &amp;\mu=\frac{\sum Y_i}{N}=22.5667\\
+ &amp;\bar{Y}=\frac{\sum Y_i}{N}=22.5667\\
  \
- &amp;\sigma^2 = \frac{\sum Y_i-\mu}{N}=273.3789\\
+ &amp;\sigma^2 = \frac{\sum{i=1}{N} (Y_i-\bar{Y})^2}{N}=273.3789\\
  \
  &amp;\sigma=\sqrt{273.3789} = 16.5342
 
@@ -431,20 +431,20 @@ WOR simple random sample of 10 villages using direct approach method.</p>
 <p><span class="math display">\[\begin{align}
  &amp;n=10\\
  \
- &amp;\bar{y}=\frac{\sum Y_i}{n}=15.9\\
+ &amp;\bar{y}=\frac{\sum y_i}{n}=15.9\\
  \
- &amp;s^2 = \frac{\sum Y_i-\bar{y}}{n-1}=53.87789\\
+ &amp;s^2 = \frac{\sum_{i=1}^{n} (y_i-\bar{y})^2}{n-1}=53.87789\\
  \
  &amp;\text{Sampling variance:}~V(\bar{y}) = \frac{\sigma^2}{n}=\frac{273.3789}{10} = 27.3379\\
  \
- &amp;\text{Standard error of the sample mean:} se(\bar{y})=\sqrt{V(\bar{y})} = 5.2286\
+ &amp;\text{Standard error of the sample mean:} SE(\bar{y})=\sqrt{V(\bar{y})} = 5.2286\
 
 \end{align}\]</span></p>
 <p>The confidence interval for the population mean <span class="math inline">\(\mu\)</span> are given by
-<span class="math display">\[\bar{y}\pm2~se(\bar{y})\]</span>
+<span class="math display">\[\bar{y}\pm2~SE(\bar{y})\]</span>
 <span class="math display">\[\Rightarrow \mu \in [5.4428,26.3572]\]</span></p>
-<p>Unbiased estimator of
-<span class="math display">\[𝑉(\bar{y}) =v(\bar{y})=\frac{s^2}{n}=\frac{53.8778}{10}= 5.38778\]</span>
+<p>Unbiased estimator of <span class="math inline">\(𝑉(\bar{y})\)</span> is:
+<span class="math display">\[v(\bar{y})=\frac{s^2}{n}=\frac{53.8778}{10}= 5.38778\]</span>
 (2) In without replacement sample, any repetition (11th village in the present case) is omitted, and another random number is selected as its replacement. Next random numbers from 1 to 30 are 7 and 25. Thus the WOR simple random sample of 10 villages from the population under study is with the following serial numbers:</p>
 <table>
 <tbody>
@@ -491,8 +491,8 @@ WOR simple random sample of 10 villages using direct approach method.</p>
 <p>The confidence interval for the population mean <span class="math inline">\(\mu\)</span> are given by
 <span class="math display">\[\bar{y}\pm2~se(\bar{y})\]</span>
 <span class="math display">\[\Rightarrow \mu \in [10.1158,27.4842]\]</span></p>
-<p>Unbiased estimator of
-<span class="math display">\[𝑉(\bar{y}) =v(\bar{y})==\frac{N-n}{Nn}~s^2=\frac{30-10}{30\times10}\times135.7333= 10.557\]</span></p>
+<p>Unbiased estimator of <span class="math inline">\(𝑉(\bar{y})\)</span> is
+<span class="math display">\[v(\bar{y})==\frac{N-n}{Nn}~s^2=\frac{30-10}{30\times10}\times135.7333= 10.557\]</span></p>
 <div class="exercise">
 <p><span id="exr:unlabeled-div-9" class="exercise"><strong>Exercise 3.2  </strong></span>The height (in cm) of 6 students of M.Sc., majoring in statistics, from Punjab Agricultural University, Ludhiana was recorded during 1985. The data, so obtained, are given below:</p>
 </div>
@@ -538,27 +538,26 @@ WOR simple random sample of 10 villages using direct approach method.</p>
 </tbody>
 </table>
 <ol style="list-style-type: decimal">
-<li>Calculate (a) population mean <span class="math inline">\(\mu\)</span>, and (b) population variance <span class="math inline">\(\sigma^2\)</span>.</li>
+<li>Calculate (a) population mean <span class="math inline">\(\bar{Y}\)</span>, and (b) population variance <span class="math inline">\(\sigma^2\)</span>.</li>
 <li>Enumerate all possible SRS with replacement samples of size n=2. Obtain
 sampling distribution of mean, and hence show that</li>
 </ol>
 <ol style="list-style-type: lower-alpha">
-<li><span class="math inline">\(E(\bar{y}) = \mu\)</span></li>
+<li><span class="math inline">\(E(\bar{y}) = \bar{Y}\)</span></li>
 <li><span class="math inline">\(V(\bar{y}) =\frac{\sigma^2}{n}\)</span></li>
 <li><span class="math inline">\(E(s^2) = \sigma^2\)</span></li>
 <li><span class="math inline">\(E[v(\bar{y})] = V(\bar{y})\)</span></li>
 </ol>
-<p>By R:
-(1)</p>
+<p><strong>Solution by R:</strong><br />
+1.a</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="rd-tutorial.html#cb25-1"></a>Y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">168</span>,<span class="dv">175</span>,<span class="dv">185</span>,<span class="dv">173</span>,<span class="dv">171</span>,<span class="dv">172</span>)</span>
 <span id="cb25-2"><a href="rd-tutorial.html#cb25-2"></a>N &lt;-<span class="st"> </span><span class="dv">6</span></span>
 <span id="cb25-3"><a href="rd-tutorial.html#cb25-3"></a>(Ybar &lt;-<span class="st"> </span><span class="kw">mean</span>(Y))</span></code></pre></div>
 <pre><code>## [1] 174</code></pre>
+<p>1.b</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="rd-tutorial.html#cb27-1"></a>(Sigmasquare &lt;-<span class="st"> </span><span class="kw">var</span>(Y)<span class="op">*</span>((N<span class="dv">-1</span>)<span class="op">/</span>N))</span></code></pre></div>
 <pre><code>## [1] 28.66667</code></pre>
-<ol start="2" style="list-style-type: decimal">
-<li></li>
-</ol>
+<p>2.a</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="rd-tutorial.html#cb29-1"></a>n &lt;-<span class="st"> </span><span class="dv">2</span></span>
 <span id="cb29-2"><a href="rd-tutorial.html#cb29-2"></a>(No.s&lt;-<span class="st"> </span>N<span class="op">^</span>n) <span class="co">#Number_of_all_possible_samples</span></span></code></pre></div>
 <pre><code>## [1] 36</code></pre>
@@ -573,61 +572,78 @@ sampling distribution of mean, and hence show that</li>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="rd-tutorial.html#cb33-1"></a><span class="co">#for a matrix 1 indicates rows,2 indicates columns or rowMeans(sample)</span></span>
 <span id="cb33-2"><a href="rd-tutorial.html#cb33-2"></a>(unbiased_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(ybars))</span></code></pre></div>
 <pre><code>## [1] 174</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="rd-tutorial.html#cb35-1"></a>Ybarsquare &lt;-<span class="st"> </span>(ybars)<span class="op">^</span><span class="dv">2</span></span>
-<span id="cb35-2"><a href="rd-tutorial.html#cb35-2"></a>(Variance_Of_ybar &lt;-<span class="st"> </span><span class="kw">mean</span>(Ybarsquare) <span class="op">-</span>(unbiased_mean)<span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="rd-tutorial.html#cb35-1"></a>unbiased_mean<span class="op">==</span>Ybar <span class="co"># that&#39;s the required in a</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>2.b</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="rd-tutorial.html#cb37-1"></a>Ybarsquare &lt;-<span class="st"> </span>(ybars)<span class="op">^</span><span class="dv">2</span></span>
+<span id="cb37-2"><a href="rd-tutorial.html#cb37-2"></a>(Variance_Of_ybar &lt;-<span class="st"> </span><span class="kw">mean</span>(Ybarsquare) <span class="op">-</span>(unbiased_mean)<span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 14.33333</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="rd-tutorial.html#cb37-1"></a>(Sigmasquare<span class="op">/</span>n)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="rd-tutorial.html#cb39-1"></a>(Sigmasquare<span class="op">/</span>n) </span></code></pre></div>
 <pre><code>## [1] 14.33333</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="rd-tutorial.html#cb39-1"></a><span class="co">#install.packages(&quot;matrixStats&quot;)</span></span>
-<span id="cb39-2"><a href="rd-tutorial.html#cb39-2"></a><span class="kw">library</span>(matrixStats)</span>
-<span id="cb39-3"><a href="rd-tutorial.html#cb39-3"></a>ssquare &lt;-<span class="st"> </span><span class="kw">rowVars</span>(<span class="kw">as.matrix</span>(sample))</span>
-<span id="cb39-4"><a href="rd-tutorial.html#cb39-4"></a><span class="kw">mean</span>(ssquare)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="rd-tutorial.html#cb41-1"></a><span class="co"># that&#39;s the required in b</span></span></code></pre></div>
+<p>2.c</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="rd-tutorial.html#cb42-1"></a><span class="co">#install.packages(&quot;matrixStats&quot;)</span></span>
+<span id="cb42-2"><a href="rd-tutorial.html#cb42-2"></a><span class="kw">library</span>(matrixStats)</span></code></pre></div>
+<pre><code>## Warning: package &#39;matrixStats&#39; was built under R version 4.0.5</code></pre>
+<pre><code>## 
+## Attaching package: &#39;matrixStats&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     count</code></pre>
+<pre><code>## The following object is masked from &#39;package:plyr&#39;:
+## 
+##     count</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="rd-tutorial.html#cb47-1"></a>ssquare &lt;-<span class="st"> </span><span class="kw">rowVars</span>(<span class="kw">as.matrix</span>(sample))</span>
+<span id="cb47-2"><a href="rd-tutorial.html#cb47-2"></a><span class="kw">mean</span>(ssquare) </span></code></pre></div>
 <pre><code>## [1] 28.66667</code></pre>
-<div class="execise">
-<p>From the data given in Example 3.2, enumerate all the SRS without
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="rd-tutorial.html#cb49-1"></a><span class="co"># that&#39;s the required in c</span></span></code></pre></div>
+<p>2.d</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="rd-tutorial.html#cb50-1"></a>(Sigmasquare<span class="op">/</span>n)</span></code></pre></div>
+<pre><code>## [1] 14.33333</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="rd-tutorial.html#cb52-1"></a>(<span class="kw">mean</span>(ssquare<span class="op">/</span>n)) </span></code></pre></div>
+<pre><code>## [1] 14.33333</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="rd-tutorial.html#cb54-1"></a><span class="co"># that&#39;s the required in d</span></span></code></pre></div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-10" class="exercise"><strong>Exercise 3.3  </strong></span>From the data given in Example 3.2, enumerate all the SRS without
 replacement samples of size n=2, and write down sampling distribution of
 mean. Using this distribution, show that:</p>
 </div>
 <ol style="list-style-type: lower-alpha">
-<li><span class="math inline">\(E(\bar{y})=\mu\)</span></li>
+<li><span class="math inline">\(E(\bar{y})=\bar{Y}\)</span></li>
 <li><span class="math inline">\(Var(\bar{y})=\frac{N-n}{Nn}S^2\)</span></li>
 <li><span class="math inline">\(E(s^2)=S^2\)</span></li>
 <li><span class="math inline">\(E(v(\bar{y}))=V(\bar{y})\)</span></li>
 </ol>
-<p><br />
-By R:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="rd-tutorial.html#cb41-1"></a>Y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">168</span>,<span class="dv">175</span>,<span class="dv">185</span>,<span class="dv">173</span>,<span class="dv">171</span>,<span class="dv">172</span>)</span>
-<span id="cb41-2"><a href="rd-tutorial.html#cb41-2"></a>n &lt;-<span class="st"> </span><span class="dv">2</span></span>
-<span id="cb41-3"><a href="rd-tutorial.html#cb41-3"></a>(No.s&lt;-<span class="st"> </span><span class="kw">choose</span>(N,n))</span></code></pre></div>
+<p><strong>Solution by R:</strong>
+a.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="rd-tutorial.html#cb55-1"></a>Y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">168</span>,<span class="dv">175</span>,<span class="dv">185</span>,<span class="dv">173</span>,<span class="dv">171</span>,<span class="dv">172</span>)</span>
+<span id="cb55-2"><a href="rd-tutorial.html#cb55-2"></a>n &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb55-3"><a href="rd-tutorial.html#cb55-3"></a>(No.s&lt;-<span class="st"> </span><span class="kw">choose</span>(N,n))</span></code></pre></div>
 <pre><code>## [1] 15</code></pre>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="rd-tutorial.html#cb43-1"></a>(samples &lt;-<span class="st"> </span><span class="kw">combn</span>(Y,n))</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="rd-tutorial.html#cb57-1"></a>(samples &lt;-<span class="st"> </span><span class="kw">combn</span>(Y,n))</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
 ## [1,]  168  168  168  168  168  175  175  175  175   185   185   185   173   173
 ## [2,]  175  185  173  171  172  185  173  171  172   173   171   172   171   172
 ##      [,15]
 ## [1,]   171
 ## [2,]   172</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="rd-tutorial.html#cb45-1"></a>(<span class="dt">ybars=</span> <span class="kw">apply</span>(sample,<span class="dv">2</span>, mean))</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="rd-tutorial.html#cb59-1"></a>(<span class="dt">ybars=</span> <span class="kw">apply</span>(sample,<span class="dv">2</span>, mean))</span></code></pre></div>
 <pre><code>## Var1 Var2 
 ##  174  174</code></pre>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="rd-tutorial.html#cb47-1"></a><span class="co">#for a matrix 1 indicates rows,2 indicates columns or colMeans(samples)</span></span>
-<span id="cb47-2"><a href="rd-tutorial.html#cb47-2"></a>(unbiased_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(ybars))</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="rd-tutorial.html#cb61-1"></a><span class="co">#for a matrix 1 indicates rows,2 indicates columns or colMeans(samples)</span></span>
+<span id="cb61-2"><a href="rd-tutorial.html#cb61-2"></a>(unbiased_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(ybars))</span></code></pre></div>
 <pre><code>## [1] 174</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="rd-tutorial.html#cb49-1"></a>Ybarsquare &lt;-<span class="st"> </span>(ybars)<span class="op">^</span><span class="dv">2</span></span>
-<span id="cb49-2"><a href="rd-tutorial.html#cb49-2"></a>(Variance_Of_ybar &lt;-<span class="st"> </span><span class="kw">mean</span>(Ybarsquare) <span class="op">-</span>(unbiased_mean)<span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
+<ol start="2" style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="rd-tutorial.html#cb63-1"></a>Ybarsquare &lt;-<span class="st"> </span>(ybars)<span class="op">^</span><span class="dv">2</span></span>
+<span id="cb63-2"><a href="rd-tutorial.html#cb63-2"></a>(Variance_Of_ybar &lt;-<span class="st"> </span><span class="kw">var</span>(ybars)<span class="op">*</span>(<span class="dv">35</span>)<span class="op">/</span>(<span class="dv">36</span>))</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="rd-tutorial.html#cb51-1"></a>(Ssquare &lt;-<span class="st"> </span><span class="kw">var</span>(Y))</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="rd-tutorial.html#cb65-1"></a>(Ssquare &lt;-<span class="st"> </span><span class="kw">var</span>(Y))</span></code></pre></div>
 <pre><code>## [1] 34.4</code></pre>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="rd-tutorial.html#cb53-1"></a>(N<span class="op">-</span>n)<span class="op">/</span>(N<span class="op">*</span>n) <span class="op">*</span><span class="st"> </span>Ssquare</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="rd-tutorial.html#cb67-1"></a>(N<span class="op">-</span>n)<span class="op">/</span>(N<span class="op">*</span>n) <span class="op">*</span><span class="st"> </span>Ssquare</span></code></pre></div>
 <pre><code>## [1] 11.46667</code></pre>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="rd-tutorial.html#cb55-1"></a><span class="co">#install.packages(&quot;matrixStats&quot;)</span></span>
-<span id="cb55-2"><a href="rd-tutorial.html#cb55-2"></a><span class="kw">library</span>(matrixStats)</span>
-<span id="cb55-3"><a href="rd-tutorial.html#cb55-3"></a>ssquare &lt;-<span class="st"> </span><span class="kw">colVars</span>(samples)</span>
-<span id="cb55-4"><a href="rd-tutorial.html#cb55-4"></a><span class="kw">mean</span>(ssquare)</span></code></pre></div>
-<pre><code>## [1] 34.4</code></pre>
-<div class="exercise">
-<p><span id="exr:unlabeled-div-10" class="exercise"><strong>Exercise 3.3  </strong></span>From the WR sample of 10 villages selected in example 3.1, estimate the average number of tractors per village in the block along with its standard error. Also, set up confidence interval for the population mean.</p>
-</div>
+<p>:::</p>
 <table>
 <thead>
 <tr class="header">

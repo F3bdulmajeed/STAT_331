@@ -15,9 +15,9 @@ knitr::kable(DF3, col.names = c("Village No." ,"Village name","Tractors","Tube w
 \begin{align}
  &N=30\\
  \
- &\mu=\frac{\sum Y_i}{N}=22.5667\\
+ &\bar{Y}=\frac{\sum Y_i}{N}=22.5667\\
  \
- &\sigma^2 = \frac{\sum Y_i-\mu}{N}=273.3789\\
+ &\sigma^2 = \frac{\sum{i=1}{N} (Y_i-\bar{Y})^2}{N}=273.3789\\
  \
  &\sigma=\sqrt{273.3789} = 16.5342
 
@@ -42,23 +42,23 @@ One can see that 11th village has been selected twice in the with replacement si
 \begin{align}
  &n=10\\
  \
- &\bar{y}=\frac{\sum Y_i}{n}=15.9\\
+ &\bar{y}=\frac{\sum y_i}{n}=15.9\\
  \
- &s^2 = \frac{\sum Y_i-\bar{y}}{n-1}=53.87789\\
+ &s^2 = \frac{\sum_{i=1}^{n} (y_i-\bar{y})^2}{n-1}=53.87789\\
  \
  &\text{Sampling variance:}~V(\bar{y}) = \frac{\sigma^2}{n}=\frac{273.3789}{10} = 27.3379\\
  \
- &\text{Standard error of the sample mean:} se(\bar{y})=\sqrt{V(\bar{y})} = 5.2286\
+ &\text{Standard error of the sample mean:} SE(\bar{y})=\sqrt{V(\bar{y})} = 5.2286\
 
 \end{align}
 
 The confidence interval for the population mean $\mu$ are given by
-$$\bar{y}\pm2~se(\bar{y})$$
+$$\bar{y}\pm2~SE(\bar{y})$$
 $$\Rightarrow \mu \in [5.4428,26.3572]$$
 
 
-Unbiased estimator of
-$$𝑉(\bar{y}) =v(\bar{y})=\frac{s^2}{n}=\frac{53.8778}{10}= 5.38778$$
+Unbiased estimator of $𝑉(\bar{y})$ is:
+$$v(\bar{y})=\frac{s^2}{n}=\frac{53.8778}{10}= 5.38778$$
 (2) In without replacement sample, any repetition (11th village in the present case) is omitted, and another random number is selected as its replacement. Next random numbers from 1 to 30 are 7 and 25. Thus the WOR simple random sample of 10 villages from the population under study is with the following serial numbers:
 
 ```{r, echo=FALSE}
@@ -85,8 +85,8 @@ $$\bar{y}\pm2~se(\bar{y})$$
 $$\Rightarrow \mu \in [10.1158,27.4842]$$
 
 
-Unbiased estimator of
-$$𝑉(\bar{y}) =v(\bar{y})==\frac{N-n}{Nn}~s^2=\frac{30-10}{30\times10}\times135.7333= 10.557$$
+Unbiased estimator of $𝑉(\bar{y})$ is
+$$v(\bar{y})==\frac{N-n}{Nn}~s^2=\frac{30-10}{30\times10}\times135.7333= 10.557$$
 
 
 
@@ -102,26 +102,31 @@ knitr::kable(DF6, col.names = c("Student","Name","Height"), align = "lccrr")
 ```
 
 
-1. Calculate (a) population mean $\mu$, and (b) population variance $\sigma^2$.
+1. Calculate (a) population mean $\bar{Y}$, and (b) population variance $\sigma^2$.
 2. Enumerate all possible SRS with replacement samples of size n=2. Obtain
 sampling distribution of mean, and hence show that
-a. $E(\bar{y}) = \mu$
+a. $E(\bar{y}) = \bar{Y}$
 b. $V(\bar{y}) =\frac{\sigma^2}{n}$
 c. $E(s^2) = \sigma^2$
 d. $E[v(\bar{y})] = V(\bar{y})$
 
-By R:
-(1)
+**Solution by R:**
+\
+1.a
 ```{r}
 Y <- c(168,175,185,173,171,172)
 N <- 6
 (Ybar <- mean(Y))
+```
+
+1.b
+```{r}
 (Sigmasquare <- var(Y)*((N-1)/N))
 ```
 
-(2)
+2.a
 
-```{r, }
+```{r, warning=FALSE,message=FALSE}
 n <- 2
 (No.s<- N^n) #Number_of_all_possible_samples
 #install.packages("tidyverse")
@@ -131,33 +136,49 @@ samples<- sample (Y, 2, replace= TRUE)
 (ybars= apply(sample,1 , mean))
 #for a matrix 1 indicates rows,2 indicates columns or rowMeans(sample)
 (unbiased_mean <- mean(ybars))
+
+unbiased_mean==Ybar # that's the required in a
 ```
 
-
+2.b
 ```{r, warning=FALSE,message=FALSE}
 Ybarsquare <- (ybars)^2
 (Variance_Of_ybar <- mean(Ybarsquare) -(unbiased_mean)^2)
-(Sigmasquare/n)
+(Sigmasquare/n) 
+
+# that's the required in b
+```
+
+2.c
+```{r}
 #install.packages("matrixStats")
 library(matrixStats)
 ssquare <- rowVars(as.matrix(sample))
-mean(ssquare)
+mean(ssquare) 
+# that's the required in c
+```
+2.d
+```{r}
+(Sigmasquare/n)
+(mean(ssquare/n)) 
+# that's the required in d
+
 ```
 
-
-::: {.execise}
+::: {.exercise}
 From the data given in Example 3.2, enumerate all the SRS without
 replacement samples of size n=2, and write down sampling distribution of
 mean. Using this distribution, show that:
 :::
 
-(a) $E(\bar{y})=\mu$
-(b) $Var(\bar{y})=\frac{N-n}{Nn}S^2$
-(c) $E(s^2)=S^2$
-(d) $E(v(\bar{y}))=V(\bar{y})$
+a. $E(\bar{y})=\bar{Y}$
+b. $Var(\bar{y})=\frac{N-n}{Nn}S^2$
+c. $E(s^2)=S^2$
+d. $E(v(\bar{y}))=V(\bar{y})$
 
-\
-By R:
+**Solution by R:**
+a. 
+
 ```{r, message=FALSE, warning=FALSE}
 Y <- c(168,175,185,173,171,172)
 n <- 2
@@ -166,18 +187,17 @@ n <- 2
 (ybars= apply(sample,2, mean))
 #for a matrix 1 indicates rows,2 indicates columns or colMeans(samples)
 (unbiased_mean <- mean(ybars))
-Ybarsquare <- (ybars)^2
-(Variance_Of_ybar <- mean(Ybarsquare) -(unbiased_mean)^2)
-(Ssquare <- var(Y))
-(N-n)/(N*n) * Ssquare
-#install.packages("matrixStats")
-library(matrixStats)
-ssquare <- colVars(samples)
-mean(ssquare)
 ```
 
-::: {.exercise}
-From the WR sample of 10 villages selected in example 3.1, estimate the average number of tractors per village in the block along with its standard error. Also, set up confidence interval for the population mean.
+b. 
+
+```{r}
+Ybarsquare <- (ybars)^2
+(Variance_Of_ybar <- var(ybars)*(35)/(36))
+(Ssquare <- var(Y))
+(N-n)/(N*n) * Ssquare
+
+```
 
 :::
 
