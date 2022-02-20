@@ -3,9 +3,15 @@ title: "Sampling technique"
 author: "Lecturer: Abdulmajeed Alharbi"
 date: "Last update: `r Sys.Date()`"
 site: bookdown::bookdown_site
-output: bookdown::gitbook
+output: 
+  bookdown::gitbook:
+    config:
+      sharing:
+        facebook: false
+        twitter: false
+        github: true
 description: "This note book is for the excersices class for STAT331"
-github-repo: F3bdulmajeed/STAT_331
+github-repo: F3bdulmajeed
 chapter_name: "Lecture"
 ---
 
