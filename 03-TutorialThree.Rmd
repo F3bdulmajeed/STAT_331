@@ -15,9 +15,9 @@ knitr::kable(DF3, col.names = c("Village No." ,"Village name","Tractors","Tube w
 \begin{align}
  &N=30\\
  \
- &\bar{Y}=\frac{\sum Y_i}{N}=22.5667\\
+ &\bar{Y}=\frac{\sum_{i=1}^{N} Y_i}{N}=22.5667\\
  \
- &\sigma^2 = \frac{\sum{i=1}{N} (Y_i-\bar{Y})^2}{N}=273.3789\\
+ &\sigma^2 = \frac{\sum_{i=1}^{N}~(Y_i-\bar{Y})^2}{N}=273.3789\\
  \
  &\sigma=\sqrt{273.3789} = 16.5342
 
@@ -42,7 +42,7 @@ One can see that 11th village has been selected twice in the with replacement si
 \begin{align}
  &n=10\\
  \
- &\bar{y}=\frac{\sum y_i}{n}=15.9\\
+ &\bar{y}=\frac{\sum_{i=1}^{n} y_i}{n}=15.9\\
  \
  &s^2 = \frac{\sum_{i=1}^{n} (y_i-\bar{y})^2}{n-1}=53.87789\\
  \
@@ -52,9 +52,9 @@ One can see that 11th village has been selected twice in the with replacement si
 
 \end{align}
 
-The confidence interval for the population mean $\mu$ are given by
+The $95\%$ confidence interval for the population mean $\bar{Y}$ are given by
 $$\bar{y}\pm2~SE(\bar{y})$$
-$$\Rightarrow \mu \in [5.4428,26.3572]$$
+$$\Rightarrow \bar{Y} \in [5.4428,26.3572]$$
 
 
 Unbiased estimator of $𝑉(\bar{y})$ is:
@@ -70,19 +70,19 @@ knitr::kable(t(DF5), raw.names = c("Village","Tractors"), align = "lccrr")
 \begin{align}
  &n=10\\
  \
- &\bar{y}=\frac{\sum Y_i}{n}=18.8\\
+ &\bar{y}=\frac{\sum y_i}{n}=18.8\\
  \
- &s^2 = \frac{\sum Y_i-\bar{y}}{n-1}=135.7333\\
+ &s^2 = \frac{\sum (y_i-\bar{y})^2}{n-1}=135.7333\\
  \
  &\text{Sampling variance:}~V(\bar{y}) = \frac{N-n}{Nn}\sigma^2=\frac{30-10}{30\times~10}\times282.8057 = 18.8537\\
  \
- &\text{Standard error of the sample mean:} se(\bar{y})=\sqrt{V(\bar{y})} = 4.3421\
+ &\text{Standard error of the sample mean:} SE(\bar{y})=\sqrt{V(\bar{y})} = 4.3421\
 
 \end{align}
 
-The confidence interval for the population mean $\mu$ are given by
-$$\bar{y}\pm2~se(\bar{y})$$
-$$\Rightarrow \mu \in [10.1158,27.4842]$$
+The $95\%$ confidence interval for the population mean $\bar{Y}$ is given by
+$$\bar{y}\pm2~SE(\bar{y})$$
+$$\Rightarrow \bar{Y} \in [10.1158,27.4842]$$
 
 
 Unbiased estimator of $𝑉(\bar{y})$ is
@@ -192,14 +192,30 @@ n <- 2
 b. 
 
 ```{r}
+(Ssquare <- var(Y))
 Ybarsquare <- (ybars)^2
 (Variance_Of_ybar <- mean(Ybarsquare) -(unbiased_mean)^2)
-Ssquare <- var(Y)
 (N-n)/(N*n) * Ssquare
 ```
 
 
+c. 
+Similarly to what have been done previously 
+```{r}
+ssquare <- colVars(as.matrix(sampless))
+mean(ssquare) 
+# Thats the required in (c)
 
+```
+
+
+d. 
+```{r}
+Ssquare/n
+(mean(ssquare/n)) 
+
+# thats the required in (c)
+```
 
 
 ```{r, echo=FALSE}
