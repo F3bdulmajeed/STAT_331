@@ -1,2 +1,7 @@
 bookdown::gitbook:
   css: style.css
+  config:
+   sharing:
+     facebook: false
+     twitter: false
+     github: true
