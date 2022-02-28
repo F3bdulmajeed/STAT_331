@@ -1,4 +1,4 @@
-# $3^{rd}$ Tutorial
+# 3rd Tutorial
 
 
 ::: {.exercise}

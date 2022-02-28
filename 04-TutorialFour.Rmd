@@ -1,0 +1,145 @@
+# 4th Tutorial  
+
+
+::: {.exercise}
+If a simple random sample without replacement (WOR) of 10 universities are selected from a population of 50 universities in a particular country. The numbers of statistics professors in the sample university are: $23, 14, 38, 11, 7, 31, 9, 18, 12$ and $25$. Solve by R:
+:::
+a. Estimate the mean number of statistics professors in this population, $\bar{y}$.
+b. Estimate the variance of your estimator, $\{v\left(\bar{y}\right)\}$.
+c. Estimate the total number of statistics professors in this population, $y^\prime$.
+d. Estimate the variance of your estimator, $\{v(y^\prime)\}$.
+e. How many possible samples can be drawn.
+f. Give an approximate $95\%$ confidence interval for the population mean.
+g. Give an approximate $95\%$ confidence interval for the population total.
+
+**Solution**
+\
+1.a
+
+```{r}
+#The selected sample 
+y= c(23, 14, 38, 11, 7, 31, 9, 18, 12, 25)
+#The sample estimator of the mean is
+(ybar = mean(y))
+```
+
+1.b
+```{r}
+# To estimate the variance of ybar 
+N= 50
+n = 10
+(vybar = ((N-n)/(N*n))* var(y))
+```
+1.c
+```{r}
+# To estimate the total number of statistics professors 
+(Ytotal = N*ybar)
+```
+
+1.d 
+```{r}
+# the variance of the estimator of the total number of statistics professors 
+(Var_ytotal = (N^2)*vybar)
+```
+1.e
+```{r}
+# the number of all possible sample
+(Allsamples = choose(N,n))
+```
+1.f 
+```{r}
+# To obtain CI for the mean
+t= 
+(CIL = ybar-1.96*sqrt(vybar))
+(CIU = ybar+1.96*sqrt(vybar))
+```
+
+
+1.g
+```{r}
+(CIL = Ytotal - 1.96*sqrt(Var_ytotal) )
+(CIU = Ytotal + 1.96*sqrt(Var_ytotal) )
+```
+
+::: {.exercise}
+A sociologist wishes to estimate the average age at the time of death for women
+(age 18 years or more) in a city. The frame used was the list of death records
+for the year 1992, available in the office of Registrar of Births and Deaths. There
+were 680 deaths of women during 1992. From these, a WR random sample of
+32 deceased women was drawn. The below given information regarding the age
+of sample women was obtained by contacting their kith and kin. Serial number
+in the table is the serial number of unit in the population.
+:::
+
+```{r, echo=FALSE}
+DF4 = read.csv("DATA4.csv", header = TRUE)
+knitr::kable(DF4,col.names =c("Serial No.","Age","Serial No.","Age","Serial No.","Age","Serial No.","Age") , align = "lccrr")
+
+```
+
+
+
+Examine, whether this sample size is sufficient to estimate the average age with a margin of error of $5$ years? If not, how many more deceased women need to be selected in the sample?
+
+**Solution**
+
+$$N=680~~~~~~~~~~~~~~~~~~~~~~~n=32~~~~~~~~~~~~~~~~~~~~~~~B=5~~~~~~~~~~~~~~~~~~~~~~~D=\frac{B^2}{4}=6.25$$
+
+As the sample variance of death women age is $s^2=154.0312$. Therefore,
+$$n=\frac{s^2}{D}= 24.645 \approx 25$$
+It means that the size of preliminary sample of 32 is sufficient for estimating the population mean with desired precision.
+
+::: {.exercise}
+A car dealer is feeling concerned over the complaints received in the office of the manufacturer regarding the free service provided by him to the newly purchased cars. To assess the seriousness of the problem, the dealer decided to draw a WR random sample of $70$ buyers out of the total of $1400$ individuals who had purchased cars through him during the last one year. Twenty one buyers included in the sample graded service provided by him as unsatisfactory. Estimate the percentage of buyers feeling unsatisfied with the service provided, and construct a suitable level confidence interval for it.
+:::
+**Solution**
+\
+The giving information are $N=1400,~~n=70,~~a=21,~~p=\frac{21}{70}=0.3,~~q=1-0.3=0.7$
+The unbiased estimator WR: $v(p)=\frac{pq}{n-1}= \frac{0.3\times0.7}{70-1}=0.003$
+$$\Rightarrow~~~se(p)=\sqrt{0.003}=0.05522$$
+
+The confidence limit for $p$ is  $p\pm~1.96\times se(p)$
+\
+The C.I is $[0.1918, 0.4082]$
+\
+**Note: rounding to the fourth decimal place**
+
+::: {.exercise}
+An investigator wishes to estimate the proportion of students in a university whose fathers are graduates. To arrive at the estimate, a WOR simple random sample of $67$ students was drawn from a total of $1400$ students. On contacting the sampled students, it was found that the fathers of $46$ students had not graduated. Estimate the proportion of students whose fathers were at least graduates. Also, set the confidence interval for population proportion.
+:::
+**Solution**
+\
+The giving information are $N=1400,~~ n=67,~~ a=67-46=21$ (Because the 46 is the number of fathers were not graduates and the question asks about graduates)
+$$p=\frac{21}{67}=0.3134,~~  q=1-0.3134=0.6866$$                                                                                      
+Unbiased estimator WOR :  $$v\left(p\right)=\frac{(N-n)}{N}\frac{pq}{n-1}=0.0031$$
+		
+$$\Rightarrow~ se\left(p\right)=\ \sqrt{0.0031}=0.0557$$
+
+The confidence interval for $p$ is  $p\pm~1.96\times se(p)$
+
+The C.I is $[0.2042,0.4226]$
+\
+**Note: rounding to the fourth decimal place.**
+
+If the question additionally asks about the total number of students whose fathers were at least gradates with $95\%$ C.I.
+\
+Then the answer is
+$$A^\prime=N\ast p=1400\ast0.3134=438.76\approx439$$
+
+The confidence limit for $y^\prime$ is  $N\ast p\pm\left(1.96\ast s e\left(p\right)\right)\ast N$
+\
+$$[285.9192, 591.6008]\ \approx[286, 592]$$
+
+::: {.exercise}
+Assume the WOR sample of $67$ students in **Exercise 4.4**  as the preliminary sample. If the permissible error could be taken as $.1$, determine how many additional students will have to be selected to estimate the proportion in question with specified precision?
+:::
+
+**Solution**
+\
+$$N=1400,~~~~~ n=67,~~~~~~ B=0.1, ~~~~~~n=\frac{Npq}{\left(N-1\right)D+pq}, ~~~~~  D=\frac{B^2}{4}=0.0025~~~~~p=0.3134,~~~~~q=0.6866$$  from exercise 3.12 
+Therefore, 
+$$n=\frac{Npq}{\left(N-1\right)D+pq}=\frac{\ 154.0312}{6.25}\approx81$$
+
+It means that already selected sample of size of $67$ in **Exercise 4.4** is not sufficient for estimating the population proportion with desired precision. Therefore, $81-67=14$ more students need to be selected.
+
+
