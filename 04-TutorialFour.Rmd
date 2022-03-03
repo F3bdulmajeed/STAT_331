@@ -136,7 +136,7 @@ Assume the WOR sample of $67$ students in **Exercise 4.4**  as the preliminary s
 
 **Solution**
 \
-$$N=1400,~~~~~ n=67,~~~~~~ B=0.1, ~~~~~~n=\frac{Npq}{\left(N-1\right)D+pq}, ~~~~~  D=\frac{B^2}{4}=0.0025~~~~~p=0.3134,~~~~~q=0.6866$$  from exercise 3.12 
+$$N=1400,~~~~~ n=67,~~~~~~ B=0.1, ~~~~~~n=\frac{Npq}{\left(N-1\right)D+pq}, ~~~~~  D=\frac{B^2}{4}=0.0025~~~~~p=0.3134,~~~~~q=0.6866$$  from **Exercise 4.4** 
 Therefore, 
 $$n=\frac{Npq}{\left(N-1\right)D+pq}=\frac{\ 154.0312}{6.25}\approx81$$
 
