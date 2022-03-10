@@ -74,7 +74,7 @@ Estimate the total number of uprooted trees, and also determine the confidence i
 \
 **Solution**
 
-The population size $N=175$,  and sampling interval $k=7$. They use linear systematic sampling for the selection. Let the random number $r$ selected from $1 to k(=7)$ be $6$.
+The population size $N=175$,  and sampling interval $k=7$. They use linear systematic sampling for the selection. Let the random number $r$ selected from $1$ to $k(=7)$ be $6$.
 
 The sample mean is $\bar{y}_{sys}=\sum_{i=1}^{n}{y_i=}4+\ldots\ldots+15=\ 11.2$
 
@@ -101,5 +101,34 @@ n = length(Y) ; ybar = mean(Y) ; Ytotal = N*ybar ; N=175
 (CIU = N*(ybar+2*sd))
 ```
 
+::: {. exercise}
+It is desired to estimate the average per day rent for single occupancy rooms in well known hotels of a state. In all, there are 192 such hotels in the state and these are listed in a book entitled "A Guide to Visitors". The investigator selected a l-in-8 sample of hotels and rang up the managers of sampled hotels. The information on rent (in rupees) so obtained is given below:
+::
+
+
+
+```{r, echo=FALSE}
+DF53 = read.csv("exercise53.csv", header = TRUE)
+knitr::kable(DF53,col.names =c("Hotel", "Rent","Hotel", "Rent","Hotel", "Rent") , align = "lccrr")
+
+```
+
+Estimate the average per day rent along with the confidence limits for it.
+\
+**Solution**
+\
+The population size $N=192$,  and sampling interval $k=8$. They use linear systematic sampling for the selection. 
+
+The estimate of the average per day is the sample mean which is $\bar{y}_{sys}=\sum_{i=1}^{n}{y_i=}100+\ldots\ldots+140=\ 110$
+
+The estimate of variance for random population is  $V({\bar{y}}_{sys})= 14.34556$
+
+Using the estimate of the average per day and the estimate of its variance, we now calculate the confidence interval for population total
+
+$\bar{y}_{sys}\pm2\ast\sqrt{V\left({\bar{y}}_{sys}\right)} = [\ 102.4249,\ 117.5751\ ]$
+
+```{r}
+y = c(100, 120, 125, 115, 110,  80, 130, 120, 90, 110, 125,  80,  70, 125, 130, 105, 125,  85,  90, 105, 130,  95, 135, 140)
+```
 
 
