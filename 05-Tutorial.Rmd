@@ -1,0 +1,105 @@
+# 5th Tutorial
+::: {.exercise}
+The number of colleges in 12 districts of a state are 8, 10, 6, 7, 7, 9, 11, 5, 6, 8, 9, and 11. List all possible samples of size 3 that can be selected from this population of 12 units using LS and CS sampling. Also, determine the average of corresponding sample means in both the cases. Are the two averages equal to the population mean? If yes, what does it indicate about the bias in the two estimators?
+:::
+
+**Solution**
+Linear systematic sampling:
+
+
+```{r, echo=FALSE}
+DF51 = read.csv("excercise.5.1.a.csv", header = TRUE)
+knitr::kable(DF51,col.names =c("Random start (r)",	"Serial",	"y values",	"Sample mean") , align = "lccrr")
+
+```
+
+
+The average of the sample means is $E({\bar{y}}_{sys})=\ \sum_{r=1}^{k}{\bar{y}}_r=7+9+8.67+7.67=8.08$
+Population mean is $\bar{Y}=\sum_{i=1}^{N}{Y_i=}8+10+……+11= 8.08$
+The average of the sample means is equal to the population mean, so it’s unbiased estimator.
+The R codes for LS is going to be in the next page.
+
+For Circular systematic sampling:
+
+```{r, echo=FALSE}
+DF51 = read.csv("excercise.5.1.b.csv", header = TRUE)
+knitr::kable(DF51,col.names =c("Random start (r)",	"Serial",	"y values",	"Sample mean") , align = "lccrr")
+
+```
+
+The average of the sample means is $E({\bar{y}}_{sys})=\ \sum_{r=1}^{k}{\bar{y}}_r=7+9+8.67+7.67+….+7.67=8.08$
+Population mean is $\bar{Y}=\sum_{i=1}^{N}{Y_i=}8+10+……+11= 8.08$
+The average of the sample means is equal to the population mean, so it’s unbiased estimator.
+```{r}
+y = c(8, 10, 6, 7, 7, 9, 11, 5, 6, 8, 9,  11)
+# Compute the population mean and variance
+(ybar=mean(y))
+(yvar= var(y))
+# perform all systematic samples
+n = 3 ; N = length(y) ; k= N/n
+sys_sample = matrix(0,n,k)
+for(i in 1:k){
+  sys_sample[,i] = y[seq(i,N,k)]
+}
+sys_sample
+sys_mean = apply(sys_sample,2,mean)
+sys_mean
+# Compare their mean with the population mean
+mean(sys_mean)
+# Compute the variance of the sample mean 
+(var_sys_mean = var(sys_mean)*((k-1)/k))
+sys_var = apply(sys_sample,2, var)
+sys_var
+mean(sys_var)
+S = sd(y)
+varSRS = ((N-n)/(N*n))* S^2
+varSRS
+(varSRS/var_sys_mean)*100
+
+
+```
+::: {.exercise}
+Many trees along a canal have been uprooted by a storm. This damage persists along a $35 km$ stretch. The Department of Irrigation is interested in estimating total number of these damaged trees. Each one kilometer segment along the canal has been divided into 5 equal parts by stone markers. Thus, the entire 35 km long stretch is divided into 175 equal segments. Twenty five of these segments are selected using LS sampling with a sampling interval of 7 segments. The information regarding number of uprooted trees $(y)$ obtained from this l-in-7 systematic sample is given in the following table:
+::: 
+
+```{r, echo=FALSE}
+DF52 = read.csv("exercise52a.csv", header = TRUE)
+knitr::kable(DF52,col.names =c("Selected", "y","Selected", "y","Selected", "y") , align = "lccrr")
+
+```
+
+
+
+Estimate the total number of uprooted trees, and also determine the confidence interval for it.
+\
+**Solution**
+
+The population size $N=175$,  and sampling interval $k=7$. They use linear systematic sampling for the selection. Let the random number $r$ selected from $1 to k(=7)$ be $6$.
+
+The sample mean is $\bar{y}_{sys}=\sum_{i=1}^{n}{y_i=}4+\ldots\ldots+15=\ 11.2$
+
+The estimate of total number of uprooted trees is $y^\prime_{sys}=N\times~{\bar{y}}_{sys} =1960$.
+The estimate of variance from equation (6.4) is  $V({\bar{y}}_{sys})= 0.9207$
+Then estimate of variance $V\left(\ {y^\prime}_{sys}\right)\ =N^2\times0.9207=281966.88$
+Using the estimate for total number of uprooted trees and the estimate of its variance, we now calculate the confidence interval for population total
+
+$$ N\ast{\bar{y}}_{sys}\pm2\ast\sqrt{V\left({\bar{y}}_{sys}\right)}\ast N=
+[\ 1624.161,\ 2295.839\ ]$$
+```{r}
+Y = c(4,17,11,6,8,16,21,13,3,8,5,13,9,16,17,9,23,12  ,8,17,6,5,8,10,15)
+
+n = length(Y) ; ybar = mean(Y) ; Ytotal = N*ybar ; N=175
+# Compute the population variance
+(X = sum(diff(Y)^2))
+(var_sysmean = X* (N-n)/(2*N*n*(n-1)) )
+
+# Compute the population variance 
+(Ytotal_var = N^2 * var_sysmean)
+(sd = sqrt(var_sysmean))
+#CI for sample total 
+(CIL = N*(ybar-2*sd))
+(CIU = N*(ybar+2*sd))
+```
+
+
+
