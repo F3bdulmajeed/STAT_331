@@ -1,0 +1,73 @@
+# 6th Tutorial
+
+::: {.exercise}
+Assume that the sample of $24$ hotels selected in **Exercise 5.3** is a preliminary sample. Examine whether this sample is sufficient to estimate the average per day rent with a permissible error of Rs $5$ ? If not, how many additional units need to be selected.
+:::
+
+**Solution**
+
+$$N=192,~~~~ n=24,,~~~~  B=5$$
+$$n_s=\frac{Ns^2}{ND+s^2} ,~~~~~ D=\ \frac{B^2}{4}=6.25, ~~~~ s^2=\frac{\sum_{i=1}^{n}\left(y_i-\bar{y}\right)^2}{n-1}=\ 393.4783 $$
+```{r}
+y=c(100,120,125,115,110,80,130,120,90,110,125,80,70,125,130,105,125,85, 90,105,130,95,135,140)
+n=length(y)
+N = 192
+K = N/n
+# Compute the sample mean
+(ybar = mean(y))
+# Compute the variance of the sample mean 
+X = var(y)
+
+```
+
+Therefore,
+
+$$n=\ \frac{Ns^2}{ND+s^2}=\frac{\ 192\ast393.4783\ }{(192\ast6.25)+393.4783}=47.41064\approx~47$$
+Since the sample size required to estimate the average per day rent with a permissible error of $5$ is $47$, the investigator will, therefore, need to select $47-24= 23$ more hotels to get the estimate with specified magnitude of tolerable error.
+
+::: {.exercise}
+Some of the school buildings in a district collapsed during last few years, and caused damage to life and property. The district administration decided to have a quick estimate of the proportion of unsafe school buildings in the district. For this purpose, a systematic sample of 84 buildings, out of a total of $1260$ school buildings, was selected. The selected school buildings were examined by experts. The number of unsafe buildings was found to be $16$. Estimate the proportion of unsafe buildings in the district, and work out the confidence interval for it.
+:::
+
+**Solution**
+The giving information are $N=1260, n=84, a =16$
+$p_{sy}=\dfrac{16}{84}=0.1905$                                                                                    
+$v\left(p_{sy}\right)=\frac{(N-n)p_{sy}(1-p_{sy})}{N\ast(n-1)}=\frac{\left(1260-84\right)\ast0.1905\ast(1-0.1905)}{1260\ast(84-1)}=\ 0.0017$	
+		
+$se\left(p_{sy}\right)=\ \sqrt{\ 0.0017}=0.0416$
+
+The confidence limit for $P$ is  $p_{sy}\pm1.96\ast se(p_{sy})$
+
+$$0.1905\pm2\ast0.0416$$
+The C.I is $[0.10730, 0.2737]$
+
+::: {.exercise}
+Solve **Example 6.4** by R and compare the answers to textbook:
+:::
+```{r}
+y=c(5.614,8.202,6.115,9.765,8.550,9.225,6.640,7.350,5.843, 6.875,8.460,10.850,6.970,5.524,7.847)
+n=length(y)
+N=162
+sum(y)
+ybar=mean(y)
+ybar
+ytotal=N*ybar
+ytotal
+#  compute the variance of the sample mean
+i = 1:(n-1 )
+X=  sum((y[i+1]- y[i])^2)
+X
+var_sysmean= ((N-n)/(2*N*n*(n-1)))*X
+var_sysmean
+#  compute the variance of sample total 
+ytotal_var=N^2*var_sysmean
+ytotal_var
+sd= sqrt(var_sysmean)
+sd
+#CI for sample total
+CIL=N*(ybar-(2*sd))
+CIL
+CIU=N*(ybar+(2*sd))
+CIU
+```
+

@@ -101,9 +101,10 @@ n = length(Y) ; ybar = mean(Y) ; Ytotal = N*ybar ; N=175
 (CIU = N*(ybar+2*sd))
 ```
 
-::: {. exercise}
-It is desired to estimate the average per day rent for single occupancy rooms in well known hotels of a state. In all, there are 192 such hotels in the state and these are listed in a book entitled "A Guide to Visitors". The investigator selected a l-in-8 sample of hotels and rang up the managers of sampled hotels. The information on rent (in rupees) so obtained is given below:
-::
+::: {.exercise}
+It is desired to estimate the average per day rent for single occupancy rooms in well known hotels of a state. In all, there are 192 such hotels in the state and these are listed in a book entitled "A Guide to Visitors". The investigator selected a l-in-8 sample of hotels and rang up the managers of sampled hotels.
+:::
+The information on rent (in rupees) so obtained is given below:
 
 
 
@@ -129,6 +130,109 @@ $\bar{y}_{sys}\pm2\ast\sqrt{V\left({\bar{y}}_{sys}\right)} = [\ 102.4249,\ 117.5
 
 ```{r}
 y = c(100, 120, 125, 115, 110,  80, 130, 120, 90, 110, 125,  80,  70, 125, 130, 105, 125,  85,  90, 105, 130,  95, 135, 140)
+sum(y)
+n= length(y)
+N= 192
+(k = N/n)
+#  Compute sample mean 
+(ybar = mean(y))
+# Compute the variance of the sample mean 
+X = sum((y-mean(y))^2)
+(var_sysmean = ((N-n)/(N*n*(n-1)))*X)
+(sd = sqrt(var_sysmean))
+# CI for sample mean 
+(CIL = ybar - 2*sd)
+(CIU = ybar + 2*sd)
 ```
+
+::: {.exercise}
+Assume the data that we have from 100 observations as follows
+:::
+```{r}
+set.seed(111)
+y = sample(1:40,100,replace=TRUE)
+```
+
+and consider the simple random sampling without replacement (SRS) with $n=20$.
+
+
+Compute 
+\
+	1. the population mean and variance.
+\
+	2. Perform all 1-in-5 systematic samples (LS).
+\
+	3. Compute their means.
+\
+	4. Compute their variances.
+\
+	5. Compute all systematic sample mean.
+\
+	6. Verify that systemic mean is unbiased estimator of the population mean.
+\
+	7. Compute the variance of the systematic sample mean $Var({\bar{y}}_{sys})$
+\
+	8. Compute the variance of the SRS mean $Var(\bar{y})$ with $n=20$. 
+\
+	9. Find the relative efficiency of the variance of the simple random mean, $Var(\bar{y})$, and 
+the variance of the systematic mean,$ Var\left({\bar{y}}_{sys}\right)$.
+\
+**Solution**
+
+1. The population mean is $\bar{Y}=20.69$, the population variance is $V({\bar{y}}_{sys})= 120.9635$
+\
+2. The population size N=100,  and sampling interval $k=5$. We use linear systematic sampling for the selection. Let the random number $r$ selected from $1$ to $k(=5)$. Each sample has a size of $(n=20)$.
+\
+3. The systematic means for all samples are 
+$$20.25,\ 22.55,\ 20.80,\ 18.10,\ 21.75$$
+4. The variances of the sample means are 
+           $$158.7237\ ,93.1026,\ 119.8526,\ 115.8842,\ 130.6184$$
+\
+5. The all systematic sample mean ${\bar{y}}_{sys}=\dfrac{1}{5}~ \sum_{r=1}^{k}{\bar{y}}_r= \dfrac{1}{5}~(20.25+\ldots+\ 21.75)=\ 20.69$
+6. From answer 5, the all systematic sample mean is equal to the population mean, therefore it’s unbiased estimator. 
+\
+7. The estimate of variance is  $V({\bar{y}}_{sys})= 2.2994$ 
+\
+8. For simple random sampling without replacement with $n=20$ and $ Var\left(\bar{y}\right)=4.8385$ 
+\
+9. The relative efficiency of the variance of the simple random mean, $Var(\bar{y})$, and  the variance of the systematic mean, $Var\left({\bar{y}}_{sys}\right) =  210.4263$ which it shows that the systematic sampling estimator ${\bar{y}}_{sys}$ for the given population, is $21.0426$  times more efficient than the one based on SRS
+\
+*That can be computed using the following pieces of code*
+
+
+```{r}
+set.seed(111)
+y = sample(1:40,100,replace=TRUE)
+# Compute the population mean 
+(ybar = mean(y))
+# Compute the population variance
+(yvar = var(y))
+# perform all 1-in-5 systematic samples 
+k = 5
+n = 20
+N = 100
+sys_samples = matrix(0,n,k)
+for(i in 1:k){
+  sys_samples[,i] = y[seq(i,N,k)]
+}
+print(sys_samples)
+sys_mean = apply(sys_samples,2,mean)
+sys_mean
+# Compare their mean to the population mean
+mean(sys_mean)
+# which proves that systemic mean is unbiased estimator of the population mean.
+# Compute the variance of the systematic sample mean 
+var_sys_mean = var(sys_mean)*((k-1)/k)
+var_sys_mean
+# Compute the variances of the systematic samples 
+sys_var = apply(sys_samples,2,var)
+mean(sys_var)
+# Compute the variance of the SRS mean V(ybar)
+S = sd(y)
+(varSRS= (N-n)/(N*n)*S^2)
+# The relative efficiency of the variance of the simple random mean
+varSRS/var_sys_mean*100
+```
+
 
 
