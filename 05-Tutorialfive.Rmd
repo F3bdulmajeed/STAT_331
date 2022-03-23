@@ -1,4 +1,5 @@
 # 5th Tutorial
+
 ::: {.exercise}
 The number of colleges in 12 districts of a state are 8, 10, 6, 7, 7, 9, 11, 5, 6, 8, 9, and 11. List all possible samples of size 3 that can be selected from this population of 12 units using LS and CS sampling. Also, determine the average of corresponding sample means in both the cases. Are the two averages equal to the population mean? If yes, what does it indicate about the bias in the two estimators?
 :::
@@ -14,8 +15,8 @@ knitr::kable(DF51,col.names =c("Random start (r)",	"Serial",	"y values",	"Sample
 ```
 
 
-The average of the sample means is $E({\bar{y}}_{sys})=\ \sum_{r=1}^{k}{\bar{y}}_r=7+9+8.67+7.67=8.08$
-Population mean is $\bar{Y}=\sum_{i=1}^{N}{Y_i=}8+10+……+11= 8.08$
+The average of the sample means is $E({\bar{y}}_{sys})=\dfrac{1}{k} \sum_{r=1}^{k}{\bar{y}}_r=\dfrac{1}{4}(7+9+8.67+7.67)=8.08$
+Population mean is $\bar{Y}=\dfrac{1}{N}\sum_{i=1}^{N}{Y_i}=\dfrac{1}{12}(8+10+……+11)= 8.08$
 The average of the sample means is equal to the population mean, so it’s unbiased estimator.
 The R codes for LS is going to be in the next page.
 
@@ -27,8 +28,8 @@ knitr::kable(DF51,col.names =c("Random start (r)",	"Serial",	"y values",	"Sample
 
 ```
 
-The average of the sample means is $E({\bar{y}}_{sys})=\ \sum_{r=1}^{k}{\bar{y}}_r=7+9+8.67+7.67+….+7.67=8.08$
-Population mean is $\bar{Y}=\sum_{i=1}^{N}{Y_i=}8+10+……+11= 8.08$
+The average of the sample means is $E({\bar{y}}_{sys})=\dfrac{1}{N}~ \sum_{r=1}^{k}{\bar{y}}_r=\dfrac{1}{12}(7+9+8.67+7.67+….+7.67)=8.08$
+Population mean is $\bar{Y}=\dfrac{1}{N}\sum_{i=1}^{N}{Y_i}=\dfrac{1}{N}(8+10+……+11)= 8.08$
 The average of the sample means is equal to the population mean, so it’s unbiased estimator.
 ```{r}
 y = c(8, 10, 6, 7, 7, 9, 11, 5, 6, 8, 9,  11)
@@ -76,14 +77,16 @@ Estimate the total number of uprooted trees, and also determine the confidence i
 
 The population size $N=175$,  and sampling interval $k=7$. They use linear systematic sampling for the selection. Let the random number $r$ selected from $1$ to $k(=7)$ be $6$.
 
-The sample mean is $\bar{y}_{sys}=\sum_{i=1}^{n}{y_i=}4+\ldots\ldots+15=\ 11.2$
+The sample mean is $\bar{y}_{sys}=\dfrac{1}{7}~\sum_{i=1}^{n}{y_i}=\dfrac{1}{7}(4+\ldots+15)= 11.2$
 
 The estimate of total number of uprooted trees is $y^\prime_{sys}=N\times~{\bar{y}}_{sys} =1960$.
-The estimate of variance from equation (6.4) is  $V({\bar{y}}_{sys})= 0.9207$
+The estimate of variance from the equation  
+$$v(\bar{y}_{sys})=\dfrac{N-n}{2Nn(n-1)} \sum_{i=1}^{n-1}(y_{i+1}-y_{i})^2=0.9207$$
+
 Then estimate of variance $V\left(\ {y^\prime}_{sys}\right)\ =N^2\times0.9207=281966.88$
 Using the estimate for total number of uprooted trees and the estimate of its variance, we now calculate the confidence interval for population total
 
-$$ N\ast{\bar{y}}_{sys}\pm2\ast\sqrt{V\left({\bar{y}}_{sys}\right)}\ast N=
+$$ N\times{\bar{y}}_{sys}\pm2\times\sqrt{V\left({\bar{y}}_{sys}\right)}\times N=
 [\ 1624.161,\ 2295.839\ ]$$
 ```{r}
 Y = c(4,17,11,6,8,16,21,13,3,8,5,13,9,16,17,9,23,12  ,8,17,6,5,8,10,15)
@@ -120,9 +123,9 @@ Estimate the average per day rent along with the confidence limits for it.
 \
 The population size $N=192$,  and sampling interval $k=8$. They use linear systematic sampling for the selection. 
 
-The estimate of the average per day is the sample mean which is $\bar{y}_{sys}=\sum_{i=1}^{n}{y_i=}100+\ldots\ldots+140=\ 110$
+The estimate of the average per day is the sample mean which is $\bar{y}_{sys}=\dfrac{1}{24}\sum_{i=1}^{n}{y_i}=\dfrac{1}{24}(100+\ldots+140)= 110$
 
-The estimate of variance for random population is  $V({\bar{y}}_{sys})= 14.34556$
+The estimate of variance for random population is  $$V({\bar{y}}_{sys})=\dfrac{N-n}{Nn(n-1)} \sum_{i=1}^{n}(y_{i}-\bar{y})^2= 14.34556$$
 
 Using the estimate of the average per day and the estimate of its variance, we now calculate the confidence interval for population total
 

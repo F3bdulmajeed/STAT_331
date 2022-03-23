@@ -54,8 +54,7 @@ ybar
 ytotal=N*ybar
 ytotal
 #  compute the variance of the sample mean
-i = 1:(n-1 )
-X=  sum((y[i+1]- y[i])^2)
+X=  sum(diff(y)^2)
 X
 var_sysmean= ((N-n)/(2*N*n*(n-1)))*X
 var_sysmean
@@ -69,5 +68,6 @@ CIL=N*(ybar-(2*sd))
 CIL
 CIU=N*(ybar+(2*sd))
 CIU
+
 ```
 

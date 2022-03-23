@@ -200,8 +200,8 @@ Linear systematic sampling:</p>
 </tr>
 </tbody>
 </table>
-<p>The average of the sample means is <span class="math inline">\(E({\bar{y}}_{sys})=\ \sum_{r=1}^{k}{\bar{y}}_r=7+9+8.67+7.67=8.08\)</span>
-Population mean is <span class="math inline">\(\bar{Y}=\sum_{i=1}^{N}{Y_i=}8+10+……+11= 8.08\)</span>
+<p>The average of the sample means is <span class="math inline">\(E({\bar{y}}_{sys})=\dfrac{1}{k} \sum_{r=1}^{k}{\bar{y}}_r=\dfrac{1}{4}(7+9+8.67+7.67)=8.08\)</span>
+Population mean is <span class="math inline">\(\bar{Y}=\dfrac{1}{N}\sum_{i=1}^{N}{Y_i}=\dfrac{1}{12}(8+10+……+11)= 8.08\)</span>
 The average of the sample means is equal to the population mean, so it’s unbiased estimator.
 The R codes for LS is going to be in the next page.</p>
 <p>For Circular systematic sampling:</p>
@@ -289,8 +289,8 @@ The R codes for LS is going to be in the next page.</p>
 </tr>
 </tbody>
 </table>
-<p>The average of the sample means is <span class="math inline">\(E({\bar{y}}_{sys})=\ \sum_{r=1}^{k}{\bar{y}}_r=7+9+8.67+7.67+….+7.67=8.08\)</span>
-Population mean is <span class="math inline">\(\bar{Y}=\sum_{i=1}^{N}{Y_i=}8+10+……+11= 8.08\)</span>
+<p>The average of the sample means is <span class="math inline">\(E({\bar{y}}_{sys})=\dfrac{1}{N}~ \sum_{r=1}^{k}{\bar{y}}_r=\dfrac{1}{12}(7+9+8.67+7.67+….+7.67)=8.08\)</span>
+Population mean is <span class="math inline">\(\bar{Y}=\dfrac{1}{N}\sum_{i=1}^{N}{Y_i}=\dfrac{1}{N}(8+10+……+11)= 8.08\)</span>
 The average of the sample means is equal to the population mean, so it’s unbiased estimator.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="th-tutorial-1.html#cb1-1"></a>y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">9</span>,  <span class="dv">11</span>)</span>
 <span id="cb1-2"><a href="th-tutorial-1.html#cb1-2"></a><span class="co"># Compute the population mean and variance</span></span>
@@ -421,12 +421,13 @@ The average of the sample means is equal to the population mean, so it’s unbia
 <p>Estimate the total number of uprooted trees, and also determine the confidence interval for it.<br />
 <strong>Solution</strong></p>
 <p>The population size <span class="math inline">\(N=175\)</span>, and sampling interval <span class="math inline">\(k=7\)</span>. They use linear systematic sampling for the selection. Let the random number <span class="math inline">\(r\)</span> selected from <span class="math inline">\(1\)</span> to <span class="math inline">\(k(=7)\)</span> be <span class="math inline">\(6\)</span>.</p>
-<p>The sample mean is <span class="math inline">\(\bar{y}_{sys}=\sum_{i=1}^{n}{y_i=}4+\ldots\ldots+15=\ 11.2\)</span></p>
+<p>The sample mean is <span class="math inline">\(\bar{y}_{sys}=\dfrac{1}{7}~\sum_{i=1}^{n}{y_i}=\dfrac{1}{7}(4+\ldots+15)= 11.2\)</span></p>
 <p>The estimate of total number of uprooted trees is <span class="math inline">\(y^\prime_{sys}=N\times~{\bar{y}}_{sys} =1960\)</span>.
-The estimate of variance from equation (6.4) is <span class="math inline">\(V({\bar{y}}_{sys})= 0.9207\)</span>
-Then estimate of variance <span class="math inline">\(V\left(\ {y^\prime}_{sys}\right)\ =N^2\times0.9207=281966.88\)</span>
+The estimate of variance from the equation<br />
+<span class="math display">\[v(\bar{y}_{sys})=\dfrac{N-n}{2Nn(n-1)} \sum_{i=1}^{n-1}(y_{i+1}-y_{i})^2=0.9207\]</span></p>
+<p>Then estimate of variance <span class="math inline">\(V\left(\ {y^\prime}_{sys}\right)\ =N^2\times0.9207=281966.88\)</span>
 Using the estimate for total number of uprooted trees and the estimate of its variance, we now calculate the confidence interval for population total</p>
-<p><span class="math display">\[ N\ast{\bar{y}}_{sys}\pm2\ast\sqrt{V\left({\bar{y}}_{sys}\right)}\ast N=
+<p><span class="math display">\[ N\times{\bar{y}}_{sys}\pm2\times\sqrt{V\left({\bar{y}}_{sys}\right)}\times N=
 [\ 1624.161,\ 2295.839\ ]\]</span></p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="th-tutorial-1.html#cb21-1"></a>Y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">17</span>,<span class="dv">11</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">16</span>,<span class="dv">21</span>,<span class="dv">13</span>,<span class="dv">3</span>,<span class="dv">8</span>,<span class="dv">5</span>,<span class="dv">13</span>,<span class="dv">9</span>,<span class="dv">16</span>,<span class="dv">17</span>,<span class="dv">9</span>,<span class="dv">23</span>,<span class="dv">12</span>  ,<span class="dv">8</span>,<span class="dv">17</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">10</span>,<span class="dv">15</span>)</span>
 <span id="cb21-2"><a href="th-tutorial-1.html#cb21-2"></a></span>
@@ -531,8 +532,8 @@ Using the estimate for total number of uprooted trees and the estimate of its va
 <p>Estimate the average per day rent along with the confidence limits for it.<br />
 <strong>Solution</strong><br />
 The population size <span class="math inline">\(N=192\)</span>, and sampling interval <span class="math inline">\(k=8\)</span>. They use linear systematic sampling for the selection.</p>
-<p>The estimate of the average per day is the sample mean which is <span class="math inline">\(\bar{y}_{sys}=\sum_{i=1}^{n}{y_i=}100+\ldots\ldots+140=\ 110\)</span></p>
-<p>The estimate of variance for random population is <span class="math inline">\(V({\bar{y}}_{sys})= 14.34556\)</span></p>
+<p>The estimate of the average per day is the sample mean which is <span class="math inline">\(\bar{y}_{sys}=\dfrac{1}{24}\sum_{i=1}^{n}{y_i}=\dfrac{1}{24}(100+\ldots+140)= 110\)</span></p>
+<p>The estimate of variance for random population is <span class="math display">\[V({\bar{y}}_{sys})=\dfrac{N-n}{Nn(n-1)} \sum_{i=1}^{n}(y_{i}-\bar{y})^2= 14.34556\]</span></p>
 <p>Using the estimate of the average per day and the estimate of its variance, we now calculate the confidence interval for population total</p>
 <p><span class="math inline">\(\bar{y}_{sys}\pm2\ast\sqrt{V\left({\bar{y}}_{sys}\right)} = [\ 102.4249,\ 117.5751\ ]\)</span></p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="th-tutorial-1.html#cb33-1"></a>y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">120</span>, <span class="dv">125</span>, <span class="dv">115</span>, <span class="dv">110</span>,  <span class="dv">80</span>, <span class="dv">130</span>, <span class="dv">120</span>, <span class="dv">90</span>, <span class="dv">110</span>, <span class="dv">125</span>,  <span class="dv">80</span>,  <span class="dv">70</span>, <span class="dv">125</span>, <span class="dv">130</span>, <span class="dv">105</span>, <span class="dv">125</span>,  <span class="dv">85</span>,  <span class="dv">90</span>, <span class="dv">105</span>, <span class="dv">130</span>,  <span class="dv">95</span>, <span class="dv">135</span>, <span class="dv">140</span>)</span>
