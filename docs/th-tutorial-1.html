@@ -202,8 +202,7 @@ Linear systematic sampling:</p>
 </table>
 <p>The average of the sample means is <span class="math inline">\(E({\bar{y}}_{sys})=\dfrac{1}{k} \sum_{r=1}^{k}{\bar{y}}_r=\dfrac{1}{4}(7+9+8.67+7.67)=8.08\)</span>
 Population mean is <span class="math inline">\(\bar{Y}=\dfrac{1}{N}\sum_{i=1}^{N}{Y_i}=\dfrac{1}{12}(8+10+……+11)= 8.08\)</span>
-The average of the sample means is equal to the population mean, so it’s unbiased estimator.
-The R codes for LS is going to be in the next page.</p>
+The average of the sample means is equal to the population mean, so it’s unbiased estimator.</p>
 <p>For Circular systematic sampling:</p>
 <table>
 <thead>
@@ -291,7 +290,8 @@ The R codes for LS is going to be in the next page.</p>
 </table>
 <p>The average of the sample means is <span class="math inline">\(E({\bar{y}}_{sys})=\dfrac{1}{N}~ \sum_{r=1}^{k}{\bar{y}}_r=\dfrac{1}{12}(7+9+8.67+7.67+….+7.67)=8.08\)</span>
 Population mean is <span class="math inline">\(\bar{Y}=\dfrac{1}{N}\sum_{i=1}^{N}{Y_i}=\dfrac{1}{N}(8+10+……+11)= 8.08\)</span>
-The average of the sample means is equal to the population mean, so it’s unbiased estimator.</p>
+The average of the sample means is equal to the population mean, so it’s unbiased estimator.<br />
+The R codes for LS.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="th-tutorial-1.html#cb1-1"></a>y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">9</span>,  <span class="dv">11</span>)</span>
 <span id="cb1-2"><a href="th-tutorial-1.html#cb1-2"></a><span class="co"># Compute the population mean and variance</span></span>
 <span id="cb1-3"><a href="th-tutorial-1.html#cb1-3"></a>(<span class="dt">ybar=</span><span class="kw">mean</span>(y))</span></code></pre></div>
@@ -573,7 +573,7 @@ The population size <span class="math inline">\(N=192\)</span>, and sampling int
 7. Compute the variance of the systematic sample mean <span class="math inline">\(Var({\bar{y}}_{sys})\)</span><br />
 8. Compute the variance of the SRS mean <span class="math inline">\(Var(\bar{y})\)</span> with <span class="math inline">\(n=20\)</span>.<br />
 9. Find the relative efficiency of the variance of the simple random mean, <span class="math inline">\(Var(\bar{y})\)</span>, and
-the variance of the systematic mean,$ Var({{y}}_{sys})$.<br />
+the variance of the systematic mean,$ Var({y}_{sys})$.<br />
 <strong>Solution</strong></p>
 <ol style="list-style-type: decimal">
 <li>The population mean is <span class="math inline">\(\bar{Y}=20.69\)</span>, the population variance is <span class="math inline">\(V({\bar{y}}_{sys})= 120.9635\)</span><br />
@@ -592,7 +592,7 @@ the variance of the systematic mean,$ Var({{y}}_{sys})$.<br />
 </li>
 <li>For simple random sampling without replacement with <span class="math inline">\(n=20\)</span> and $ Var({y})=4.8385$<br />
 </li>
-<li>The relative efficiency of the variance of the simple random mean, <span class="math inline">\(Var(\bar{y})\)</span>, and the variance of the systematic mean, <span class="math inline">\(Var\left({\bar{y}}_{sys}\right) = 210.4263\)</span> which it shows that the systematic sampling estimator <span class="math inline">\({\bar{y}}_{sys}\)</span> for the given population, is <span class="math inline">\(21.0426\)</span> times more efficient than the one based on SRS<br />
+<li>The relative efficiency of the variance of the simple random mean, <span class="math inline">\(Var(\bar{y})\)</span>, and the variance of the systematic mean, <span class="math inline">\(Var(\bar{y}_{sys}) = 210.4263\)</span> which it shows that the systematic sampling estimator <span class="math inline">\({\bar{y}}_{sys}\)</span> for the given population, is <span class="math inline">\(21.0426\)</span> times more efficient than the one based on SRS<br />
 <em>That can be computed using the following pieces of code</em></li>
 </ol>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="th-tutorial-1.html#cb48-1"></a><span class="kw">set.seed</span>(<span class="dv">111</span>)</span>

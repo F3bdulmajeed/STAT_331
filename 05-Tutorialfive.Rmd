@@ -18,7 +18,6 @@ knitr::kable(DF51,col.names =c("Random start (r)",	"Serial",	"y values",	"Sample
 The average of the sample means is $E({\bar{y}}_{sys})=\dfrac{1}{k} \sum_{r=1}^{k}{\bar{y}}_r=\dfrac{1}{4}(7+9+8.67+7.67)=8.08$
 Population mean is $\bar{Y}=\dfrac{1}{N}\sum_{i=1}^{N}{Y_i}=\dfrac{1}{12}(8+10+……+11)= 8.08$
 The average of the sample means is equal to the population mean, so it’s unbiased estimator.
-The R codes for LS is going to be in the next page.
 
 For Circular systematic sampling:
 
@@ -31,6 +30,8 @@ knitr::kable(DF51,col.names =c("Random start (r)",	"Serial",	"y values",	"Sample
 The average of the sample means is $E({\bar{y}}_{sys})=\dfrac{1}{N}~ \sum_{r=1}^{k}{\bar{y}}_r=\dfrac{1}{12}(7+9+8.67+7.67+….+7.67)=8.08$
 Population mean is $\bar{Y}=\dfrac{1}{N}\sum_{i=1}^{N}{Y_i}=\dfrac{1}{N}(8+10+……+11)= 8.08$
 The average of the sample means is equal to the population mean, so it’s unbiased estimator.
+\
+The R codes for LS.
 ```{r}
 y = c(8, 10, 6, 7, 7, 9, 11, 5, 6, 8, 9,  11)
 # Compute the population mean and variance
@@ -178,7 +179,7 @@ Compute
 	8. Compute the variance of the SRS mean $Var(\bar{y})$ with $n=20$. 
 \
 	9. Find the relative efficiency of the variance of the simple random mean, $Var(\bar{y})$, and 
-the variance of the systematic mean,$ Var\left({\bar{y}}_{sys}\right)$.
+the variance of the systematic mean,$Var(\bar{y}_{sys})$.
 \
 **Solution**
 
@@ -198,7 +199,7 @@ $$20.25,\ 22.55,\ 20.80,\ 18.10,\ 21.75$$
 \
 8. For simple random sampling without replacement with $n=20$ and $ Var\left(\bar{y}\right)=4.8385$ 
 \
-9. The relative efficiency of the variance of the simple random mean, $Var(\bar{y})$, and  the variance of the systematic mean, $Var\left({\bar{y}}_{sys}\right) =  210.4263$ which it shows that the systematic sampling estimator ${\bar{y}}_{sys}$ for the given population, is $21.0426$  times more efficient than the one based on SRS
+9. The relative efficiency of the variance of the simple random mean, $Var(\bar{y})=$, and  the variance of the systematic mean, $Var(\bar{y}_{sys}) =  210.4263$ which it shows that the systematic sampling estimator ${\bar{y}}_{sys}$ for the given population, is $210.426$  times more efficient than the one based on SRS
 \
 *That can be computed using the following pieces of code*
 

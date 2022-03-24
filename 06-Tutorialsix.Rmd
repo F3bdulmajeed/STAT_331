@@ -15,8 +15,9 @@ N = 192
 K = N/n
 # Compute the sample mean
 (ybar = mean(y))
-# Compute the variance of the sample mean 
+# Compute the variance of the sample  
 X = var(y)
+X
 
 ```
 
