@@ -1,0 +1,166 @@
+ 
+# 7th Tutorial 
+
+::: {.exercise}
+
+An assignment was given to four students attending a sample survey course. The problem was to estimate the average time per week devoted to study in Punjab Agricultural University (PAU) library by the students of this university. The university is running undergraduate, master's degree and doctoral programs. Number of students registered for the three programs is $1300,450$, and $250$ respectively. Since the value of the study variable is likely to differ considerably with the program, the investigator divided the population of students into 3 strata: undergraduate program (stratum I), master's program (stratum II), and doctoral program (stratum III). First of the four students selected WOR simple random samples of sizes $20,10$ , and $12$ students from strata I, II, and ill respectively, so that, the total sample is of size $42$. The information about weekly time devoted in library is given in the csv file [here](https://ksusa-my.sharepoint.com/:x:/g/personal/aalharbi10_ksu_edu_sa/EcF3T9tm89hGqJGQB74X-L8ByMkKY3Ia6GAiKFVQy3DA4w)
+:::
+
+```{r}
+LBhour = read.csv("LBhour.csv", header = TRUE)
+stratum1 = LBhour$HOUR[LBhour$PROGRAM==1]
+stratum1
+stratum2 = LBhour$HOUR[LBhour$PROGRAM==2]
+stratum2
+stratum3 = LBhour$HOUR[LBhour$PROGRAM==3]
+stratum3
+
+
+
+(n1 = length(stratum1))
+(n2 = length(stratum2))
+(n3 = length(stratum3))
+(ybar1 = mean(stratum1))
+(ybar2 = mean(stratum2))
+(ybar3 = mean(stratum3))
+(yvar1 = var(stratum1))
+(yvar2 = var(stratum2))
+(yvar3 = var(stratum3))
+
+N1 = 1300
+N2 = 450
+N3 = 250
+N = N1 +N2 + N3
+N
+#determine an estimate of the population mean by stratified sample
+W1=N1/N; W2=N2/N ; W3=N3/N 
+W1; W2; W3
+
+str_mean=(W1*ybar1+W2*ybar2+W3*ybar3)
+str_mean
+
+#Variance of sample mean = sum(((1-fh)/nh)*(Wh^2*Vh^2), fh=nh/Nh
+
+var_str=((W1)^2)*((N1-n1)/N1)*(yvar1/n1)+((W2)^2)*((N2-n2)/N2)*(yvar2/n2)+((W3)^2)*((N3-n3)/N3)*(yvar3/n3)
+
+var_str
+
+CIU=str_mean+2*(sqrt(var_str))
+CIU
+CIL=str_mean-2*(sqrt(var_str))
+CIL
+#estimation for total and its variance
+t_hat=N*str_mean
+t_hat
+Var_t=(N^2)*var_str
+Var_t
+#95% CI for  total estimation
+CI_totU=t_hat+2*sqrt(Var_t)
+CI_totU
+CI_totL=t_hat+2*sqrt(Var_t)
+CI_totL
+
+```
+
+
+
+::: {.exercise}
+
+An insurance company's records show that out of the total of $500$ claims, 280 are major claims (from Rs $1000$ to Rs $2500$) and $220$ are minor (below Rs $1000$). A WOR simple random sample of $10$ claims was drawn from each category (stratum), and claim amounts were recorded as :
+
+::: 
+
+
+```{r, echo=FALSE}
+Stratum1 = c(1200, 1600, 1800, 1400, 1980, 2110, 2440, 1660, 1790, 1910)
+Stratum2 =  c(
+720,
+880,
+760,
+660,
+790,
+840,
+550,
+960, 
+640,
+800)
+DStratum12 = data.frame(Stratum1,Stratum2)
+
+knitr::kable(t(DStratum12), raw.names = c("Stratum1", "Stratum2"), align = "lccrr")
+```
+
+
+Estimate the total amount of all the $500$ claims, and construct the confidence interval for it.
+
+![](exc7.2.png)
+
+
+$${\bar{y}}_h=\frac{\sum_{i=1}^{n}y_{hi}}{n_h}; ~~~~\ \ s_h^2=\frac{\sum_{i=1}^{n}\left(y_{hi}-{\bar{y}}_{hi}\right)^2}{n_h-1}\ ; ~~~~\ \ W_h=\frac{N_h}{N}\ ;~~~~\ N=N_1+N_2=500\ $$
+
+**The estimate of average amount of claims is**
+$\ \ {\bar{y}}_{str}=W_1{\bar{y}}_1+W_2{\bar{y}}_2=1336.24$
+\
+Also, the variance of the mean is
+$$v\left({\bar{y}}_{str}\right)=\sum_{h=1}^{L}W_h^2\ \frac{s_h^2}{n_h}\frac{N_h-n_h}{N_h}=4066.313$$
+we obtain the limits of confidence interval as
+
+$${\bar{y}}_{str}\pm Z_{1-\propto/2}\ \sqrt{v\left({\bar{y}}_{str}\right)}   ; Z_{1-\propto/2}\approx2$$
+$$1336.24\pm2\ \sqrt{4066.313} $$
+$$  [1208.705,\ 1463.775\ ]$$
+We are $95\%$ confidence that the average amount of claims is between  $[1208.705, 1463.775]$
+\
+**Note**: Multiply these limits by $N$ to obtain the limits for the population total (T). OR
+$${y\prime}_{str}=N \times {\bar{y}}_{str}=500\times 1336.24=668120$$
+Estimator of the variance of population total are obtained by
+$$ v(y^\prime_{str})=N^2\times v({\bar{y}_{str}})=\left(500\right)^2\left(4066.313\right)=1016578267$$
+\
+$95\%$ CI for total estimation 
+$${y\prime}_{str}\ \ \pm Z_{1-\propto/2}\ \sqrt{v\left({y\prime}_{str}\right)}$$
+
+$$668120\pm2\ \sqrt{1016578267\ }$$
+$$= [604352.4\ \ ,\ 731887.6]$$
+Code:
+
+```{r}
+y1=c(1200,1600,1800,1400,1980,2110,2440,1660,1790,1910)
+n1=length(y1)
+n1
+y1_bar=mean(y1)
+y1_bar
+v1=var(y1)
+v1
+y2=c(720,880,760,660,790,840,550,960,640,800)
+n2=length(y2)
+n2
+y2_bar=mean(y2)
+y2_bar
+v2=var(y2)
+v2
+N1=280
+N2=220
+N=N1+N2
+N
+#determine an estimate of the population mean by stratified sample
+W1=N1/N; W2=N2/N 
+W1; W2
+str_mean=(W1*y1_bar+W2*y2_bar)
+str_mean
+#Variance of sample mean =sum(((1-fh)/nh)*(Wh^2*Vh^2), fh=nh/Nh
+var_str=((W1)^2)*((N1-n1)/N1)*(v1/n1)+((W2)^2)*((N2-n2)/N2)*(v2/n2)
+var_str
+CIU=str_mean+2*(sqrt(var_str))
+CIU
+CIL=str_mean-2*(sqrt(var_str))
+CIL
+#estimation for total and its variance
+t_hat=N*str_mean
+t_hat
+Var_t=(N^2)*var_str
+Var_t
+#95%CI for  total estimation
+CI_totU=t_hat+2*sqrt(Var_t)
+CI_totU
+CI_totL=t_hat-2*sqrt(Var_t)
+CI_totL
+```
+
