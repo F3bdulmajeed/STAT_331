@@ -137,3 +137,50 @@ to each stratum and the number of literate persons recorded in sample of size $n
 Compute the estimate of proportion of literate persons in the town, and construct confidence interval for it.
 
 ![](exc9.2.1.png)
+
+
+$N=N_1+N_2=50000$
+The estimate of the required overall population proportion is
+$$p_{str}=\sum_{h=1}^{L}w_h p_h   =w_1 p_1+w_2 p_2+w_3 p_3$$
+
+$$=(0.512)(0.9492)+(0.362)(0.7956)+(0.126)(0.4921)= 0.8360$$
+The estimate of variance is 
+$$v(p_{str})=\sum_{h=1}^{L}w_{h}^{2}  \frac{p_h q_h}{n_h-1}  \frac{N_h-n_h}{N_h}  =4.0414$$
+The confidence interval for population proportion is
+
+$$p_{str} \pm Z_{1-∝/2} \times se(p_str)$$
+$$ [0.8057 ,0.8663 ] $$
+
+To summarize, the sample estimate of proportion indicates that about 83.6 percent is literate with CI between 
+$[0.8057 ,0.8663 ]$
+
+```{r}
+N1=25600
+N2=18100
+N3=6300
+N=N1+N2+N3
+n1=256
+x1=243
+(W1=N1/N)
+(p1=x1/n1)
+(q1=1-p1)
+
+n2=181
+x2=144
+(W2=N2/N)
+(p2=x2/n2)
+(q2=1-p2)
+n3=63
+x3=31
+(W3=N3/N)
+(p3=x3/n3)
+(q3=1-p3)
+str_mean_prop=W1*p1+W2*p2+W3*p3
+str_mean_prop
+
+Var_str_prop=((W1^2)*(N1-n1)*p1*q1/(N1*(n1-1))+((W2^2)*((N2-n2)*p2*q2/N2*(n2-1)))
++ +((W3^2)*((N3-n3)*p3*q3/N3*(n3-1))))
+Var_str_prop
+
+```
+
