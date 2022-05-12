@@ -161,79 +161,79 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="th-tutorial-3" class="section level1">
 <h1><span class="header-section-number">7</span> 7th Tutorial</h1>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-1" class="exercise"><strong>Exercise 7.1  </strong></span>An assignment was given to four students attending a sample survey course. The problem was to estimate the average time per week devoted to study in Punjab Agricultural University (PAU) library by the students of this university. The university is running undergraduate, master’s degree and doctoral programs. Number of students registered for the three programs is <span class="math inline">\(1300,450\)</span>, and <span class="math inline">\(250\)</span> respectively. Since the value of the study variable is likely to differ considerably with the program, the investigator divided the population of students into 3 strata: undergraduate program (stratum I), master’s program (stratum II), and doctoral program (stratum III). First of the four students selected WOR simple random samples of sizes <span class="math inline">\(20,10\)</span> , and <span class="math inline">\(12\)</span> students from strata I, II, and ill respectively, so that, the total sample is of size <span class="math inline">\(42\)</span>. The information about weekly time devoted in library is given in the csv file <a href="https://ksusa-my.sharepoint.com/:x:/g/personal/aalharbi10_ksu_edu_sa/EcF3T9tm89hGqJGQB74X-L8ByMkKY3Ia6GAiKFVQy3DA4w">here</a></p>
+<p><span id="exr:unlabeled-div-23" class="exercise"><strong>Exercise 7.1  </strong></span>An assignment was given to four students attending a sample survey course. The problem was to estimate the average time per week devoted to study in Punjab Agricultural University (PAU) library by the students of this university. The university is running undergraduate, master’s degree and doctoral programs. Number of students registered for the three programs is <span class="math inline">\(1300,450\)</span>, and <span class="math inline">\(250\)</span> respectively. Since the value of the study variable is likely to differ considerably with the program, the investigator divided the population of students into 3 strata: undergraduate program (stratum I), master’s program (stratum II), and doctoral program (stratum III). First of the four students selected WOR simple random samples of sizes <span class="math inline">\(20,10\)</span> , and <span class="math inline">\(12\)</span> students from strata I, II, and ill respectively, so that, the total sample is of size <span class="math inline">\(42\)</span>. The information about weekly time devoted in library is given in the csv file <a href="https://ksusa-my.sharepoint.com/:x:/g/personal/aalharbi10_ksu_edu_sa/EcF3T9tm89hGqJGQB74X-L8ByMkKY3Ia6GAiKFVQy3DA4w">here</a></p>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="th-tutorial-3.html#cb1-1"></a>LBhour =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;LBhour.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb1-2"><a href="th-tutorial-3.html#cb1-2"></a>stratum1 =<span class="st"> </span>LBhour<span class="op">$</span>HOUR[LBhour<span class="op">$</span>PROGRAM<span class="op">==</span><span class="dv">1</span>]</span>
-<span id="cb1-3"><a href="th-tutorial-3.html#cb1-3"></a>stratum1</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="th-tutorial-3.html#cb175-1"></a>LBhour =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;LBhour.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb175-2"><a href="th-tutorial-3.html#cb175-2"></a>stratum1 =<span class="st"> </span>LBhour<span class="op">$</span>HOUR[LBhour<span class="op">$</span>PROGRAM<span class="op">==</span><span class="dv">1</span>]</span>
+<span id="cb175-3"><a href="th-tutorial-3.html#cb175-3"></a>stratum1</span></code></pre></div>
 <pre><code>##  [1]  0  4  3  5  2  0  3  1  4  3  6  8 10  2  9  4  6  1  2  3</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="th-tutorial-3.html#cb3-1"></a>stratum2 =<span class="st"> </span>LBhour<span class="op">$</span>HOUR[LBhour<span class="op">$</span>PROGRAM<span class="op">==</span><span class="dv">2</span>]</span>
-<span id="cb3-2"><a href="th-tutorial-3.html#cb3-2"></a>stratum2</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="th-tutorial-3.html#cb177-1"></a>stratum2 =<span class="st"> </span>LBhour<span class="op">$</span>HOUR[LBhour<span class="op">$</span>PROGRAM<span class="op">==</span><span class="dv">2</span>]</span>
+<span id="cb177-2"><a href="th-tutorial-3.html#cb177-2"></a>stratum2</span></code></pre></div>
 <pre><code>##  [1] 12  9 11 13  8  6 10  9 11  7</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="th-tutorial-3.html#cb5-1"></a>stratum3 =<span class="st"> </span>LBhour<span class="op">$</span>HOUR[LBhour<span class="op">$</span>PROGRAM<span class="op">==</span><span class="dv">3</span>]</span>
-<span id="cb5-2"><a href="th-tutorial-3.html#cb5-2"></a>stratum3</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="th-tutorial-3.html#cb179-1"></a>stratum3 =<span class="st"> </span>LBhour<span class="op">$</span>HOUR[LBhour<span class="op">$</span>PROGRAM<span class="op">==</span><span class="dv">3</span>]</span>
+<span id="cb179-2"><a href="th-tutorial-3.html#cb179-2"></a>stratum3</span></code></pre></div>
 <pre><code>##  [1] 10 14 20 11 16 13 24 15 14 18 19 20</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="th-tutorial-3.html#cb7-1"></a>(<span class="dt">n1 =</span> <span class="kw">length</span>(stratum1))</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="th-tutorial-3.html#cb181-1"></a>(<span class="dt">n1 =</span> <span class="kw">length</span>(stratum1))</span></code></pre></div>
 <pre><code>## [1] 20</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="th-tutorial-3.html#cb9-1"></a>(<span class="dt">n2 =</span> <span class="kw">length</span>(stratum2))</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="th-tutorial-3.html#cb183-1"></a>(<span class="dt">n2 =</span> <span class="kw">length</span>(stratum2))</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="th-tutorial-3.html#cb11-1"></a>(<span class="dt">n3 =</span> <span class="kw">length</span>(stratum3))</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="th-tutorial-3.html#cb185-1"></a>(<span class="dt">n3 =</span> <span class="kw">length</span>(stratum3))</span></code></pre></div>
 <pre><code>## [1] 12</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="th-tutorial-3.html#cb13-1"></a>(<span class="dt">ybar1 =</span> <span class="kw">mean</span>(stratum1))</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="th-tutorial-3.html#cb187-1"></a>(<span class="dt">ybar1 =</span> <span class="kw">mean</span>(stratum1))</span></code></pre></div>
 <pre><code>## [1] 3.8</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="th-tutorial-3.html#cb15-1"></a>(<span class="dt">ybar2 =</span> <span class="kw">mean</span>(stratum2))</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="th-tutorial-3.html#cb189-1"></a>(<span class="dt">ybar2 =</span> <span class="kw">mean</span>(stratum2))</span></code></pre></div>
 <pre><code>## [1] 9.6</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="th-tutorial-3.html#cb17-1"></a>(<span class="dt">ybar3 =</span> <span class="kw">mean</span>(stratum3))</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="th-tutorial-3.html#cb191-1"></a>(<span class="dt">ybar3 =</span> <span class="kw">mean</span>(stratum3))</span></code></pre></div>
 <pre><code>## [1] 16.16667</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="th-tutorial-3.html#cb19-1"></a>(<span class="dt">yvar1 =</span> <span class="kw">var</span>(stratum1))</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="th-tutorial-3.html#cb193-1"></a>(<span class="dt">yvar1 =</span> <span class="kw">var</span>(stratum1))</span></code></pre></div>
 <pre><code>## [1] 7.957895</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="th-tutorial-3.html#cb21-1"></a>(<span class="dt">yvar2 =</span> <span class="kw">var</span>(stratum2))</span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="th-tutorial-3.html#cb195-1"></a>(<span class="dt">yvar2 =</span> <span class="kw">var</span>(stratum2))</span></code></pre></div>
 <pre><code>## [1] 4.933333</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="th-tutorial-3.html#cb23-1"></a>(<span class="dt">yvar3 =</span> <span class="kw">var</span>(stratum3))</span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="th-tutorial-3.html#cb197-1"></a>(<span class="dt">yvar3 =</span> <span class="kw">var</span>(stratum3))</span></code></pre></div>
 <pre><code>## [1] 17.06061</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="th-tutorial-3.html#cb25-1"></a>N1 =<span class="st"> </span><span class="dv">1300</span></span>
-<span id="cb25-2"><a href="th-tutorial-3.html#cb25-2"></a>N2 =<span class="st"> </span><span class="dv">450</span></span>
-<span id="cb25-3"><a href="th-tutorial-3.html#cb25-3"></a>N3 =<span class="st"> </span><span class="dv">250</span></span>
-<span id="cb25-4"><a href="th-tutorial-3.html#cb25-4"></a>N =<span class="st"> </span>N1 <span class="op">+</span>N2 <span class="op">+</span><span class="st"> </span>N3</span>
-<span id="cb25-5"><a href="th-tutorial-3.html#cb25-5"></a>N</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="th-tutorial-3.html#cb199-1"></a>N1 =<span class="st"> </span><span class="dv">1300</span></span>
+<span id="cb199-2"><a href="th-tutorial-3.html#cb199-2"></a>N2 =<span class="st"> </span><span class="dv">450</span></span>
+<span id="cb199-3"><a href="th-tutorial-3.html#cb199-3"></a>N3 =<span class="st"> </span><span class="dv">250</span></span>
+<span id="cb199-4"><a href="th-tutorial-3.html#cb199-4"></a>N =<span class="st"> </span>N1 <span class="op">+</span>N2 <span class="op">+</span><span class="st"> </span>N3</span>
+<span id="cb199-5"><a href="th-tutorial-3.html#cb199-5"></a>N</span></code></pre></div>
 <pre><code>## [1] 2000</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="th-tutorial-3.html#cb27-1"></a><span class="co">#determine an estimate of the population mean by stratified sample</span></span>
-<span id="cb27-2"><a href="th-tutorial-3.html#cb27-2"></a>W1=N1<span class="op">/</span>N; W2=N2<span class="op">/</span>N ; W3=N3<span class="op">/</span>N </span>
-<span id="cb27-3"><a href="th-tutorial-3.html#cb27-3"></a>W1; W2; W3</span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="th-tutorial-3.html#cb201-1"></a><span class="co">#determine an estimate of the population mean by stratified sample</span></span>
+<span id="cb201-2"><a href="th-tutorial-3.html#cb201-2"></a>W1=N1<span class="op">/</span>N; W2=N2<span class="op">/</span>N ; W3=N3<span class="op">/</span>N </span>
+<span id="cb201-3"><a href="th-tutorial-3.html#cb201-3"></a>W1; W2; W3</span></code></pre></div>
 <pre><code>## [1] 0.65</code></pre>
 <pre><code>## [1] 0.225</code></pre>
 <pre><code>## [1] 0.125</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="th-tutorial-3.html#cb31-1"></a>str_mean=(W1<span class="op">*</span>ybar1<span class="op">+</span>W2<span class="op">*</span>ybar2<span class="op">+</span>W3<span class="op">*</span>ybar3)</span>
-<span id="cb31-2"><a href="th-tutorial-3.html#cb31-2"></a>str_mean</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="th-tutorial-3.html#cb205-1"></a>str_mean=(W1<span class="op">*</span>ybar1<span class="op">+</span>W2<span class="op">*</span>ybar2<span class="op">+</span>W3<span class="op">*</span>ybar3)</span>
+<span id="cb205-2"><a href="th-tutorial-3.html#cb205-2"></a>str_mean</span></code></pre></div>
 <pre><code>## [1] 6.650833</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="th-tutorial-3.html#cb33-1"></a><span class="co">#Variance of sample mean = sum(((1-fh)/nh)*(Wh^2*Vh^2), fh=nh/Nh</span></span>
-<span id="cb33-2"><a href="th-tutorial-3.html#cb33-2"></a></span>
-<span id="cb33-3"><a href="th-tutorial-3.html#cb33-3"></a>var_str=((W1)<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>((N1<span class="op">-</span>n1)<span class="op">/</span>N1)<span class="op">*</span>(yvar1<span class="op">/</span>n1)<span class="op">+</span>((W2)<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>((N2<span class="op">-</span>n2)<span class="op">/</span>N2)<span class="op">*</span>(yvar2<span class="op">/</span>n2)<span class="op">+</span>((W3)<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>((N3<span class="op">-</span>n3)<span class="op">/</span>N3)<span class="op">*</span>(yvar3<span class="op">/</span>n3)</span>
-<span id="cb33-4"><a href="th-tutorial-3.html#cb33-4"></a></span>
-<span id="cb33-5"><a href="th-tutorial-3.html#cb33-5"></a>var_str</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="th-tutorial-3.html#cb207-1"></a><span class="co">#Variance of sample mean = sum(((1-fh)/nh)*(Wh^2*Vh^2), fh=nh/Nh</span></span>
+<span id="cb207-2"><a href="th-tutorial-3.html#cb207-2"></a></span>
+<span id="cb207-3"><a href="th-tutorial-3.html#cb207-3"></a>var_str=((W1)<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>((N1<span class="op">-</span>n1)<span class="op">/</span>N1)<span class="op">*</span>(yvar1<span class="op">/</span>n1)<span class="op">+</span>((W2)<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>((N2<span class="op">-</span>n2)<span class="op">/</span>N2)<span class="op">*</span>(yvar2<span class="op">/</span>n2)<span class="op">+</span>((W3)<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>((N3<span class="op">-</span>n3)<span class="op">/</span>N3)<span class="op">*</span>(yvar3<span class="op">/</span>n3)</span>
+<span id="cb207-4"><a href="th-tutorial-3.html#cb207-4"></a></span>
+<span id="cb207-5"><a href="th-tutorial-3.html#cb207-5"></a>var_str</span></code></pre></div>
 <pre><code>## [1] 0.2110923</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="th-tutorial-3.html#cb35-1"></a>CIU=str_mean<span class="op">+</span><span class="dv">2</span><span class="op">*</span>(<span class="kw">sqrt</span>(var_str))</span>
-<span id="cb35-2"><a href="th-tutorial-3.html#cb35-2"></a>CIU</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="th-tutorial-3.html#cb209-1"></a>CIU=str_mean<span class="op">+</span><span class="dv">2</span><span class="op">*</span>(<span class="kw">sqrt</span>(var_str))</span>
+<span id="cb209-2"><a href="th-tutorial-3.html#cb209-2"></a>CIU</span></code></pre></div>
 <pre><code>## [1] 7.569729</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="th-tutorial-3.html#cb37-1"></a>CIL=str_mean<span class="dv">-2</span><span class="op">*</span>(<span class="kw">sqrt</span>(var_str))</span>
-<span id="cb37-2"><a href="th-tutorial-3.html#cb37-2"></a>CIL</span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="th-tutorial-3.html#cb211-1"></a>CIL=str_mean<span class="dv">-2</span><span class="op">*</span>(<span class="kw">sqrt</span>(var_str))</span>
+<span id="cb211-2"><a href="th-tutorial-3.html#cb211-2"></a>CIL</span></code></pre></div>
 <pre><code>## [1] 5.731938</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="th-tutorial-3.html#cb39-1"></a><span class="co">#estimation for total and its variance</span></span>
-<span id="cb39-2"><a href="th-tutorial-3.html#cb39-2"></a>t_hat=N<span class="op">*</span>str_mean</span>
-<span id="cb39-3"><a href="th-tutorial-3.html#cb39-3"></a>t_hat</span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="th-tutorial-3.html#cb213-1"></a><span class="co">#estimation for total and its variance</span></span>
+<span id="cb213-2"><a href="th-tutorial-3.html#cb213-2"></a>t_hat=N<span class="op">*</span>str_mean</span>
+<span id="cb213-3"><a href="th-tutorial-3.html#cb213-3"></a>t_hat</span></code></pre></div>
 <pre><code>## [1] 13301.67</code></pre>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="th-tutorial-3.html#cb41-1"></a>Var_t=(N<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>var_str</span>
-<span id="cb41-2"><a href="th-tutorial-3.html#cb41-2"></a>Var_t</span></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="th-tutorial-3.html#cb215-1"></a>Var_t=(N<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>var_str</span>
+<span id="cb215-2"><a href="th-tutorial-3.html#cb215-2"></a>Var_t</span></code></pre></div>
 <pre><code>## [1] 844369</code></pre>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="th-tutorial-3.html#cb43-1"></a><span class="co">#95% CI for  total estimation</span></span>
-<span id="cb43-2"><a href="th-tutorial-3.html#cb43-2"></a>CI_totU=t_hat<span class="op">+</span><span class="dv">2</span><span class="op">*</span><span class="kw">sqrt</span>(Var_t)</span>
-<span id="cb43-3"><a href="th-tutorial-3.html#cb43-3"></a>CI_totU</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="th-tutorial-3.html#cb217-1"></a><span class="co">#95% CI for  total estimation</span></span>
+<span id="cb217-2"><a href="th-tutorial-3.html#cb217-2"></a>CI_totU=t_hat<span class="op">+</span><span class="dv">2</span><span class="op">*</span><span class="kw">sqrt</span>(Var_t)</span>
+<span id="cb217-3"><a href="th-tutorial-3.html#cb217-3"></a>CI_totU</span></code></pre></div>
 <pre><code>## [1] 15139.46</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="th-tutorial-3.html#cb45-1"></a>CI_totL=t_hat<span class="op">+</span><span class="dv">2</span><span class="op">*</span><span class="kw">sqrt</span>(Var_t)</span>
-<span id="cb45-2"><a href="th-tutorial-3.html#cb45-2"></a>CI_totL</span></code></pre></div>
-<pre><code>## [1] 15139.46</code></pre>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="th-tutorial-3.html#cb219-1"></a>CI_totL=t_hat<span class="dv">-2</span><span class="op">*</span><span class="kw">sqrt</span>(Var_t)</span>
+<span id="cb219-2"><a href="th-tutorial-3.html#cb219-2"></a>CI_totL</span></code></pre></div>
+<pre><code>## [1] 11463.88</code></pre>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-2" class="exercise"><strong>Exercise 7.2  </strong></span>An insurance company’s records show that out of the total of <span class="math inline">\(500\)</span> claims, 280 are major claims (from Rs <span class="math inline">\(1000\)</span> to Rs <span class="math inline">\(2500\)</span>) and <span class="math inline">\(220\)</span> are minor (below Rs <span class="math inline">\(1000\)</span>). A WOR simple random sample of <span class="math inline">\(10\)</span> claims was drawn from each category (stratum), and claim amounts were recorded as :</p>
+<p><span id="exr:unlabeled-div-24" class="exercise"><strong>Exercise 7.2  </strong></span>An insurance company’s records show that out of the total of <span class="math inline">\(500\)</span> claims, 280 are major claims (from Rs <span class="math inline">\(1000\)</span> to Rs <span class="math inline">\(2500\)</span>) and <span class="math inline">\(220\)</span> are minor (below Rs <span class="math inline">\(1000\)</span>). A WOR simple random sample of <span class="math inline">\(10\)</span> claims was drawn from each category (stratum), and claim amounts were recorded as :</p>
 </div>
 <table>
 <tbody>
@@ -286,62 +286,62 @@ Estimator of the variance of population total are obtained by
 <p><span class="math display">\[668120\pm2\ \sqrt{1016578267\ }\]</span>
 <span class="math display">\[= [604352.4\ \ ,\ 731887.6]\]</span>
 Code:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="th-tutorial-3.html#cb47-1"></a>y1=<span class="kw">c</span>(<span class="dv">1200</span>,<span class="dv">1600</span>,<span class="dv">1800</span>,<span class="dv">1400</span>,<span class="dv">1980</span>,<span class="dv">2110</span>,<span class="dv">2440</span>,<span class="dv">1660</span>,<span class="dv">1790</span>,<span class="dv">1910</span>)</span>
-<span id="cb47-2"><a href="th-tutorial-3.html#cb47-2"></a>n1=<span class="kw">length</span>(y1)</span>
-<span id="cb47-3"><a href="th-tutorial-3.html#cb47-3"></a>n1</span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="th-tutorial-3.html#cb221-1"></a>y1=<span class="kw">c</span>(<span class="dv">1200</span>,<span class="dv">1600</span>,<span class="dv">1800</span>,<span class="dv">1400</span>,<span class="dv">1980</span>,<span class="dv">2110</span>,<span class="dv">2440</span>,<span class="dv">1660</span>,<span class="dv">1790</span>,<span class="dv">1910</span>)</span>
+<span id="cb221-2"><a href="th-tutorial-3.html#cb221-2"></a>n1=<span class="kw">length</span>(y1)</span>
+<span id="cb221-3"><a href="th-tutorial-3.html#cb221-3"></a>n1</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="th-tutorial-3.html#cb49-1"></a>y1_bar=<span class="kw">mean</span>(y1)</span>
-<span id="cb49-2"><a href="th-tutorial-3.html#cb49-2"></a>y1_bar</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="th-tutorial-3.html#cb223-1"></a>y1_bar=<span class="kw">mean</span>(y1)</span>
+<span id="cb223-2"><a href="th-tutorial-3.html#cb223-2"></a>y1_bar</span></code></pre></div>
 <pre><code>## [1] 1789</code></pre>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="th-tutorial-3.html#cb51-1"></a>v1=<span class="kw">var</span>(y1)</span>
-<span id="cb51-2"><a href="th-tutorial-3.html#cb51-2"></a>v1</span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="th-tutorial-3.html#cb225-1"></a>v1=<span class="kw">var</span>(y1)</span>
+<span id="cb225-2"><a href="th-tutorial-3.html#cb225-2"></a>v1</span></code></pre></div>
 <pre><code>## [1] 125410</code></pre>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="th-tutorial-3.html#cb53-1"></a>y2=<span class="kw">c</span>(<span class="dv">720</span>,<span class="dv">880</span>,<span class="dv">760</span>,<span class="dv">660</span>,<span class="dv">790</span>,<span class="dv">840</span>,<span class="dv">550</span>,<span class="dv">960</span>,<span class="dv">640</span>,<span class="dv">800</span>)</span>
-<span id="cb53-2"><a href="th-tutorial-3.html#cb53-2"></a>n2=<span class="kw">length</span>(y2)</span>
-<span id="cb53-3"><a href="th-tutorial-3.html#cb53-3"></a>n2</span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="th-tutorial-3.html#cb227-1"></a>y2=<span class="kw">c</span>(<span class="dv">720</span>,<span class="dv">880</span>,<span class="dv">760</span>,<span class="dv">660</span>,<span class="dv">790</span>,<span class="dv">840</span>,<span class="dv">550</span>,<span class="dv">960</span>,<span class="dv">640</span>,<span class="dv">800</span>)</span>
+<span id="cb227-2"><a href="th-tutorial-3.html#cb227-2"></a>n2=<span class="kw">length</span>(y2)</span>
+<span id="cb227-3"><a href="th-tutorial-3.html#cb227-3"></a>n2</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="th-tutorial-3.html#cb55-1"></a>y2_bar=<span class="kw">mean</span>(y2)</span>
-<span id="cb55-2"><a href="th-tutorial-3.html#cb55-2"></a>y2_bar</span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="th-tutorial-3.html#cb229-1"></a>y2_bar=<span class="kw">mean</span>(y2)</span>
+<span id="cb229-2"><a href="th-tutorial-3.html#cb229-2"></a>y2_bar</span></code></pre></div>
 <pre><code>## [1] 760</code></pre>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="th-tutorial-3.html#cb57-1"></a>v2=<span class="kw">var</span>(y2)</span>
-<span id="cb57-2"><a href="th-tutorial-3.html#cb57-2"></a>v2</span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="th-tutorial-3.html#cb231-1"></a>v2=<span class="kw">var</span>(y2)</span>
+<span id="cb231-2"><a href="th-tutorial-3.html#cb231-2"></a>v2</span></code></pre></div>
 <pre><code>## [1] 14822.22</code></pre>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="th-tutorial-3.html#cb59-1"></a>N1=<span class="dv">280</span></span>
-<span id="cb59-2"><a href="th-tutorial-3.html#cb59-2"></a>N2=<span class="dv">220</span></span>
-<span id="cb59-3"><a href="th-tutorial-3.html#cb59-3"></a>N=N1<span class="op">+</span>N2</span>
-<span id="cb59-4"><a href="th-tutorial-3.html#cb59-4"></a>N</span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="th-tutorial-3.html#cb233-1"></a>N1=<span class="dv">280</span></span>
+<span id="cb233-2"><a href="th-tutorial-3.html#cb233-2"></a>N2=<span class="dv">220</span></span>
+<span id="cb233-3"><a href="th-tutorial-3.html#cb233-3"></a>N=N1<span class="op">+</span>N2</span>
+<span id="cb233-4"><a href="th-tutorial-3.html#cb233-4"></a>N</span></code></pre></div>
 <pre><code>## [1] 500</code></pre>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="th-tutorial-3.html#cb61-1"></a><span class="co">#determine an estimate of the population mean by stratified sample</span></span>
-<span id="cb61-2"><a href="th-tutorial-3.html#cb61-2"></a>W1=N1<span class="op">/</span>N; W2=N2<span class="op">/</span>N </span>
-<span id="cb61-3"><a href="th-tutorial-3.html#cb61-3"></a>W1; W2</span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="th-tutorial-3.html#cb235-1"></a><span class="co">#determine an estimate of the population mean by stratified sample</span></span>
+<span id="cb235-2"><a href="th-tutorial-3.html#cb235-2"></a>W1=N1<span class="op">/</span>N; W2=N2<span class="op">/</span>N </span>
+<span id="cb235-3"><a href="th-tutorial-3.html#cb235-3"></a>W1; W2</span></code></pre></div>
 <pre><code>## [1] 0.56</code></pre>
 <pre><code>## [1] 0.44</code></pre>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="th-tutorial-3.html#cb64-1"></a>str_mean=(W1<span class="op">*</span>y1_bar<span class="op">+</span>W2<span class="op">*</span>y2_bar)</span>
-<span id="cb64-2"><a href="th-tutorial-3.html#cb64-2"></a>str_mean</span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="th-tutorial-3.html#cb238-1"></a>str_mean=(W1<span class="op">*</span>y1_bar<span class="op">+</span>W2<span class="op">*</span>y2_bar)</span>
+<span id="cb238-2"><a href="th-tutorial-3.html#cb238-2"></a>str_mean</span></code></pre></div>
 <pre><code>## [1] 1336.24</code></pre>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="th-tutorial-3.html#cb66-1"></a><span class="co">#Variance of sample mean =sum(((1-fh)/nh)*(Wh^2*Vh^2), fh=nh/Nh</span></span>
-<span id="cb66-2"><a href="th-tutorial-3.html#cb66-2"></a>var_str=((W1)<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>((N1<span class="op">-</span>n1)<span class="op">/</span>N1)<span class="op">*</span>(v1<span class="op">/</span>n1)<span class="op">+</span>((W2)<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>((N2<span class="op">-</span>n2)<span class="op">/</span>N2)<span class="op">*</span>(v2<span class="op">/</span>n2)</span>
-<span id="cb66-3"><a href="th-tutorial-3.html#cb66-3"></a>var_str</span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="th-tutorial-3.html#cb240-1"></a><span class="co">#Variance of sample mean =sum(((1-fh)/nh)*(Wh^2*Vh^2), fh=nh/Nh</span></span>
+<span id="cb240-2"><a href="th-tutorial-3.html#cb240-2"></a>var_str=((W1)<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>((N1<span class="op">-</span>n1)<span class="op">/</span>N1)<span class="op">*</span>(v1<span class="op">/</span>n1)<span class="op">+</span>((W2)<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>((N2<span class="op">-</span>n2)<span class="op">/</span>N2)<span class="op">*</span>(v2<span class="op">/</span>n2)</span>
+<span id="cb240-3"><a href="th-tutorial-3.html#cb240-3"></a>var_str</span></code></pre></div>
 <pre><code>## [1] 4066.313</code></pre>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="th-tutorial-3.html#cb68-1"></a>CIU=str_mean<span class="op">+</span><span class="dv">2</span><span class="op">*</span>(<span class="kw">sqrt</span>(var_str))</span>
-<span id="cb68-2"><a href="th-tutorial-3.html#cb68-2"></a>CIU</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="th-tutorial-3.html#cb242-1"></a>CIU=str_mean<span class="op">+</span><span class="dv">2</span><span class="op">*</span>(<span class="kw">sqrt</span>(var_str))</span>
+<span id="cb242-2"><a href="th-tutorial-3.html#cb242-2"></a>CIU</span></code></pre></div>
 <pre><code>## [1] 1463.775</code></pre>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="th-tutorial-3.html#cb70-1"></a>CIL=str_mean<span class="dv">-2</span><span class="op">*</span>(<span class="kw">sqrt</span>(var_str))</span>
-<span id="cb70-2"><a href="th-tutorial-3.html#cb70-2"></a>CIL</span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="th-tutorial-3.html#cb244-1"></a>CIL=str_mean<span class="dv">-2</span><span class="op">*</span>(<span class="kw">sqrt</span>(var_str))</span>
+<span id="cb244-2"><a href="th-tutorial-3.html#cb244-2"></a>CIL</span></code></pre></div>
 <pre><code>## [1] 1208.705</code></pre>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="th-tutorial-3.html#cb72-1"></a><span class="co">#estimation for total and its variance</span></span>
-<span id="cb72-2"><a href="th-tutorial-3.html#cb72-2"></a>t_hat=N<span class="op">*</span>str_mean</span>
-<span id="cb72-3"><a href="th-tutorial-3.html#cb72-3"></a>t_hat</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="th-tutorial-3.html#cb246-1"></a><span class="co">#estimation for total and its variance</span></span>
+<span id="cb246-2"><a href="th-tutorial-3.html#cb246-2"></a>t_hat=N<span class="op">*</span>str_mean</span>
+<span id="cb246-3"><a href="th-tutorial-3.html#cb246-3"></a>t_hat</span></code></pre></div>
 <pre><code>## [1] 668120</code></pre>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="th-tutorial-3.html#cb74-1"></a>Var_t=(N<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>var_str</span>
-<span id="cb74-2"><a href="th-tutorial-3.html#cb74-2"></a>Var_t</span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="th-tutorial-3.html#cb248-1"></a>Var_t=(N<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>var_str</span>
+<span id="cb248-2"><a href="th-tutorial-3.html#cb248-2"></a>Var_t</span></code></pre></div>
 <pre><code>## [1] 1016578267</code></pre>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="th-tutorial-3.html#cb76-1"></a><span class="co">#95%CI for  total estimation</span></span>
-<span id="cb76-2"><a href="th-tutorial-3.html#cb76-2"></a>CI_totU=t_hat<span class="op">+</span><span class="dv">2</span><span class="op">*</span><span class="kw">sqrt</span>(Var_t)</span>
-<span id="cb76-3"><a href="th-tutorial-3.html#cb76-3"></a>CI_totU</span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="th-tutorial-3.html#cb250-1"></a><span class="co">#95%CI for  total estimation</span></span>
+<span id="cb250-2"><a href="th-tutorial-3.html#cb250-2"></a>CI_totU=t_hat<span class="op">+</span><span class="dv">2</span><span class="op">*</span><span class="kw">sqrt</span>(Var_t)</span>
+<span id="cb250-3"><a href="th-tutorial-3.html#cb250-3"></a>CI_totU</span></code></pre></div>
 <pre><code>## [1] 731887.6</code></pre>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="th-tutorial-3.html#cb78-1"></a>CI_totL=t_hat<span class="dv">-2</span><span class="op">*</span><span class="kw">sqrt</span>(Var_t)</span>
-<span id="cb78-2"><a href="th-tutorial-3.html#cb78-2"></a>CI_totL</span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="th-tutorial-3.html#cb252-1"></a>CI_totL=t_hat<span class="dv">-2</span><span class="op">*</span><span class="kw">sqrt</span>(Var_t)</span>
+<span id="cb252-2"><a href="th-tutorial-3.html#cb252-2"></a>CI_totL</span></code></pre></div>
 <pre><code>## [1] 604352.4</code></pre>
 
 </div>

@@ -57,7 +57,7 @@ Var_t
 #95% CI for  total estimation
 CI_totU=t_hat+2*sqrt(Var_t)
 CI_totU
-CI_totL=t_hat+2*sqrt(Var_t)
+CI_totL=t_hat-2*sqrt(Var_t)
 CI_totL
 
 ```

@@ -21,6 +21,7 @@ exr:unlabeled-div-20
 exr:unlabeled-div-21
 exr:unlabeled-div-22
 exr:unlabeled-div-23
+exr:unlabeled-div-24
 st-tutorial
 nd-tutorial
 rd-tutorial
@@ -28,3 +29,5 @@ th-tutorial
 th-tutorial-1
 th-tutorial-2
 th-tutorial-3
+th-tutorial-4
+th-tutorial-5
