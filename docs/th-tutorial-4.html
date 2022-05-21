@@ -143,6 +143,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7" data-path="th-tutorial-3.html"><a href="th-tutorial-3.html"><i class="fa fa-check"></i><b>7</b> 7th Tutorial</a></li>
 <li class="chapter" data-level="8" data-path="th-tutorial-4.html"><a href="th-tutorial-4.html"><i class="fa fa-check"></i><b>8</b> 8th Tutorial</a></li>
 <li class="chapter" data-level="9" data-path="th-tutorial-5.html"><a href="th-tutorial-5.html"><i class="fa fa-check"></i><b>9</b> 9th Tutorial</a></li>
+<li class="chapter" data-level="10" data-path="th-tutorial-6.html"><a href="th-tutorial-6.html"><i class="fa fa-check"></i><b>10</b> 10th Tutorial</a></li>
 </ul>
 
       </nav>
@@ -162,6 +163,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="th-tutorial-4" class="section level1">
 <h1><span class="header-section-number">8</span> 8th Tutorial</h1>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-25" class="exercise"><strong>Exercise 8.1  </strong></span>A stratified sample of size 80 is to be drawn from a population of 6400
+units, divided into 3 strata of sizes 2400, 3200, and 800 units. If the allocation
+is to be equal, or proportional, how many units should be selected from individual
+stratum in each case?</p>
+</div>
+<p>The giving information as follows in the table:
+<img src="exc.8.1.png" /></p>
+<p><strong>Equal allocation:</strong> The number of units to be selected from each stratum will be <span class="math inline">\(n_h=\frac{n}{L}=\frac{80}{3}=26.6667≈27\)</span>. So <span class="math inline">\(n_1=n_2=n_3=27\)</span>.</p>
+<p><strong>Proportional allocation:</strong> The number of units to be selected from each stratum will be</p>
+<p><span class="math display">\[n_1=N_1/N  n=W_1× n=0.375*80= 30\]</span>
+<span class="math display">\[n_2=W_2\times n=0.5×80=40\]</span>
+<span class="math display">\[n_3=W_3\times n=0.125×80=10\]</span></p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-26" class="exercise"><strong>Exercise 8.2  </strong></span>The adult popUlation in a colony consists of 400 Sikhs, 260 Muslims, 200 Hindus, and 140 Christians. An investigator selected 40 Sikhs, 26 Muslims, 18 Hindus, and 16 Christians so as to draw a total sample of 100 adults. Do you think the allocation is proportional ?</p>
+</div>
+<p>The giving information as follows in the table:</p>
+<p><img src="exc8.2.png" /></p>
+<p>In order for the sampling to be proportional, the number of units to be selected from each stratum should be</p>
+<p><span class="math display">\[n_1=W_1\times n=0.4×100= 40\]</span>
+<span class="math display">\[n_2=W_2\times n=0.26×100=26\]</span>
+<span class="math display">\[n_3=W_3\times n=0.2×100=20\]</span>
+<span class="math display">\[n_4=W_4\times n=0.14×100=14\]</span>
+::: {.exercise}
+During 1990-91 session, a student doing M.Sc. (Statistics) was given a project to estimate average time taken by the university employees to get ready for office in the morning. The population was grouped into 3 strata. The first stratum consisted of women. The males were divided into 2 strata - teachers and the other staff. A WOR random sample of 400 employees was drawn using proportional allocation. The information on time (in hours) taken by selected respondents to be ready for office was collected. Below are given the sample average and sample mean square for each stratum along with the values of <span class="math inline">\(N_h\)</span> and <span class="math inline">\(n_h\)</span></p>
+<p>:::
+<img src="exc8.3.png" />
+Estimate the average time taken to get ready for office, and place the required confidence limits on it.</p>
+<p><span class="math display">\[\bar{y}_{str}=W_{1} \bar{y}_1+W_2 \bar{y}_2  +W_3 \bar{y}_3\]</span></p>
+<p><span class="math display">\[=  \frac{1}{2000} (1250×2+2390×1.6+360×1.2 ) = 3.378\]</span></p>
+<p><span class="math display">\[var(\bar{y}_{str} )=\sum_{h=1}^{L} W_h^2  \frac{N_h-n_h}{N_h} \times \frac{s_h^2}{n_h}\]</span></p>
+<p><span class="math display">\[=(\dfrac{1250}{4000})^2×\dfrac{1250-125}{1250\times~125}×0.1587+\dfrac{2390}{4000}^2×\dfrac{2390-239}{2390\times~239}×0.2667+\dfrac{360}{4000}^2×\dfrac{360-36}{360*36}×0.0811 =0.0005\]</span></p>
+<p>we obtain the limits of confidence interval as
+<span class="math display">\[\bar{y}_{str} \pm Z_{1-∝/2}  \sqrt{v(\bar{y}_{str})}\]</span>
+<span class="math display">\[3.378±2 \sqrt{0.0005} \]</span><br />
+<span class="math display">\[[ 3.333279,3.422721 ]\]</span></p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-27" class="exercise"><strong>Exercise 8.3  </strong></span>Take the estimates of strata mean squares obtained in exercise 5.9 as known. Using this information along with strata sizes, determine Neyman allocation when the total budget at disposal is Rs 1000. Assume that the overhead cost, and the cost of eliciting and processing information per respondent, are Rs 100 and Rs 3 respectively.</p>
+</div>
+<p><span class="math display">\[C=Rs ~~ 1000~~~~~~~~,C_o=Rs~~100,~~~~~~~~~~C_h=Rs ~~ 3\]</span></p>
+<p><span class="math display">\[n=\dfrac{C-C_o}{C_h} =\dfrac{1000-100}{3}= 300 \]</span></p>
+<p><span class="math display">\[n_h=n \dfrac{N_h s_h}{\sum_{h=1}^L N_h s_h} ~~~~~,h=1,2,3\]</span>
+<span class="math display">\[\sum_{h=1}^L N_h s_h= 1250× 0.1587+ 2390× 0.2667+360× 0.0811=864.984\]</span></p>
+<p><span class="math display">\[n_1=300×\dfrac{1250× .1587}{864.984} =68.80185≈ 69\]</span></p>
+<p><span class="math display">\[n_2=300×\dfrac{2390× 0.2667}{864.984}=221.0722≈ 221\]</span></p>
+<p><span class="math display">\[n_2=300×\dfrac{360× .0811}{864.984}=10.12597≈ 10\]</span></p>
 
 </div>
             </section>

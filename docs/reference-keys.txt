@@ -24,6 +24,11 @@ exr:unlabeled-div-23
 exr:unlabeled-div-24
 exr:unlabeled-div-25
 exr:unlabeled-div-26
+exr:unlabeled-div-27
+exr:unlabeled-div-28
+exr:unlabeled-div-29
+exr:unlabeled-div-30
+exr:unlabeled-div-31
 st-tutorial
 nd-tutorial
 rd-tutorial
@@ -33,3 +38,4 @@ th-tutorial-2
 th-tutorial-3
 th-tutorial-4
 th-tutorial-5
+th-tutorial-6

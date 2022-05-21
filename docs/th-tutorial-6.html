@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>10 10th Tutorial | Sampling technique</title>
+  <meta name="description" content="This note book is for the excersices class for STAT331" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="10 10th Tutorial | Sampling technique" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This note book is for the excersices class for STAT331" />
+  <meta name="github-repo" content="F3bdulmajeed" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="10 10th Tutorial | Sampling technique" />
+  
+  <meta name="twitter:description" content="This note book is for the excersices class for STAT331" />
+  
+
+<meta name="author" content="Lecturer: Abdulmajeed Alharbi" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="th-tutorial-5.html"/>
+
+<script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="st-tutorial.html"><a href="st-tutorial.html"><i class="fa fa-check"></i><b>1</b> 1st Tutorial</a></li>
+<li class="chapter" data-level="2" data-path="nd-tutorial.html"><a href="nd-tutorial.html"><i class="fa fa-check"></i><b>2</b> 2nd Tutorial</a></li>
+<li class="chapter" data-level="3" data-path="rd-tutorial.html"><a href="rd-tutorial.html"><i class="fa fa-check"></i><b>3</b> 3rd Tutorial</a></li>
+<li class="chapter" data-level="4" data-path="th-tutorial.html"><a href="th-tutorial.html"><i class="fa fa-check"></i><b>4</b> 4th Tutorial</a></li>
+<li class="chapter" data-level="5" data-path="th-tutorial-1.html"><a href="th-tutorial-1.html"><i class="fa fa-check"></i><b>5</b> 5th Tutorial</a></li>
+<li class="chapter" data-level="6" data-path="th-tutorial-2.html"><a href="th-tutorial-2.html"><i class="fa fa-check"></i><b>6</b> 6th Tutorial</a></li>
+<li class="chapter" data-level="7" data-path="th-tutorial-3.html"><a href="th-tutorial-3.html"><i class="fa fa-check"></i><b>7</b> 7th Tutorial</a></li>
+<li class="chapter" data-level="8" data-path="th-tutorial-4.html"><a href="th-tutorial-4.html"><i class="fa fa-check"></i><b>8</b> 8th Tutorial</a></li>
+<li class="chapter" data-level="9" data-path="th-tutorial-5.html"><a href="th-tutorial-5.html"><i class="fa fa-check"></i><b>9</b> 9th Tutorial</a></li>
+<li class="chapter" data-level="10" data-path="th-tutorial-6.html"><a href="th-tutorial-6.html"><i class="fa fa-check"></i><b>10</b> 10th Tutorial</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Sampling technique</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="th-tutorial-6" class="section level1">
+<h1><span class="header-section-number">10</span> 10th Tutorial</h1>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-30" class="exercise"><strong>Exercise 10.1  </strong></span>‘Ramayana’, the famous religious TV serial of India, was telecast for about
+1 year and 9 months. Later, a private company released videocassette of this serial.
+The company has 30 centers throughout India, and each center has its dealers. In
+all, there are 250 dealers. After 6 months, an investigator wanted to estimate
+the
+total number of times a videocassette of the serial was hired after its
+introduction in the market. For this purpose, six centers were selected using WOR
+simple random sampling, and all the dealers in the sample centers were enumerated
+for the number of times videocassette tapes of the serial were hired from the dealers.
+The information, so obtained, is given in the following table.</p>
+</div>
+<p><img src="exc10.1.png" /></p>
+<p>Estimate the average number of times a videocassette of the serial was hired
+from a dealer, and place confidence limits on its population value.</p>
+<p><strong>Solution: M is Known, we use estimator 1:</strong>
+<span class="math display">\[N=30,~~M_o=250 ,~~~ n=6\]</span>
+<span class="math display">\[ \bar{M}= \frac{M_o}{N}= \frac{250}{30}= 8.3333\]</span>
+Estimate of the average amount of times a video cassette of the serial was hired from a dealer:
+<span class="math display">\[\bar{y}_{cl}=  \frac{N}{n M_o} \sum_{i=1}^{n}y_{i} = \frac{1}{\bar{M}n}  \sum_{i=1}^{n} y_{i.}\]</span></p>
+<p><span class="math display">\[=\frac{1}{8.3333\times6} (90+35+67+36+132+36)=\frac{396}{49.9998}=7.9200\]</span>
+Estimate of variance:</p>
+<p><span class="math display">\[var(\bar{y}_{cl})=\frac{N-n}{Nn\bar{M}^2}\frac{1}{n-1} \sum_{i=1}^{n} (y_i -\bar{M}\bar{y}_{cl})^2\]</span>
+<span class="math display">\[\bar{M}\bar{y}_{cl}=(8.3333)(7.9200) = 65.9997\]</span></p>
+<p><span class="math display">\[(\frac{30-6}{30\times6\times(8.3333)^2}) \frac{1}{5}[(90-65.9997)^2+(35-65.9997)^2+
+(67-65.9997)^2+(36-65.9997)^2+(132-65.9997)^2+(36-65.9997)^2]
+\]</span></p>
+<p><span class="math display">\[=(0.0004)\times(7694)= 2.95452\]</span></p>
+<p>Using above calculated estimate of variance, the standard error of mean will be</p>
+<p><span class="math display">\[sd(\bar{y}_{cl})=\sqrt{(var(\bar{y}_{cl})}=\sqrt{2.95452}=1.7189\]</span></p>
+<p>The required confidence limits for population mean are obtained as</p>
+<p><span class="math display">\[\bar{y}_{cl}  \pm Z_{1-α/2}  \sqrt{(var(\bar{y}_{cl})}\]</span>
+<span class="math display">\[7.9200±2\times(1.7189)\]</span>
+<span class="math display">\[[ 4.4822, 11.3578]\]</span></p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="th-tutorial-6.html#cb323-1"></a>y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">90</span>,<span class="dv">35</span>,<span class="dv">67</span>,<span class="dv">36</span>,<span class="dv">132</span>,<span class="dv">36</span>)</span>
+<span id="cb323-2"><a href="th-tutorial-6.html#cb323-2"></a>M.vec =<span class="st"> </span><span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">4</span>) </span>
+<span id="cb323-3"><a href="th-tutorial-6.html#cb323-3"></a>Mo=<span class="dv">250</span></span>
+<span id="cb323-4"><a href="th-tutorial-6.html#cb323-4"></a>N=<span class="st"> </span><span class="dv">30</span></span>
+<span id="cb323-5"><a href="th-tutorial-6.html#cb323-5"></a>n=<span class="kw">length</span>(y)</span>
+<span id="cb323-6"><a href="th-tutorial-6.html#cb323-6"></a>ybar.c =<span class="st"> </span>(<span class="dv">1</span><span class="op">/</span>(n<span class="op">*</span>(Mo<span class="op">/</span>N)))<span class="op">*</span><span class="kw">sum</span>(y)</span>
+<span id="cb323-7"><a href="th-tutorial-6.html#cb323-7"></a>ybar.c</span></code></pre></div>
+<pre><code>## [1] 7.92</code></pre>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="th-tutorial-6.html#cb325-1"></a>s2.c=<span class="st"> </span><span class="kw">sum</span>((y<span class="op">-</span><span class="kw">mean</span>(y))<span class="op">^</span><span class="dv">2</span> )<span class="op">/</span>(n<span class="dv">-1</span>)</span>
+<span id="cb325-2"><a href="th-tutorial-6.html#cb325-2"></a>var.c =<span class="st"> </span>((N<span class="op">-</span>n)<span class="op">/</span>(N<span class="op">*</span>n<span class="op">*</span>(Mo<span class="op">/</span>N)<span class="op">^</span><span class="dv">2</span>))<span class="op">*</span>s2.c</span>
+<span id="cb325-3"><a href="th-tutorial-6.html#cb325-3"></a>var.c</span></code></pre></div>
+<pre><code>## [1] 2.954496</code></pre>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="th-tutorial-6.html#cb327-1"></a>ME =<span class="st"> </span><span class="dv">2</span><span class="op">*</span><span class="kw">sqrt</span>(var.c) <span class="co">#margin of error(precision of estimate)</span></span>
+<span id="cb327-2"><a href="th-tutorial-6.html#cb327-2"></a>lower.CI=<span class="st">  </span>ybar.c<span class="op">-</span>ME</span>
+<span id="cb327-3"><a href="th-tutorial-6.html#cb327-3"></a>upper.CI=<span class="st">  </span>ybar.c<span class="op">+</span>ME</span>
+<span id="cb327-4"><a href="th-tutorial-6.html#cb327-4"></a>lower.CI;  upper.CI</span></code></pre></div>
+<pre><code>## [1] 4.482271</code></pre>
+<pre><code>## [1] 11.35773</code></pre>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="th-tutorial-6.html#cb330-1"></a>ytotal.c=<span class="st"> </span>Mo<span class="op">*</span>ybar.c</span>
+<span id="cb330-2"><a href="th-tutorial-6.html#cb330-2"></a>ytotal.c</span></code></pre></div>
+<pre><code>## [1] 1980</code></pre>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="th-tutorial-6.html#cb332-1"></a>var_ytotal.c=<span class="st">  </span>Mo<span class="op">^</span><span class="dv">2</span> <span class="op">*</span>var.c</span>
+<span id="cb332-2"><a href="th-tutorial-6.html#cb332-2"></a>var_ytotal.c</span></code></pre></div>
+<pre><code>## [1] 184656</code></pre>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="th-tutorial-6.html#cb334-1"></a><span class="co"># for finding the estimate of total?!!!!</span></span>
+<span id="cb334-2"><a href="th-tutorial-6.html#cb334-2"></a><span class="co"># when Mo is known, we can use both estimators BUT</span></span>
+<span id="cb334-3"><a href="th-tutorial-6.html#cb334-3"></a><span class="co">#check correlation between cluster means and the size of cluster</span></span>
+<span id="cb334-4"><a href="th-tutorial-6.html#cb334-4"></a><span class="co"># if low, estimator 2 is preferred, if high, estimator 1 is preferred.</span></span>
+<span id="cb334-5"><a href="th-tutorial-6.html#cb334-5"></a>ytotal.c=<span class="st"> </span>Mo<span class="op">*</span>ybar.c</span>
+<span id="cb334-6"><a href="th-tutorial-6.html#cb334-6"></a>ytotal.c</span></code></pre></div>
+<pre><code>## [1] 1980</code></pre>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="th-tutorial-6.html#cb336-1"></a>var_ytotal.c=<span class="st"> </span>Mo<span class="op">^</span><span class="dv">2</span> <span class="op">*</span>var.c</span>
+<span id="cb336-2"><a href="th-tutorial-6.html#cb336-2"></a>var_ytotal.c</span></code></pre></div>
+<pre><code>## [1] 184656</code></pre>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-31" class="exercise"><strong>Exercise 10.2  </strong></span>A sociologist is interested in determining the average degree of mental alertness
+in persons of age over 80 years in a development block consisting of 70 villages.
+Since the number of such individuals was not known for each village, a WOR
+simple random sample of 9 villages was selected. All the persons, with age over
+80 years in each selected village, were interviewed and then alertness was ranked
+from 0 to 10. The score of 10 was given to the persons with perfect mental alertness,
+whereas 0 score was meant for persons who were not in control of their mental
+faculties. The number of persons with age over 80 years (<span class="math inline">\(M_j\)</span>) and the scores for
+their mental alertness, are given below for the sample villages.</p>
+</div>
+<p><img src="exc10.2.png" /></p>
+<p>Estimate the average mental alertness for the population of persons aged above
+80 years in the development block, and place confidence limits on this average.</p>
+<p><strong>Solution:</strong> <span class="math inline">\(M_o=∑_{i=1}^N M_i\)</span> is unknown, we use estimator 2
+<span class="math inline">\(N=70\)</span>,<span class="math inline">\(M_o=\)</span> unkown ,and <span class="math inline">\(n=9\)</span>.
+Estimate of the average metal alertness for the population of persons aged above 80 years:</p>
+<p><img src="exc10.3.png" /></p>
+<p><span class="math display">\[\bar{y}_{cl} = \frac{1}{n} \sum_{i=1}^{n} \bar{y}_i\]</span>
+<span class="math display">\[=\frac{1}{9}(4.5714+5.5455+6.25+6+6+ 5.3333+5.5+6.1429+5.4444)=\frac{ 50.7875}{9}= 5.6431\]</span></p>
+<p>Estimate of variance:</p>
+<p><span class="math display">\[var(\bar{y}_{cl})=\frac{N-n}{Nn}\frac{1}{n-1} \sum_{i=1}^{n} (y_i -\bar{y}_{cl})^2 = 0.0265\]</span></p>
+<p>Using above calculated estimate of variance, the standard error of mean will be
+<span class="math display">\[sd(\bar{y}_{cl})=\sqrt{var(\bar{y}_{cl})}=\sqrt{0.0265}=0.1628\]</span>
+The required confidence limits for population mean are obtained as
+<span class="math display">\[\bar{y}_{cl}\pm Z_{1-α/2}  \sqrt{(var(\bar{y}_{cl})} \]</span>
+<span class="math inline">\(5.6431 \pm 2\times(0.1628)\)</span>
+<span class="math display">\[[ 5.3175, 5.9687]\]</span></p>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="th-tutorial-6.html#cb338-1"></a><span class="co">#question 10.6 page 278</span></span>
+<span id="cb338-2"><a href="th-tutorial-6.html#cb338-2"></a>y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">32</span>,<span class="dv">61</span>,<span class="dv">25</span>,<span class="dv">30</span>,<span class="dv">48</span>,<span class="dv">32</span>,<span class="dv">22</span>,<span class="dv">43</span>,<span class="dv">49</span>)</span>
+<span id="cb338-3"><a href="th-tutorial-6.html#cb338-3"></a>M.vec =<span class="st"> </span><span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">11</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">6</span>,<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">9</span>) </span>
+<span id="cb338-4"><a href="th-tutorial-6.html#cb338-4"></a>y_bar=y<span class="op">/</span>M.vec</span>
+<span id="cb338-5"><a href="th-tutorial-6.html#cb338-5"></a>y_bar</span></code></pre></div>
+<pre><code>## [1] 4.571429 5.545455 6.250000 6.000000 6.000000 5.333333 5.500000 6.142857
+## [9] 5.444444</code></pre>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="th-tutorial-6.html#cb340-1"></a>N=<span class="st"> </span><span class="dv">70</span></span>
+<span id="cb340-2"><a href="th-tutorial-6.html#cb340-2"></a>n=<span class="kw">length</span>(y)</span>
+<span id="cb340-3"><a href="th-tutorial-6.html#cb340-3"></a>n</span></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="th-tutorial-6.html#cb342-1"></a>ybar.c =<span class="st"> </span>(<span class="dv">1</span><span class="op">/</span>n)<span class="op">*</span><span class="kw">sum</span>(y_bar)</span>
+<span id="cb342-2"><a href="th-tutorial-6.html#cb342-2"></a>ybar.c</span></code></pre></div>
+<pre><code>## [1] 5.643058</code></pre>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="th-tutorial-6.html#cb344-1"></a><span class="kw">mean</span>(y_bar)</span></code></pre></div>
+<pre><code>## [1] 5.643058</code></pre>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="th-tutorial-6.html#cb346-1"></a><span class="fl">5.643058</span></span></code></pre></div>
+<pre><code>## [1] 5.643058</code></pre>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="th-tutorial-6.html#cb348-1"></a>s2.c=<span class="st"> </span><span class="kw">sum</span>((y_bar<span class="op">-</span><span class="kw">mean</span>(y_bar))<span class="op">^</span><span class="dv">2</span> )<span class="op">/</span>(n<span class="dv">-1</span>)</span>
+<span id="cb348-2"><a href="th-tutorial-6.html#cb348-2"></a>var.c =<span class="st"> </span>((N<span class="op">-</span>n)<span class="op">/</span>(N<span class="op">*</span>n))<span class="op">*</span>s2.c</span>
+<span id="cb348-3"><a href="th-tutorial-6.html#cb348-3"></a>var.c</span></code></pre></div>
+<pre><code>## [1] 0.02646663</code></pre>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="th-tutorial-6.html#cb350-1"></a>ME =<span class="st"> </span><span class="dv">2</span><span class="op">*</span><span class="kw">sqrt</span>(var.c) <span class="co">#margin of error(precision of estimate)</span></span>
+<span id="cb350-2"><a href="th-tutorial-6.html#cb350-2"></a>lower.CI=<span class="st">  </span>ybar.c<span class="op">-</span>ME</span>
+<span id="cb350-3"><a href="th-tutorial-6.html#cb350-3"></a>upper.CI=<span class="st">  </span>ybar.c<span class="op">+</span>ME</span>
+<span id="cb350-4"><a href="th-tutorial-6.html#cb350-4"></a>lower.CI;  upper.CI</span></code></pre></div>
+<pre><code>## [1] 5.317686</code></pre>
+<pre><code>## [1] 5.968429</code></pre>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="th-tutorial-6.html#cb353-1"></a><span class="co"># for finding the estimate of total?!!!!</span></span>
+<span id="cb353-2"><a href="th-tutorial-6.html#cb353-2"></a><span class="co"># when Mo not known, we only can use estimator 1</span></span>
+<span id="cb353-3"><a href="th-tutorial-6.html#cb353-3"></a>ytotal.c=<span class="st"> </span>(N<span class="op">/</span>n)<span class="op">*</span><span class="kw">sum</span>(y)</span>
+<span id="cb353-4"><a href="th-tutorial-6.html#cb353-4"></a>ytotal.c</span></code></pre></div>
+<pre><code>## [1] 2660</code></pre>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="th-tutorial-6.html#cb355-1"></a>var_ytotal.c=<span class="st">  </span>(N<span class="op">*</span>(N<span class="op">-</span>n)<span class="op">/</span>(n<span class="op">*</span>(n<span class="dv">-1</span>)))<span class="op">*</span><span class="kw">sum</span>((y<span class="op">-</span><span class="st"> </span>(ytotal.c<span class="op">/</span>N))<span class="op">^</span><span class="dv">2</span>)</span>
+<span id="cb355-2"><a href="th-tutorial-6.html#cb355-2"></a>var_ytotal.c</span></code></pre></div>
+<pre><code>## [1] 79232.22</code></pre>
+<p>Example 10.2 and 10.3 by R are going to very similar to exercise 10.4 and 10.6, so it’s left for students as HW</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="th-tutorial-5.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
