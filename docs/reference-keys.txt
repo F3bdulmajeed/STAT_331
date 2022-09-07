@@ -39,3 +39,4 @@ th-tutorial-3
 th-tutorial-4
 th-tutorial-5
 th-tutorial-6
+th-tutorial-7

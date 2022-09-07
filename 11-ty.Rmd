@@ -1,0 +1,251 @@
+---
+output: html_document
+runtime: shiny
+---
+
+# 11th Tutorial 
+
+
+```{r , echo =FALSE }
+
+set.seed(11)
+N = 1000
+k = rbinom(1,N,10/N) # Number of change points follow binomial distribution with parameters 5/N
+headings = runif(k , -150,150) # in degrees follows uniform distribution
+position = c(1 , sort(sample(1:N,size = (k-1))), N) # position of changes follow discrete uniform
+sigmas = runif(k,5,8) # error variance 
+
+
+x = c()
+s = 1
+
+for(i in 1:k){
+  Head = headings[i]
+  POS = position[i+1]
+  sigma = sigmas[i]
+  segment = s:POS
+  
+  
+  for(j in segment){
+    noise = rnorm(1,0,sigma)
+    h = Head + noise
+    x = append(x , h)
+    
+    
+  }
+  s = POS
+  
+}
+
+
+X= x
+
+
+
+
+
+
+
+RDP_algorithm = function(headings, epsolin , units = 'degrees'){
+  library(RDP)
+  if(units !='degrees'){
+    prints("unit must be in degrees")
+  }else{
+    cosines = cos(headings*pi/180) 
+    sines = sin(headings*pi/180)
+    x_vals = cumsum(cosines)
+    y_vals = cumsum(sines)
+    t = 1:length(x_vals)
+    df1 = data.frame("Latitude" = x_vals , "Longtitude" = y_vals)
+    R1 = RamerDouglasPeucker(t,x_vals , epsolin)
+    Changes = R1$x
+    
+    Estimated_headings = c()
+    for(j in 2:length(Changes)){
+      p = Changes[j-1]
+      pp = Changes[j]
+      xbar = mean(headings[p:pp])
+      H = rep(xbar , pp-p+1)
+      Estimated_headings[p:pp] = H
+    }
+    error = sqrt((1/length(headings))*sum((headings-Estimated_headings)^2))
+    df2 = RamerDouglasPeucker(x_vals, y_vals , epsolin)
+    
+    
+    
+    list = list('Change points' = Changes , 'Locational data' = df1 , 'Reduced Locational data' = df2  , 'Root of sum of squared error' = error , "Estimated headings" = Estimated_headings)
+  }
+  
+  
+  
+  
+}
+
+
+
+
+
+
+# Jonathan's algorithms 
+###############################################
+
+SCSD_algorithm = function(headings , window_size, thresh , units = 'degrees'){
+  
+  if(units != 'degrees'){
+    print("Unit must be in degrees")
+  }else{
+    
+    
+    
+    cosines <- cos(headings*pi/180)
+    sines <- sin(headings*pi/180)
+    x_vals <- cumsum(cosines)
+    y_vals <- cumsum(sines)
+    
+    sd_length <- length(cosines) - window_size
+    ave_cos_array <- cosines[1:sd_length]/window_size
+    ave_sin_array <- sines[1:sd_length]/window_size
+    for(counter in 1:(window_size-1))
+    {
+      cosines <- cosines[-1]
+      sines <- sines[-1]
+      ave_cos_array <- ave_cos_array + cosines[1:sd_length]/window_size
+      ave_sin_array <- ave_sin_array + sines[1:sd_length]/window_size
+    }
+    circ_sd <- (-2)*log(sqrt((ave_sin_array)^2 + (ave_cos_array)^2))
+    ave_circ_sd <- sum(circ_sd) / length(circ_sd)
+    
+    turning <- 0
+    chgpt_array <- c(1)
+    for(counter in 1:length(circ_sd))
+    {
+      if((circ_sd[counter] > ave_circ_sd)&(turning == 0))
+      {
+        start_chgpt <- counter 
+        turning <- 1
+      }
+      if((circ_sd[counter] < ave_circ_sd)&(turning == 1))
+      {
+        chgpt <- floor((start_chgpt + counter)/2 + window_size/2)
+        chgpt_array <- c(chgpt_array,chgpt)
+        turning <- 0
+      }
+    }
+    chgpt_array <- c(chgpt_array, length(headings))
+    
+    new_chgpt_array <- vector(mode="numeric", length=0)
+    prev_heading <- atan2(y_vals[chgpt_array[2]]-y_vals[chgpt_array[1]],
+                          x_vals[chgpt_array[2]]-x_vals[chgpt_array[1]])
+    for(counter in 2:(length(chgpt_array)-1))
+    {
+      next_heading <- atan2(y_vals[chgpt_array[counter+1]]-y_vals[chgpt_array[counter]],
+                            x_vals[chgpt_array[counter+1]]-x_vals[chgpt_array[counter]])                              
+      if(abs(next_heading - prev_heading) > pi)
+      {
+        turn_angle <- pi*2-abs(next_heading - prev_heading)
+      }
+      else
+      {
+        turn_angle <- abs(next_heading - prev_heading)
+      }
+      if(turn_angle*180/pi > thresh)
+      {
+        new_chgpt_array <- c(new_chgpt_array, chgpt_array[counter])
+        prev_heading = next_heading  
+      }
+    }
+    
+    
+    Estimated_headings = c()
+    for(j in 2:length(chgpt_array)){
+      p = chgpt_array[j-1]
+      pp = chgpt_array[j]
+      xbar = mean(headings[p:pp])
+      H = rep(xbar , pp-p+1)
+      Estimated_headings[p:pp] = H
+    }
+    error = sqrt((1/length(headings))*sum((headings-Estimated_headings)^2))
+    
+    df = data.frame(Latitude = x_vals , Longitude = y_vals)
+    df1 = data.frame(Latitude = x_vals[chgpt_array] , Longitude = y_vals[chgpt_array])
+    list = list('Change points' = chgpt_array , 'Locational data' = df , 'Reduced Locational data' = df1  , 'Root of sum of squared error' = error ,'Estimated headings' = Estimated_headings )
+    
+    list
+  }
+}
+
+########################################################
+
+
+
+
+SCSD = function(X){
+  library(shiny)
+  
+  ui <- fluidPage(
+    
+    titlePanel("Detect the changepoints using RDP"),
+    
+    # Sidebar with a slider input for number of bins 
+    sidebarLayout(
+      sidebarPanel(
+        sliderInput("Window_size",
+                    "Window size:",
+                    min = 4,
+                    max = 400,
+                    value = 40),
+        sliderInput("Threshold",
+                    "Threshold:",
+                    min = 0,
+                    max = 180,
+                    value = 30)
+      ),
+      
+      # Show a plot of the generated distribution
+      mainPanel(
+        plotOutput("distPlot") , plotOutput("Error")
+      )
+      
+      
+    )
+    
+  )
+  
+  server <- function(input, output) {
+    
+    output$distPlot <- renderPlot({
+      x    <- X
+      Window_size <- seq(4,400,by=2)
+      Threshold <- seq(0,180,by=1)
+      a  = SCSD_algorithm(x , input$Window_size, input$Threshold)
+      
+      
+      plot(X , col = 'pink' , ylab = 'Headings (in degrees)' , xlab = 'Time')
+      points(a$`Estimated headings` , col = 'black' , type  = 'l')
+      
+    })
+    output$Error <- renderPlot({
+      x    <- X
+      Window_size <- seq(4,400,by=2)
+      Threshold <- seq(0,180,by=1)
+      a  = SCSD_algorithm(x , input$Window_size, input$Threshold)
+      e = x - a$`Estimated headings`
+      
+      plot(e , type = 'l' ,  ylab = 'Headings (in degrees)' , xlab = 'Time' , main = 'The estimated error')
+
+      
+      
+    })
+    
+  }
+  shinyApp(ui = ui, server = server)
+  
+}
+
+
+SCSD(X)
+
+
+
+```
+
